@@ -1,0 +1,49 @@
+{
+  "name": "boilerplate",
+  "private": "true",
+  "version": "1.0.0",
+  "description": "Boilerplate for Create-React-App with an Express.js API",
+  "main": "server.js",
+  "scripts": {
+    "postinstall": "cd client && npm install",
+    "build": "cd client && npm run build && npm run build-storybook",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettify": "prettier --write .",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "cd client && npm start",
+    "server": "nodemon server.js",
+    "storybook": "cd client && npm run storybook",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kschmitz123/boilerplate.git"
+  },
+  "author": "Kathrin Schmitz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kschmitz123/boilerplate/issues"
+  },
+  "homepage": "https://github.com/kschmitz123/boilerplate#readme",
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "eslint": "^7.13.0",
+    "eslint-config-prettier": "^6.15.0",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.1",
+    "nodemon": "^2.0.6",
+    "prettier": "^2.2.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
