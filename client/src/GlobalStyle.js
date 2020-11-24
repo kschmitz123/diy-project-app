@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
     --main-color: #FCA311;
     --main-font-color: #222020;
     --secondary-font-color: #E5E5E5;
+    --logo-color: white;
 }
 
 body {
@@ -25,7 +26,7 @@ code {
     monospace;
 }
 
-h1, h2, h3 {
+h1, h2 {
     font-family: 'Pacifico', cursive;
 }
 `;

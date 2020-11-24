@@ -14,7 +14,7 @@ const Footer = styled.footer`
 const Icons = styled.button`
   background: none;
   border: none;
-  color: white;
+  color: var(--logo-color);
 `;
 export const Navbar = () => {
   return (
