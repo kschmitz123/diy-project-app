@@ -5,7 +5,7 @@ import Macrame from "../assets/macrame.svg";
 import Paint from "../assets/color-palette.svg";
 import Woodwork from "../assets/woodworking.svg";
 
-const Category = styled.button`
+const CategoryButton = styled.button`
   height: 130px;
   width: 130px;
   margin: 5px;
@@ -38,22 +38,22 @@ export const Categories = () => {
     <>
       <h3>Categories</h3>
       <Container>
-        <Category>
+        <CategoryButton>
           <Image src={Sewing} alt="Sewing" />
           <ImageText>Sewing</ImageText>
-        </Category>
-        <Category>
+        </CategoryButton>
+        <CategoryButton>
           <Image src={Macrame} alt="Macrame" />
           <ImageText>Macrame</ImageText>
-        </Category>
-        <Category>
+        </CategoryButton>
+        <CategoryButton>
           <Image src={Paint} alt="Paint" />
           <ImageText>Paint</ImageText>
-        </Category>
-        <Category>
+        </CategoryButton>
+        <CategoryButton>
           <Image src={Woodwork} alt="Woodwork" />
           <ImageText>Woodwork</ImageText>
-        </Category>
+        </CategoryButton>
       </Container>
     </>
   );

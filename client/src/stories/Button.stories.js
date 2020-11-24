@@ -1,24 +1,9 @@
 import React from "react";
-import { Buttons } from "../components/Button";
+import { Button } from "../components/Button";
 
 export default {
-  title: "Component/Buttons",
-  component: Buttons,
+  title: "Component/Button",
+  component: Button,
 };
 
-const Template = (args) => <Buttons {...args} />;
-
-export const Select = Template.bind({});
-Select.args = {
-  title: "Select image",
-};
-
-export const Upload = Template.bind({});
-Upload.args = {
-  title: "Upload image",
-};
-
-export const Add = Template.bind({});
-Add.args = {
-  title: "Add project",
-};
+export const Template = () => <Button>Template</Button>;
