@@ -10,10 +10,11 @@ const GlobalStyle = createGlobalStyle`
     --main-color: #FCA311;
     --main-font-color: #222020;
     --secondary-font-color: #8E8E8E;
-    --logo-color: white;
+    --button-color: white;
 }
 
-body {
+body,
+button {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;

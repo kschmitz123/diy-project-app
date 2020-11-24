@@ -25,7 +25,7 @@ const Image = styled.img`
   height: 60%;
 `;
 const ImageText = styled.p`
-  color: var(--logo-color);
+  color: var(--button-color);
   margin: 5px 0;
 `;
 const Container = styled.div`

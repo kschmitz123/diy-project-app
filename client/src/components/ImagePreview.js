@@ -19,7 +19,7 @@ const FaveIcon = styled.button`
   right: 10px;
   background: none;
   border: none;
-  color: var(--logo-color);
+  color: var(--button-color);
   cursor: pointer;
 `;
 
