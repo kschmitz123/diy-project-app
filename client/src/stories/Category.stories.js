@@ -1,5 +1,5 @@
 import React from "react";
-import { Categories } from "./Category";
+import { Categories } from "../components/Category";
 
 export default {
   title: "Component/Categories",

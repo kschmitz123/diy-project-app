@@ -1,5 +1,5 @@
 import React from "react";
-import { ImagePreview } from "./ImagePreview";
+import { ImagePreview } from "../components/ImagePreview";
 
 export default {
   title: "Component/ImagePreview",
