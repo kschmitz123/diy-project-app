@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
 :root {
     --main-color: #FCA311;
     --main-font-color: #222020;
-    --secondary-font-color: #E5E5E5;
+    --secondary-font-color: #8E8E8E;
     --logo-color: white;
 }
 
