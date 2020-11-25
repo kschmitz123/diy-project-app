@@ -30,6 +30,9 @@ code {
 h1, h2 {
     font-family: 'Pacifico', cursive;
 }
+h3{
+  margin: 5px
+}
 `;
 
 export default GlobalStyle;

@@ -6,7 +6,7 @@ import { Navbar } from "../components/Navbar";
 import { ImagePreview } from "../components/ImagePreview";
 
 const Container = styled.div`
-  padding-top: 100px;
+  padding: 100px 0;
   margin: 0 10px;
   display: flex;
   flex-direction: column;

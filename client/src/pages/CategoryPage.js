@@ -5,7 +5,7 @@ import { ImagePreview } from "../components/ImagePreview";
 import { Navbar } from "../components/Navbar";
 
 const Container = styled.div`
-  padding-top: 60px;
+  padding: 60px 10px;
 `;
 
 export const CategoryPage = () => {

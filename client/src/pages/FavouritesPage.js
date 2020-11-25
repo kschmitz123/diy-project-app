@@ -5,7 +5,7 @@ import { ImagePreview } from "../components/ImagePreview";
 import { Navbar } from "../components/Navbar";
 
 const Container = styled.div`
-  padding: 60px 0;
+  padding: 60px 10px;
 `;
 
 export const FavouritesPage = () => {

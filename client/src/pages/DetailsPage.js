@@ -5,8 +5,8 @@ import { ImagePreview } from "../components/ImagePreview";
 import { Navbar } from "../components/Navbar";
 
 const Container = styled.div`
-  padding-top: 60px;
-  margin: 0 10px;
+  padding: 60px 0;
+  margin: 0 20px;
 `;
 
 const Title = styled.h3`
