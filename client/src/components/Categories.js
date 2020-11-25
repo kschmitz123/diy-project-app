@@ -33,9 +33,13 @@ const Container = styled.div`
   flex-wrap: wrap;
 `;
 
+const Div = styled.div`
+  margin: 0 10px;
+  padding-bottom: 60px;
+`;
 export const Categories = () => {
   return (
-    <>
+    <Div>
       <h3>Categories</h3>
       <Container>
         <CategoryButton>
@@ -55,6 +59,6 @@ export const Categories = () => {
           <ImageText>Woodwork</ImageText>
         </CategoryButton>
       </Container>
-    </>
+    </Div>
   );
 };
