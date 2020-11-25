@@ -6,9 +6,12 @@ import styled from "styled-components/macro";
 
 const Footer = styled.footer`
   height: 50px;
+  width: 100%;
   background: var(--main-color);
   display: flex;
   justify-content: space-evenly;
+  position: fixed;
+  bottom: 0;
 `;
 
 const Icons = styled.button`
