@@ -13,13 +13,16 @@ const GlobalStyle = createGlobalStyle`
     --button-color: white;
 }
 
-body,
-button, textarea {
+body
+ {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--main-font-color)
+}
+button, textarea{
+  font-family: 'Montserrat', sans-serif;
 }
 
 code {
