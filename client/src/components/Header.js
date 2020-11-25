@@ -4,10 +4,14 @@ import PropTypes from "prop-types";
 
 const HeaderTop = styled.header`
   height: 50px;
+  width: 100%;
   background: var(--main-color);
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 1;
 `;
 
 const Title = styled.h2`

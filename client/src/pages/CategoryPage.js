@@ -1,0 +1,21 @@
+import React from "react";
+import { Header } from "../components/Header";
+import { ImagePreview } from "../components/ImagePreview";
+import { Navbar } from "../components/Navbar";
+import { Container } from "../components/Container";
+
+export const CategoryPage = () => {
+  return (
+    <>
+      <Header title={"Sewing Projects"} />
+      <Container>
+        <ImagePreview />
+        <ImagePreview />
+        <ImagePreview />
+        <ImagePreview />
+      </Container>
+
+      <Navbar />
+    </>
+  );
+};

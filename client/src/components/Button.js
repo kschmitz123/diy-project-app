@@ -1,8 +1,8 @@
 import styled from "styled-components/macro";
 
 export const Button = styled.button`
-  height: 45px;
-  width: 130px;
+  height: 2rem;
+  width: 120px;
   border-radius: 25px;
   background: var(--main-color);
   border: none;

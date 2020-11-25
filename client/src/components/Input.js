@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
+import { Button } from "../components/Button";
 
 const Form = styled.form`
   display: flex;
@@ -16,24 +17,29 @@ const SmallInput = styled.input`
   text-align: center;
 `;
 
-const LargeInput = styled.input`
-  height: 40rem;
+const LargeInput = styled.textarea`
+  height: 20rem;
   border-radius: 15px;
   width: 80%;
   border: solid 1px var(--secondary-font-color);
-  text-align: center;
 `;
 
 const Select = styled.select`
   height: 2rem;
   border-radius: 25px;
+  margin-bottom: 10px;
 `;
 export const Input = () => {
   return (
     <Form action="submit">
-      <SmallInput type="text" placeholder="Enter project title" />
-      <LargeInput type="text" placeholder="Enter project description" />
-      <SmallInput type="text" placeholder="Enter tags" />
+      <SmallInput required type="text" placeholder="Enter project title" />
+      <LargeInput
+        maxLength="500"
+        required
+        type="text"
+        placeholder="Enter project description (max 500 characters)"
+      />
+      <SmallInput required type="text" placeholder="Enter tags" />
       <Select required>
         <option value="">--Please choose a category--</option>
         <option value="sewing">Sewing</option>
@@ -41,6 +47,7 @@ export const Input = () => {
         <option value="woodwork">Woodwork</option>
         <option value="paint">Paint</option>
       </Select>
+      <Button type="submit">Add project</Button>
     </Form>
   );
 };
