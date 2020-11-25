@@ -28,20 +28,20 @@ const ImageText = styled.p`
   color: var(--button-color);
   margin: 5px 0;
 `;
-const Container = styled.div`
+const CategoryContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
 `;
 
-const Div = styled.div`
+const Container = styled.div`
   margin: 0 10px;
   padding-bottom: 60px;
 `;
 export const Categories = () => {
   return (
-    <Div>
+    <Container>
       <h3>Categories</h3>
-      <Container>
+      <CategoryContainer>
         <CategoryButton>
           <Image src={Sewing} alt="Sewing" />
           <ImageText>Sewing</ImageText>
@@ -58,7 +58,7 @@ export const Categories = () => {
           <Image src={Woodwork} alt="Woodwork" />
           <ImageText>Woodwork</ImageText>
         </CategoryButton>
-      </Container>
-    </Div>
+      </CategoryContainer>
+    </Container>
   );
 };
