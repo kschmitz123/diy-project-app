@@ -9,10 +9,12 @@ const GlobalStyle = createGlobalStyle`
 :root {
     --main-color: #FCA311;
     --main-font-color: #222020;
-    --secondary-font-color: #E5E5E5;
+    --secondary-font-color: #8E8E8E;
+    --button-color: white;
 }
 
-body {
+body,
+button {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -25,7 +27,7 @@ code {
     monospace;
 }
 
-h1, h2, h3 {
+h1, h2 {
     font-family: 'Pacifico', cursive;
 }
 `;
