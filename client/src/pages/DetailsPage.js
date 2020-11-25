@@ -3,9 +3,9 @@ import styled from "styled-components/macro";
 import { Header } from "../components/Header";
 import { ImagePreview } from "../components/ImagePreview";
 import { Navbar } from "../components/Navbar";
+import { Container } from "../components/Container";
 
-const Container = styled.div`
-  padding: 60px 0;
+const StyledContainer = styled(Container)`
   margin: 0 20px;
 `;
 
@@ -19,7 +19,7 @@ export const DetailsPage = () => {
   return (
     <>
       <Header title={"Project Details"} />
-      <Container>
+      <StyledContainer>
         <ImagePreview />
         <Title>Example Project</Title>
         <div>
@@ -64,7 +64,7 @@ export const DetailsPage = () => {
           Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
           dolor sit amet.
         </div>
-      </Container>
+      </StyledContainer>
 
       <Navbar />
     </>

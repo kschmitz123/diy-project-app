@@ -2,17 +2,17 @@ import React from "react";
 import styled from "styled-components/macro";
 import Test from "../assets/test.jpg";
 
-const Div = styled.div`
+const Container = styled.div`
   padding-top: 60px;
   margin: 0 10px;
 `;
-const Scroll = styled.div`
+const ScrollContainer = styled.div`
   display: flex;
   overflow-x: auto;
   height: 160px;
 `;
 
-const Container = styled.div`
+const ImageContainer = styled.div`
   width: 190px;
   margin: 5px;
 `;
@@ -24,34 +24,28 @@ const Image = styled.img`
 
 export const ScrollMenu = () => {
   return (
-    <Div>
+    <Container>
       <h3>Latest</h3>
-      <Scroll>
-        <Container>
+      <ScrollContainer>
+        <ImageContainer>
           <Image src={Test} />
-        </Container>
-        <Container>
+        </ImageContainer>
+        <ImageContainer>
           <Image src={Test} />
-        </Container>
-        <Container>
+        </ImageContainer>
+        <ImageContainer>
           <Image src={Test} />
-        </Container>
-        <Container>
+        </ImageContainer>
+        <ImageContainer>
           <Image src={Test} />
-        </Container>
-        <Container>
+        </ImageContainer>
+        <ImageContainer>
           <Image src={Test} />
-        </Container>
-        <Container>
+        </ImageContainer>
+        <ImageContainer>
           <Image src={Test} />
-        </Container>
-        <Container>
-          <Image src={Test} />
-        </Container>
-        <Container>
-          <Image src={Test} />
-        </Container>
-      </Scroll>
-    </Div>
+        </ImageContainer>
+      </ScrollContainer>
+    </Container>
   );
 };
