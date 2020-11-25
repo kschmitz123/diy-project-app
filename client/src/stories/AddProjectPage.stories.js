@@ -1,6 +1,6 @@
 import React from "react";
 
-import { AddProjectPage } from "./AddProjectPage";
+import { AddProjectPage } from "../pages/AddProjectPage";
 
 export default {
   title: "Pages/AddProjectPage",

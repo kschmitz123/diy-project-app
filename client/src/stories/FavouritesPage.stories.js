@@ -1,6 +1,6 @@
 import React from "react";
 
-import { FavouritesPage } from "./FavouritesPage";
+import { FavouritesPage } from "../pages/FavouritesPage";
 
 export default {
   title: "Pages/FavouritesPage",

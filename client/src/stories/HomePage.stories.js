@@ -1,6 +1,6 @@
 import React from "react";
 
-import { HomePage } from "./HomePage";
+import { HomePage } from "../pages/HomePage";
 
 export default {
   title: "Pages/HomePage",

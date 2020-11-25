@@ -1,6 +1,6 @@
 import React from "react";
 
-import { BrowsePage } from "./BrowsePage";
+import { BrowsePage } from "../pages/BrowsePage";
 
 export default {
   title: "Pages/BrowsePage",

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { CategoryPage } from "./CategoryPage";
+import { CategoryPage } from "../pages/CategoryPage";
 
 export default {
   title: "Pages/CategoriesPage",
