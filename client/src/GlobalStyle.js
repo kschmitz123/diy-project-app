@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
 body,
-button {
+button, textarea {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
