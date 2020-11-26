@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import GlobalStyle from "./GlobalStyle";
 import { LoadingScreen } from "./components/LoadingScreen";
+import { HomePage } from "./pages/HomePage";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -12,11 +13,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      {loading === false ? (
-        <div className="App">Test deployment</div>
-      ) : (
-        <LoadingScreen />
-      )}
+      {loading === false ? <HomePage /> : <LoadingScreen />}
     </>
   );
 }
