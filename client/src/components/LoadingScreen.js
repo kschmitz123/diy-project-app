@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
-import Gif from "../assets/loading_animation.gif";
+import loadingAnimationSrc from "../assets/loading_animation.gif";
 
 const Container = styled.div`
   display: flex;
@@ -21,7 +21,7 @@ export const LoadingScreen = () => {
   return (
     <Container>
       <Title>Craftified</Title>
-      <img src={Gif} alt="gif" />
+      <img src={loadingAnimationSrc} alt="gif" />
     </Container>
   );
 };
