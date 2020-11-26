@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components/macro";
 import { Header } from "../components/Header";
-import { Button } from "../components/Button";
 import { Input } from "../components/Input";
 import { Navbar } from "../components/Navbar";
+import UploadImage from "../utils/uploadImage";
 
 const Container = styled.div`
   padding: 60px 0;
@@ -13,20 +13,13 @@ const Container = styled.div`
   align-content: center;
 `;
 
-const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-`;
-
 export const AddProjectPage = () => {
   return (
     <>
       <Header title={"Add a Project"} />
+
       <Container>
-        <ButtonContainer>
-          <Button>Select Image</Button>
-          <Button>Upload Image</Button>
-        </ButtonContainer>
+        <UploadImage />
         <Input />
       </Container>
       <Navbar />
