@@ -27,6 +27,7 @@
   "homepage": "https://github.com/kschmitz123/boilerplate#readme",
   "devDependencies": {
     "concurrently": "^5.3.0",
+    "dotenv": "^8.2.0",
     "eslint": "^7.13.0",
     "eslint-config-prettier": "^6.15.0",
     "husky": "^4.3.0",
@@ -44,6 +45,7 @@
     "*.{js,css,md}": "prettier --write"
   },
   "dependencies": {
+    "cloudinary": "^1.23.0",
     "express": "^4.17.1"
   }
 }
