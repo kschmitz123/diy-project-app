@@ -21,7 +21,7 @@ function App() {
       <GlobalStyle />
       <Switch>
         <Route exact path="/">
-          {loading === false ? <HomePage /> : <LoadingScreen />}
+          {loading ? <LoadingScreen /> : <HomePage />}
         </Route>
         <Route path="/category">
           <CategoryPage />
