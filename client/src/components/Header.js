@@ -3,6 +3,8 @@ import styled from "styled-components/macro";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 const HeaderTop = styled.header`
   height: 50px;
@@ -19,23 +21,31 @@ const HeaderTop = styled.header`
 const SearchButton = styled.button`
   background: none;
   border: none;
-  color: var(--button-color);
   cursor: pointer;
   z-index: 2;
   position: fixed;
   top: 8px;
   right: 10px;
+  ${(props) =>
+    props.active
+      ? `
+  color: #000`
+      : `color: #fff`}
 `;
 const Title = styled.h2`
   margin: 0;
 `;
 
 export const Header = ({ title }) => {
+  const location = useLocation();
+  useEffect(() => {
+    console.log(location.pathname);
+  }, [location]);
   return (
     <HeaderTop>
       <Title>{title}</Title>
       <Link to="/browse">
-        <SearchButton>
+        <SearchButton active={location.pathname === "/browse"}>
           <SearchIcon fontSize="large" />
         </SearchButton>
       </Link>
