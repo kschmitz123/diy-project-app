@@ -4,8 +4,9 @@ import Sewing from "../assets/sewing-machine.svg";
 import Macrame from "../assets/macrame.svg";
 import Paint from "../assets/color-palette.svg";
 import Woodwork from "../assets/woodworking.svg";
+import { Link } from "react-router-dom";
 
-const CategoryButton = styled.button`
+const NavLink = styled(Link)`
   height: 130px;
   width: 130px;
   margin: 5px;
@@ -18,6 +19,7 @@ const CategoryButton = styled.button`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  text-decoration: none;
 `;
 
 const Image = styled.img`
@@ -37,27 +39,28 @@ const Container = styled.div`
   margin: 0 10px;
   padding-bottom: 60px;
 `;
+
 export const Categories = () => {
   return (
     <Container>
       <h3>Categories</h3>
       <CategoryContainer>
-        <CategoryButton>
+        <NavLink to="/category">
           <Image src={Sewing} alt="Sewing" />
           <ImageText>Sewing</ImageText>
-        </CategoryButton>
-        <CategoryButton>
+        </NavLink>
+        <NavLink to="/category">
           <Image src={Macrame} alt="Macrame" />
           <ImageText>Macrame</ImageText>
-        </CategoryButton>
-        <CategoryButton>
+        </NavLink>
+        <NavLink to="/category">
           <Image src={Paint} alt="Paint" />
           <ImageText>Paint</ImageText>
-        </CategoryButton>
-        <CategoryButton>
+        </NavLink>
+        <NavLink to="/category">
           <Image src={Woodwork} alt="Woodwork" />
           <ImageText>Woodwork</ImageText>
-        </CategoryButton>
+        </NavLink>
       </CategoryContainer>
     </Container>
   );
