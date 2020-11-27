@@ -13,8 +13,8 @@ app.post("/api/upload", async (request, response) => {
     const uploadedResponse = await cloudinary.uploader.upload(fileStr, {
       upload_preset: "upload",
     });
-    console.log(uploadedResponse);
-    response.status(200).send(uploadedResponse);
+    console.log(uploadedResponse.secure_url);
+    response.status(200).send(uploadedResponse.secure_url);
   } catch (error) {
     console.error(error);
     response.status(500).send("An error occured");
