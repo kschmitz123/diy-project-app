@@ -8,10 +8,12 @@ import {
   ImageInput,
 } from "./InputElements";
 import { ImagePreview } from "./ImagePreview";
+import { useForm } from "react-hook-form";
 
 export default function UploadProject() {
   const [imageInput, setImageInput] = useState("");
   const [previewSource, setPreviewSource] = useState("");
+  const { register, handleSubmit } = useForm();
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -27,8 +29,9 @@ export default function UploadProject() {
     };
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const onSubmit = (data) => {
+    const tags = data.tags.match(/[^,\s?]+/g);
+    console.log(data, tags);
     if (!previewSource) return;
     uploadImage(previewSource);
   };
@@ -48,16 +51,26 @@ export default function UploadProject() {
       alert("Image upload failed.");
     }
   };
+
   return (
     <>
-      <Form onSubmit={handleSubmit}>
-        <ImageInput value={imageInput} onChange={handleImageChange} />
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <ImageInput
+          name="image"
+          value={imageInput}
+          onChange={handleImageChange}
+          ref={register}
+        />
         {previewSource && <ImagePreview src={previewSource} alt="" />}
-        <SmallInput placeholder="Enter project title" />
-        <LargeInput />
-        <SmallInput placeholder="Enter tags" />
-        <SelectCategory />
-        <Button>Upload Project</Button>
+        <SmallInput
+          placeholder="Enter project title"
+          name="projectTitle"
+          ref={register}
+        />
+        <LargeInput ref={register} name="description" />
+        <SmallInput placeholder="Enter tags" ref={register} name="tags" />
+        <SelectCategory ref={register} name="category" />
+        <Button type="submit">Upload Project</Button>
       </Form>
     </>
   );
