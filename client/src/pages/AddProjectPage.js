@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
 import { Header } from "../components/Header";
-import { Input } from "../components/Input";
 import { Navbar } from "../components/Navbar";
 import UploadImage from "../components/UploadImage";
 
@@ -20,7 +19,6 @@ export const AddProjectPage = () => {
 
       <Container>
         <UploadImage />
-        <Input />
       </Container>
       <Navbar />
     </>
