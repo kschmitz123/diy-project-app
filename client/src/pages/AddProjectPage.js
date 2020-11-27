@@ -3,7 +3,7 @@ import styled from "styled-components/macro";
 import { Header } from "../components/Header";
 import { Input } from "../components/Input";
 import { Navbar } from "../components/Navbar";
-import UploadImage from "../utils/uploadImage";
+import UploadImage from "../components/UploadImage";
 
 const Container = styled.div`
   padding: 60px 0;

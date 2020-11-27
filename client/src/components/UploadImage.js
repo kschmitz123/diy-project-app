@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Button } from "../components/Button";
+import { Button } from "./Button";
 import styled from "styled-components/macro";
-import { ImageInput } from "../components/Input";
-import { ImagePreview } from "../components/ImagePreview";
+import { ImageInput } from "./Input";
+import { ImagePreview } from "./ImagePreview";
 
 export default function UploadImage() {
   const [imageInput, setImageInput] = useState("");
