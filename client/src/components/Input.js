@@ -62,3 +62,7 @@ export const ImageInput = styled.input`
   color: var(--button-color);
   font-weight: bold;
 `;
+
+ImageInput.defaultProps = {
+  type: "file",
+};

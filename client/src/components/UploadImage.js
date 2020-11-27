@@ -45,11 +45,7 @@ export default function UploadImage() {
     <>
       <ButtonContainer>
         <form onSubmit={handleSubmit}>
-          <ImageInput
-            type="file"
-            value={imageInput}
-            onChange={handleImageChange}
-          />
+          <ImageInput value={imageInput} onChange={handleImageChange} />
           <Button type="submit">Upload Image</Button>
         </form>
       </ButtonContainer>
