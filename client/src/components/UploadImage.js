@@ -35,10 +35,12 @@ export default function UploadImage() {
         body: JSON.stringify({ data: base64EncodedImage }),
         headers: { "Content-Type": "application/json" },
       });
+      alert("Image successfully uploaded.");
       setImageInput("");
       setPreviewSource("");
     } catch (error) {
       console.error(error);
+      alert("Image upload failed.");
     }
   };
   return (
