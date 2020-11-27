@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
-import Test from "../assets/test.jpg";
+import PropTypes from "prop-types";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 
 const Container = styled.div`
@@ -24,13 +24,18 @@ const FaveIcon = styled.button`
   cursor: pointer;
 `;
 
-export const ImagePreview = () => {
+export const ImagePreview = ({ src, alt }) => {
   return (
     <Container>
-      <Image src={Test} alt="test" />
+      <Image src={src} alt={alt} />
       <FaveIcon>
         <FavoriteIcon fontSize="large" />
       </FaveIcon>
     </Container>
   );
+};
+
+ImagePreview.propTypes = {
+  src: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
 };

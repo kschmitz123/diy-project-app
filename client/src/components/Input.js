@@ -51,3 +51,18 @@ export const Input = () => {
     </Form>
   );
 };
+
+export const ImageInput = styled.input`
+  height: 2rem;
+  width: 120px;
+  border-radius: 25px;
+  background: var(--main-color);
+  border: none;
+  cursor: pointer;
+  color: var(--button-color);
+  font-weight: bold;
+`;
+
+ImageInput.defaultProps = {
+  type: "file",
+};
