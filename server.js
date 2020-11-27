@@ -14,6 +14,7 @@ app.post("/api/upload", async (request, response) => {
       upload_preset: "upload",
     });
     console.log(uploadedResponse);
+    response.status(200).send(uploadedResponse);
   } catch (error) {
     console.error(error);
     response.status(500).send("An error occured");
