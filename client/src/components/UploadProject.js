@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import { Button } from "./Button";
-import styled from "styled-components/macro";
-import { ImageInput } from "./Input";
+import {
+  Form,
+  LargeInput,
+  SmallInput,
+  SelectCategory,
+  ImageInput,
+} from "./InputElements";
 import { ImagePreview } from "./ImagePreview";
 
-export default function UploadImage() {
+export default function UploadProject() {
   const [imageInput, setImageInput] = useState("");
   const [previewSource, setPreviewSource] = useState("");
 
@@ -45,18 +50,15 @@ export default function UploadImage() {
   };
   return (
     <>
-      <ButtonContainer>
-        <form onSubmit={handleSubmit}>
-          <ImageInput value={imageInput} onChange={handleImageChange} />
-          <Button type="submit">Upload Image</Button>
-        </form>
-      </ButtonContainer>
-      {previewSource && <ImagePreview src={previewSource} alt="" />}
+      <Form onSubmit={handleSubmit}>
+        <ImageInput value={imageInput} onChange={handleImageChange} />
+        {previewSource && <ImagePreview src={previewSource} alt="" />}
+        <SmallInput placeholder="Enter project title" />
+        <LargeInput />
+        <SmallInput placeholder="Enter tags" />
+        <SelectCategory />
+        <Button>Upload Project</Button>
+      </Form>
     </>
   );
 }
-
-const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-`;

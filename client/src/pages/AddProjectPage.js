@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components/macro";
 import { Header } from "../components/Header";
 import { Navbar } from "../components/Navbar";
-import UploadImage from "../components/UploadImage";
+import UploadProject from "../components/UploadProject";
 
 const Container = styled.div`
   padding: 60px 0;
@@ -18,7 +18,7 @@ export const AddProjectPage = () => {
       <Header title={"Add a Project"} />
 
       <Container>
-        <UploadImage />
+        <UploadProject />
       </Container>
       <Navbar />
     </>
