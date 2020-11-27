@@ -40,18 +40,6 @@ export const Select = styled.select`
   margin-bottom: 10px;
 `;
 
-export const SelectCategory = () => {
-  return (
-    <Select>
-      <option value="">--Please choose a category--</option>
-      <option value="sewing">Sewing</option>
-      <option value="macrame">Macrame</option>
-      <option value="woodwork">Woodwork</option>
-      <option value="paint">Paint</option>
-    </Select>
-  );
-};
-
 ImageInput.defaultProps = {
   type: "file",
 };

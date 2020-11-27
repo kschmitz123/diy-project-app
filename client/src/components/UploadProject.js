@@ -4,7 +4,7 @@ import {
   Form,
   LargeInput,
   SmallInput,
-  SelectCategory,
+  Select,
   ImageInput,
 } from "./InputElements";
 import { ImagePreview } from "./ImagePreview";
@@ -69,7 +69,14 @@ export default function UploadProject() {
         />
         <LargeInput ref={register} name="description" />
         <SmallInput placeholder="Enter tags" ref={register} name="tags" />
-        <SelectCategory ref={register} name="category" />
+        <Select ref={register} name="category">
+          <option value="">--Please choose a category--</option>
+          <option value="sewing">Sewing</option>
+          <option value="macrame">Macrame</option>
+          <option value="woodwork">Woodwork</option>
+          <option value="paint">Paint</option>
+        </Select>
+
         <Button type="submit">Upload Project</Button>
       </Form>
     </>
