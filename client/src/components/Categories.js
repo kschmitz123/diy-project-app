@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components/macro";
 import Sewing from "../assets/sewing-machine.svg";
 import Macrame from "../assets/macrame.svg";

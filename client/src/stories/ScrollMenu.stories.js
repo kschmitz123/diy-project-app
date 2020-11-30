@@ -1,4 +1,3 @@
-import React from "react";
 import { ScrollMenu } from "../components/ScrollMenu";
 
 export default {

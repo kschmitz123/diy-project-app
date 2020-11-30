@@ -1,5 +1,3 @@
-import React from "react";
-
 import { FavouritesPage } from "../pages/FavouritesPage";
 
 export default {

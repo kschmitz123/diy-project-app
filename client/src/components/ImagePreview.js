@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components/macro";
 import PropTypes from "prop-types";
 import FavoriteIcon from "@material-ui/icons/Favorite";
