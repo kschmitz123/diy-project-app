@@ -37,7 +37,7 @@ export default function UploadProject() {
     const project = await postProject({ data, tags });
     if (!previewSource) return;
     uploadImage(previewSource);
-    history.push(`/details/${project.id}`);
+    history.push(`/projects/${project.id}`);
   };
 
   const uploadImage = async (base64EncodedImage) => {

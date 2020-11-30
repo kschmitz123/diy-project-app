@@ -29,7 +29,7 @@ function App() {
         <Route path="/browse">
           <BrowsePage />
         </Route>
-        <Route path="/details">
+        <Route path="/projects/:projectId">
           <DetailsPage />
         </Route>
         <Route path="/favourites">
