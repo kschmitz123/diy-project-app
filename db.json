@@ -1,0 +1,64 @@
+{
+  "projects": [
+    {
+      "data": {
+        "image": "https://res.cloudinary.com/kschmitz/image/upload/v1606483223/upload/iyvfricfqui4dw2knkcv.jpg",
+        "projectTitle": "test",
+        "description": "beschreibung",
+        "tags": "tag, tag, ttag",
+        "category": "macrame"
+      },
+      "tags": ["tag", "tag", "ttag"],
+      "id": 3
+    },
+    {
+      "data": {
+        "image": {
+          "0": {}
+        },
+        "projectTitle": "hallo",
+        "description": "gfsdagdagadfgads",
+        "tags": "test",
+        "category": "macrame"
+      },
+      "tags": ["test"],
+      "id": 4
+    },
+    {
+      "data": {
+        "image": "https://res.cloudinary.com/kschmitz/image/upload/v1606483223/upload/iyvfricfqui4dw2knkcv.jpg",
+
+        "projectTitle": "test123",
+        "description": "2erewretre",
+        "tags": "32et, fdsfd",
+        "category": "woodwork"
+      },
+      "tags": ["32et", "fdsfd"],
+      "id": 5
+    },
+    {
+      "data": {
+        "image": "https://res.cloudinary.com/kschmitz/image/upload/v1606483223/upload/iyvfricfqui4dw2knkcv.jpg",
+
+        "projectTitle": "ghdgfhfgh",
+        "description": "fgdhgfh",
+        "tags": "dfghg",
+        "category": "sewing"
+      },
+      "tags": ["dfghg"],
+      "id": 6
+    },
+    {
+      "data": {
+        "image": "https://res.cloudinary.com/kschmitz/image/upload/v1606483223/upload/iyvfricfqui4dw2knkcv.jpg",
+
+        "projectTitle": "jrzjrtz",
+        "description": "rthjzj",
+        "tags": "hjhg",
+        "category": "woodwork"
+      },
+      "tags": ["hjhg"],
+      "id": 7
+    }
+  ]
+}
