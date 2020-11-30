@@ -42,6 +42,7 @@ export const Select = styled.select`
 
 ImageInput.defaultProps = {
   type: "file",
+  required: true,
 };
 
 SmallInput.defaultProps = {
