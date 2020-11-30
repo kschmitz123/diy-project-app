@@ -30,9 +30,7 @@ const NavLink = styled(Link)`
 
 export const Navbar = () => {
   const location = useLocation();
-  useEffect(() => {
-    console.log(location.pathname);
-  }, [location]);
+  useEffect(() => {}, [location]);
 
   return (
     <Footer>

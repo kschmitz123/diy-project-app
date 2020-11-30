@@ -38,9 +38,7 @@ const Title = styled.h2`
 
 export const Header = ({ title }) => {
   const location = useLocation();
-  useEffect(() => {
-    console.log(location.pathname);
-  }, [location]);
+  useEffect(() => {}, [location]);
   return (
     <HeaderTop>
       <Title>{title}</Title>
