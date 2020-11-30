@@ -36,6 +36,6 @@ export const ImagePreview = ({ src, alt }) => {
 };
 
 ImagePreview.propTypes = {
-  src: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired,
+  src: PropTypes.string,
+  alt: PropTypes.string,
 };

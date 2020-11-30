@@ -2,9 +2,8 @@
   "projects": [
     {
       "data": {
-        "image": {
-          "0": {}
-        },
+        "image": "https://res.cloudinary.com/kschmitz/image/upload/v1606483223/upload/iyvfricfqui4dw2knkcv.jpg",
+
         "projectTitle": "test",
         "description": "beschreibung",
         "tags": "tag, tag, ttag",
