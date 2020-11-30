@@ -1,13 +1,17 @@
 {
   "projects": [
     {
-      "id": 1,
-      "image": "https://res.cloudinary.com/kschmitz/image/upload/v1606483223/upload/iyvfricfqui4dw2knkcv.jpg",
-      "projectTitle": "Test",
-      "description": "Do this and do that",
-      "tags": "stupid, useless, tags",
-      "category": "macrame",
-      "formattedTags": ["stupid", "useless", "tags"]
+      "data": {
+        "image": {
+          "0": {}
+        },
+        "projectTitle": "test",
+        "description": "beschreibung",
+        "tags": "tag, tag, ttag",
+        "category": "macrame"
+      },
+      "tags": ["tag", "tag", "ttag"],
+      "id": 3
     }
   ]
 }

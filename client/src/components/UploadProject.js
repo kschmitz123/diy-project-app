@@ -9,11 +9,14 @@ import {
 } from "./InputElements";
 import { ImagePreview } from "./ImagePreview";
 import { useForm } from "react-hook-form";
+import { postProject } from "../utils/api";
+import { useHistory } from "react-router-dom";
 
 export default function UploadProject() {
   const [imageInput, setImageInput] = useState("");
   const [previewSource, setPreviewSource] = useState("");
   const { register, handleSubmit } = useForm();
+  const history = useHistory();
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -29,11 +32,12 @@ export default function UploadProject() {
     };
   };
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const tags = data.tags.match(/[^,\s?]+/g);
-    console.log(data, tags);
+    const project = await postProject({ data, tags });
     if (!previewSource) return;
     uploadImage(previewSource);
+    history.push(`/details/${project.id}`);
   };
 
   const uploadImage = async (base64EncodedImage) => {
@@ -44,8 +48,6 @@ export default function UploadProject() {
         headers: { "Content-Type": "application/json" },
       });
       alert("Image successfully uploaded.");
-      setImageInput("");
-      setPreviewSource("");
     } catch (error) {
       console.error(error);
       alert("Image upload failed.");
