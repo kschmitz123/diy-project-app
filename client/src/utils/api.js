@@ -1,5 +1,5 @@
 export async function postProject(project) {
-  const response = await fetch(`http://localhost:5000/projects/`, {
+  const response = await fetch(`/api/projects/`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(project),
@@ -9,7 +9,7 @@ export async function postProject(project) {
 }
 
 export async function getProjectById(id) {
-  const response = await fetch(`http://localhost:5000/projects/${id}`);
+  const response = await fetch(`/api/projects/${id}`);
   const project = await response.json();
   return project;
 }
