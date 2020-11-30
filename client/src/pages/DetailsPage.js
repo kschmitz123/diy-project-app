@@ -44,12 +44,16 @@ export const DetailsPage = () => {
       <StyledContainer>
         {loading && <div>Loading...</div>}
         {errorMessage && <p>{errorMessage}</p>}
-        <ImagePreview
-          src={project.data?.image}
-          alt={project.data?.projectTitle}
-        />
-        <Title>{project.data?.projectTitle}</Title>
-        <div>{project.data?.description}</div>
+        {project.data && (
+          <>
+            <ImagePreview
+              src={project.data.image}
+              alt={project.data.projectTitle}
+            />
+            <Title>{project.data.projectTitle}</Title>
+            <div>{project.data.description}</div>
+          </>
+        )}
       </StyledContainer>
 
       <Navbar />
