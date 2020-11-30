@@ -21,11 +21,19 @@ const Title = styled.h3`
 export const DetailsPage = () => {
   const { projectId } = useParams();
   const [project, setProject] = useState("");
+  const [errorMessage, setErrorMessage] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
-      const newProject = await getProjectById(projectId);
-      setProject(newProject);
+      try {
+        setLoading(true);
+        const newProject = await getProjectById(projectId);
+        setProject(newProject);
+        setLoading(false);
+      } catch (error) {
+        setErrorMessage(error.message);
+      }
     }
     fetchData();
   }, [projectId]);
@@ -34,6 +42,8 @@ export const DetailsPage = () => {
     <>
       <Header title={"Project Details"} />
       <StyledContainer>
+        {loading && <div>Loading...</div>}
+        {errorMessage && <p>{errorMessage}</p>}
         <ImagePreview
           src={project.data?.image}
           alt={project.data?.projectTitle}
