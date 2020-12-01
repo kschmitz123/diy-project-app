@@ -1,5 +1,6 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components/macro";
-import Test from "../assets/test.jpg";
+import { getProjects } from "../utils/api";
 
 const Container = styled.div`
   padding-top: 60px;
@@ -8,10 +9,11 @@ const Container = styled.div`
 const ScrollContainer = styled.div`
   display: flex;
   overflow-x: auto;
-  height: 160px;
+  max-height: 200px;
 `;
 
 const ImageContainer = styled.div`
+  height: 190px;
   width: 190px;
   margin: 5px;
 `;
@@ -22,29 +24,28 @@ const Image = styled.img`
 `;
 
 export const ScrollMenu = () => {
+  const [projectDisplay, setProjectDisplay] = useState();
+
+  useEffect(() => {
+    const loadProjects = async () => {
+      const projects = await getProjects();
+      setProjectDisplay(
+        projects.map((project) => (
+          <>
+            <ImageContainer key={project.id}>
+              <Image src={project.data.image} alt={project.data.projectTitle} />
+            </ImageContainer>
+          </>
+        ))
+      );
+    };
+    loadProjects();
+  }, []);
+
   return (
     <Container>
       <h3>Latest</h3>
-      <ScrollContainer>
-        <ImageContainer>
-          <Image src={Test} />
-        </ImageContainer>
-        <ImageContainer>
-          <Image src={Test} />
-        </ImageContainer>
-        <ImageContainer>
-          <Image src={Test} />
-        </ImageContainer>
-        <ImageContainer>
-          <Image src={Test} />
-        </ImageContainer>
-        <ImageContainer>
-          <Image src={Test} />
-        </ImageContainer>
-        <ImageContainer>
-          <Image src={Test} />
-        </ImageContainer>
-      </ScrollContainer>
+      <ScrollContainer>{projectDisplay}</ScrollContainer>
     </Container>
   );
 };

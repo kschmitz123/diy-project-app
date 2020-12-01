@@ -15,7 +15,7 @@ export async function getProjectById(id) {
 }
 
 export async function getProjects() {
-  const response = await fetch("/api/projects/");
+  const response = await fetch("/api/projects?_sort=id&_order=desc");
   const projects = await response.json();
   return projects;
 }
