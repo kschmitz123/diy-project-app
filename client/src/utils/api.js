@@ -19,3 +19,8 @@ export async function getProjects() {
   const projects = await response.json();
   return projects;
 }
+export async function getLimitedProjects() {
+  const response = await fetch("/api/projects?_sort=id&_order=desc&_limit=20");
+  const projects = await response.json();
+  return projects;
+}
