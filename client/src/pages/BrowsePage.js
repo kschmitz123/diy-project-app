@@ -2,9 +2,10 @@ import styled from "styled-components/macro";
 import { Header } from "../components/Header";
 import { Searchbar } from "../components/Searchbar";
 import { Navbar } from "../components/Navbar";
-import { ImagePreview } from "../components/ImagePreview";
 import { getProjects } from "../utils/api";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import useAsync from "../utils/useAsync";
+import { ImagePreview } from "../components/ImagePreview";
 
 const Container = styled.div`
   padding: 100px 0;
@@ -15,22 +16,10 @@ const Container = styled.div`
 `;
 
 export const BrowsePage = () => {
-  const [projectDisplay, setProjectDisplay] = useState();
+  const { data, loading, error, doFetch } = useAsync(() => getProjects());
 
   useEffect(() => {
-    const loadProjects = async () => {
-      const projects = await getProjects();
-      setProjectDisplay(
-        projects.map((project) => (
-          <ImagePreview
-            key={project.id}
-            src={project.data.image}
-            alt={project.data.projectTitle}
-          />
-        ))
-      );
-    };
-    loadProjects();
+    doFetch();
   }, []);
 
   return (
@@ -38,7 +27,16 @@ export const BrowsePage = () => {
       <Header title={"Browse Projects"} />
       <Container>
         <Searchbar />
-        <div>{projectDisplay}</div>
+        {loading && <div>Loading...</div>}
+        {error && <p>{error.message}</p>}
+        {data &&
+          data.map((project) => (
+            <ImagePreview
+              key={project.id}
+              src={project.data.image}
+              alt={project.data.projectTitle}
+            />
+          ))}
       </Container>
 
       <Navbar />
