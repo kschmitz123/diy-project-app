@@ -44,19 +44,19 @@ export const Categories = () => {
     <Container>
       <h3>Categories</h3>
       <CategoryContainer>
-        <NavLink to="/category">
+        <NavLink to="category/sewing">
           <Image src={Sewing} alt="Sewing" />
           <ImageText>Sewing</ImageText>
         </NavLink>
-        <NavLink to="/category">
+        <NavLink to="category/macrame">
           <Image src={Macrame} alt="Macrame" />
           <ImageText>Macrame</ImageText>
         </NavLink>
-        <NavLink to="/category">
+        <NavLink to="category/paint">
           <Image src={Paint} alt="Paint" />
           <ImageText>Paint</ImageText>
         </NavLink>
-        <NavLink to="/category">
+        <NavLink to="category/woodwork">
           <Image src={Woodwork} alt="Woodwork" />
           <ImageText>Woodwork</ImageText>
         </NavLink>
