@@ -33,15 +33,12 @@ export const BrowsePage = () => {
         {error && <p>{error.message}</p>}
         {data &&
           data.map((project) => (
-            <>
-              <Link to={`/projects/${project.id}`}>
-                <ImagePreview
-                  key={project.id}
-                  src={project.data.image}
-                  alt={project.data.projectTitle}
-                />
-              </Link>
-            </>
+            <Link key={project.id} to={`/projects/${project.id}`}>
+              <ImagePreview
+                src={project.data.image}
+                alt={project.data.projectTitle}
+              />
+            </Link>
           ))}
       </Container>
 

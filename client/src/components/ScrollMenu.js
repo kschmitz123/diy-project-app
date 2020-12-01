@@ -41,16 +41,14 @@ export const ScrollMenu = () => {
       <ScrollContainer>
         {data &&
           data.map((project) => (
-            <>
-              <Link to={`/projects/${project.id}`}>
-                <ImageContainer key={project.id}>
-                  <Image
-                    src={project.data.image}
-                    alt={project.data.projectTitle}
-                  />
-                </ImageContainer>
-              </Link>
-            </>
+            <Link key={project.id} to={`/projects/${project.id}`}>
+              <ImageContainer>
+                <Image
+                  src={project.data.image}
+                  alt={project.data.projectTitle}
+                />
+              </ImageContainer>
+            </Link>
           ))}
       </ScrollContainer>
     </Container>

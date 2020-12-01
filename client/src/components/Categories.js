@@ -67,12 +67,10 @@ export const Categories = () => {
       <h3>Categories</h3>
       <CategoryContainer>
         {categories.map((category) => (
-          <>
-            <NavLink to={category.link}>
-              <Image src={category.src} alt={category.alt} />
-              <ImageText>{category.title}</ImageText>
-            </NavLink>
-          </>
+          <NavLink key={category.title} to={category.link}>
+            <Image src={category.src} alt={category.alt} />
+            <ImageText>{category.title}</ImageText>
+          </NavLink>
         ))}
       </CategoryContainer>
     </Container>
