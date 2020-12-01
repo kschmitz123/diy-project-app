@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import styled from "styled-components/macro";
 import { getProjects } from "../utils/api";
+import useAsync from "../utils/useAsync";
 
 const Container = styled.div`
   padding-top: 60px;
@@ -24,28 +25,30 @@ const Image = styled.img`
 `;
 
 export const ScrollMenu = () => {
-  const [projectDisplay, setProjectDisplay] = useState();
+  const { data, loading, error, doFetch } = useAsync(() => getProjects());
 
   useEffect(() => {
-    const loadProjects = async () => {
-      const projects = await getProjects();
-      setProjectDisplay(
-        projects.map((project) => (
-          <>
-            <ImageContainer key={project.id}>
-              <Image src={project.data.image} alt={project.data.projectTitle} />
-            </ImageContainer>
-          </>
-        ))
-      );
-    };
-    loadProjects();
+    doFetch();
   }, []);
 
   return (
     <Container>
       <h3>Latest</h3>
-      <ScrollContainer>{projectDisplay}</ScrollContainer>
+      {loading && <div>Loading...</div>}
+      {error && <p>{error.message}</p>}
+      <ScrollContainer>
+        {data &&
+          data.map((project) => (
+            <>
+              <ImageContainer key={project.id}>
+                <Image
+                  src={project.data.image}
+                  alt={project.data.projectTitle}
+                />
+              </ImageContainer>
+            </>
+          ))}
+      </ScrollContainer>
     </Container>
   );
 };
