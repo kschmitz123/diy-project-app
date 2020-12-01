@@ -1,5 +1,3 @@
-import React from "react";
-
 import { DetailsPage } from "../pages/DetailsPage";
 
 export default {

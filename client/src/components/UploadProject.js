@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Button } from "./Button";
+import { useState } from "react";
+import Button from "./Button";
 import {
   Form,
   LargeInput,
@@ -9,11 +9,16 @@ import {
 } from "./InputElements";
 import { ImagePreview } from "./ImagePreview";
 import { useForm } from "react-hook-form";
+import { postProject } from "../utils/api";
+import { useHistory } from "react-router-dom";
 
 export default function UploadProject() {
   const [imageInput, setImageInput] = useState("");
   const [previewSource, setPreviewSource] = useState("");
   const { register, handleSubmit } = useForm();
+  const history = useHistory();
+  const [errorMessage, setErrorMessage] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -29,11 +34,18 @@ export default function UploadProject() {
     };
   };
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const tags = data.tags.match(/[^,\s?]+/g);
-    console.log(data, tags);
-    if (!previewSource) return;
-    uploadImage(previewSource);
+    try {
+      setLoading(true);
+      const project = await postProject({ data, tags });
+      setLoading(false);
+      if (!previewSource) return;
+      uploadImage(previewSource);
+      history.push(`/projects/${project.id}`);
+    } catch (error) {
+      setErrorMessage(error.message);
+    }
   };
 
   const uploadImage = async (base64EncodedImage) => {
@@ -43,12 +55,8 @@ export default function UploadProject() {
         body: JSON.stringify({ data: base64EncodedImage }),
         headers: { "Content-Type": "application/json" },
       });
-      alert("Image successfully uploaded.");
-      setImageInput("");
-      setPreviewSource("");
     } catch (error) {
-      console.error(error);
-      alert("Image upload failed.");
+      setErrorMessage(error.message);
     }
   };
 
@@ -79,6 +87,8 @@ export default function UploadProject() {
 
         <Button type="submit">Upload Project</Button>
       </Form>
+      {errorMessage && <p>{errorMessage}</p>}
+      {loading && <div>Loading...</div>}
     </>
   );
 }

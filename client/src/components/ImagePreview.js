@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components/macro";
 import PropTypes from "prop-types";
 import FavoriteIcon from "@material-ui/icons/Favorite";
@@ -36,6 +35,6 @@ export const ImagePreview = ({ src, alt }) => {
 };
 
 ImagePreview.propTypes = {
-  src: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired,
+  src: PropTypes.string,
+  alt: PropTypes.string,
 };

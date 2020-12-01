@@ -1,4 +1,3 @@
-import React from "react";
 import { Header } from "../components/Header";
 import { ImagePreview } from "../components/ImagePreview";
 import { Navbar } from "../components/Navbar";

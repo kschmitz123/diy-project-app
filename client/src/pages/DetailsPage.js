@@ -1,9 +1,12 @@
-import React from "react";
+import { useEffect } from "react";
 import styled from "styled-components/macro";
 import { Header } from "../components/Header";
 import { ImagePreview } from "../components/ImagePreview";
 import { Navbar } from "../components/Navbar";
 import { Container } from "../components/Container";
+import { useState } from "react";
+import { getProjectById } from "../utils/api";
+import { useParams } from "react-router-dom";
 
 const StyledContainer = styled(Container)`
   margin: 0 20px;
@@ -16,54 +19,41 @@ const Title = styled.h3`
 `;
 
 export const DetailsPage = () => {
+  const { projectId } = useParams();
+  const [project, setProject] = useState("");
+  const [errorMessage, setErrorMessage] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        setLoading(true);
+        const newProject = await getProjectById(projectId);
+        setProject(newProject);
+        setLoading(false);
+      } catch (error) {
+        setErrorMessage(error.message);
+      }
+    }
+    fetchData();
+  }, [projectId]);
+
   return (
     <>
       <Header title={"Project Details"} />
       <StyledContainer>
-        <ImagePreview />
-        <Title>Example Project</Title>
-        <div>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-          rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-          ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-          sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-          dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-          et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-          takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-          amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-          invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-          At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-          kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-          amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit
-          esse molestie consequat, vel illum dolore eu feugiat nulla facilisis
-          at vero eros et accumsan et iusto odio dignissim qui blandit praesent
-          luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-          nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-          volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-          ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-          Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
-          molestie consequat, vel illum dolore eu feugiat nulla facilisis at
-          vero eros et accumsan et iusto odio dignissim qui blandit praesent
-          luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-          Nam liber tempor cum soluta nobis eleifend option congue nihil
-          imperdiet doming id quod mazim placerat facer possim assum. Lorem
-          ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-          nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-          Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
-          suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem
-          vel eum iriure dolor in hendrerit in vulputate velit esse molestie
-          consequat, vel illum dolore eu feugiat nulla facilisis. At vero eos et
-          accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-          no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-          dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-          tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-          voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-          Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-          dolor sit amet.
-        </div>
+        {loading && <div>Loading...</div>}
+        {errorMessage && <p>{errorMessage}</p>}
+        {project.data && (
+          <>
+            <ImagePreview
+              src={project.data.image}
+              alt={project.data.projectTitle}
+            />
+            <Title>{project.data.projectTitle}</Title>
+            <div>{project.data.description}</div>
+          </>
+        )}
       </StyledContainer>
 
       <Navbar />

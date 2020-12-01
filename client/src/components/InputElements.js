@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components/macro";
 
 export const Form = styled.form`
@@ -42,6 +41,7 @@ export const Select = styled.select`
 
 ImageInput.defaultProps = {
   type: "file",
+  required: true,
 };
 
 SmallInput.defaultProps = {

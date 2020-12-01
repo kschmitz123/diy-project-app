@@ -1,5 +1,3 @@
-import React from "react";
-
 import { AddProjectPage } from "../pages/AddProjectPage";
 
 export default {

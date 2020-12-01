@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components/macro";
 import loadingAnimationSrc from "../assets/loading_animation.gif";
 
