@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
 import { getLimitedProjects } from "../utils/api";
 import useAsync from "../utils/useAsync";
@@ -42,12 +43,14 @@ export const ScrollMenu = () => {
         {data &&
           data.map((project) => (
             <>
-              <ImageContainer key={project.id}>
-                <Image
-                  src={project.data.image}
-                  alt={project.data.projectTitle}
-                />
-              </ImageContainer>
+              <Link to={`/projects/${project.id}`}>
+                <ImageContainer key={project.id}>
+                  <Image
+                    src={project.data.image}
+                    alt={project.data.projectTitle}
+                  />
+                </ImageContainer>
+              </Link>
             </>
           ))}
       </ScrollContainer>

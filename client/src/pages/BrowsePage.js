@@ -6,6 +6,7 @@ import { getProjects } from "../utils/api";
 import { useEffect } from "react";
 import useAsync from "../utils/useAsync";
 import { ImagePreview } from "../components/ImagePreview";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   padding: 100px 0;
@@ -31,11 +32,15 @@ export const BrowsePage = () => {
         {error && <p>{error.message}</p>}
         {data &&
           data.map((project) => (
-            <ImagePreview
-              key={project.id}
-              src={project.data.image}
-              alt={project.data.projectTitle}
-            />
+            <>
+              <Link to={`/projects/${project.id}`}>
+                <ImagePreview
+                  key={project.id}
+                  src={project.data.image}
+                  alt={project.data.projectTitle}
+                />
+              </Link>
+            </>
           ))}
       </Container>
 
