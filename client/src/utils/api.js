@@ -24,3 +24,8 @@ export async function getLimitedProjects() {
   const projects = await response.json();
   return projects;
 }
+export async function getCategory(category) {
+  const response = await fetch(`/api/projects?data.category=${category}`);
+  const projects = await response.json();
+  return projects;
+}
