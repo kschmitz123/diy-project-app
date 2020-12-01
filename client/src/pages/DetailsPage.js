@@ -4,9 +4,9 @@ import { Header } from "../components/Header";
 import { ImagePreview } from "../components/ImagePreview";
 import { Navbar } from "../components/Navbar";
 import { Container } from "../components/Container";
-import { useState } from "react";
 import { getProjectById } from "../utils/api";
 import { useParams } from "react-router-dom";
+import useAsync from "../utils/useAsync";
 
 const StyledContainer = styled(Container)`
   margin: 0 20px;
@@ -20,42 +20,28 @@ const Title = styled.h3`
 
 export const DetailsPage = () => {
   const { projectId } = useParams();
-  const [project, setProject] = useState("");
-  const [errorMessage, setErrorMessage] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const { data, loading, error, doFetch } = useAsync(() =>
+    getProjectById(projectId)
+  );
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        setLoading(true);
-        const newProject = await getProjectById(projectId);
-        setProject(newProject);
-        setLoading(false);
-      } catch (error) {
-        setErrorMessage(error.message);
-      }
-    }
-    fetchData();
-  }, [projectId]);
+    doFetch();
+  }, []);
 
   return (
     <>
       <Header title={"Project Details"} />
       <StyledContainer>
         {loading && <div>Loading...</div>}
-        {errorMessage && <p>{errorMessage}</p>}
-        {project.data && (
+        {error && <p>{error.message}</p>}
+        {data && (
           <>
-            <ImagePreview
-              src={project.data.image}
-              alt={project.data.projectTitle}
-            />
-            <Title>{project.data.projectTitle}</Title>
-            <div>{project.data.description}</div>
+            <ImagePreview src={data.data.image} alt={data.projectTitle} />
+            <Title>{data.data.projectTitle}</Title>
+            <div>{data.data.description}</div>
           </>
         )}
       </StyledContainer>
-
       <Navbar />
     </>
   );
