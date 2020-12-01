@@ -1,3 +1,4 @@
+require("dotenv").config();
 const { cloudinary } = require("./lib/cloudinary");
 const express = require("express");
 const app = express();
@@ -5,6 +6,7 @@ const path = require("path");
 const jsonServer = require("json-server");
 const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults();
+const { connect } = require("./lib/database");
 
 const port = process.env.PORT || 3001;
 app.use(express.static("public"));
@@ -36,6 +38,15 @@ app.use(middlewares);
 app.get("*", (request, response) => {
   response.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
-app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
-});
+
+async function run() {
+  try {
+    await connect(process.env.MONGODB_URL, process.env.MONGODB);
+    app.listen(port, () => {
+      console.log(`Server listening at http://localhost:${port}`);
+    });
+  } catch (error) {
+    console.error(error);
+  }
+}
+run();
