@@ -1,6 +1,6 @@
 import styled from "styled-components/macro";
 
-export const Button = styled.button`
+const Button = styled.button`
   height: 2rem;
   width: 120px;
   border-radius: 25px;
@@ -10,3 +10,5 @@ export const Button = styled.button`
   color: var(--button-color);
   font-weight: bold;
 `;
+
+export default Button;
