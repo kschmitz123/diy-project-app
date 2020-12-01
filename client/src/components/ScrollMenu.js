@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
-import { getLimitedProjects } from "../utils/api";
+import { getData } from "../utils/api";
 import useAsync from "../utils/useAsync";
+import { limited } from "../utils/queries";
 
 const Container = styled.div`
   padding-top: 60px;
@@ -26,9 +27,7 @@ const Image = styled.img`
 `;
 
 export const ScrollMenu = () => {
-  const { data, loading, error, doFetch } = useAsync(() =>
-    getLimitedProjects()
-  );
+  const { data, loading, error, doFetch } = useAsync(() => getData(limited));
 
   useEffect(() => {
     doFetch();

@@ -2,11 +2,12 @@ import styled from "styled-components/macro";
 import { Header } from "../components/Header";
 import { Searchbar } from "../components/Searchbar";
 import { Navbar } from "../components/Navbar";
-import { getProjects } from "../utils/api";
+import { getData } from "../utils/api";
 import { useEffect } from "react";
 import useAsync from "../utils/useAsync";
 import { ImagePreview } from "../components/ImagePreview";
 import { Link } from "react-router-dom";
+import { all } from "../utils/queries";
 
 const Container = styled.div`
   padding: 100px 0;
@@ -17,7 +18,7 @@ const Container = styled.div`
 `;
 
 export const BrowsePage = () => {
-  const { data, loading, error, doFetch } = useAsync(() => getProjects());
+  const { data, loading, error, doFetch } = useAsync(() => getData(all));
 
   useEffect(() => {
     doFetch();
