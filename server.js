@@ -7,7 +7,12 @@ const path = require("path");
 // const router = jsonServer.router("db.json");
 // const middlewares = jsonServer.defaults();
 const { connect } = require("./lib/database");
-const { setProject } = require("./lib/projects");
+const {
+  setProject,
+  getProjects,
+  getProjectbyId,
+  getCategory,
+} = require("./lib/projects");
 
 const port = process.env.PORT || 3001;
 app.use(express.static("public"));
@@ -34,6 +39,36 @@ app.post("/api/projects/", async (request, response) => {
   try {
     await setProject(project);
     response.status(200).send("Successfully uploaded");
+  } catch (error) {
+    console.error(error);
+    response.status(500).send("An internal server error occured");
+  }
+});
+app.get("/api/projects/", async (request, response) => {
+  const { projects } = request.params;
+  try {
+    const projectCollection = await getProjects(projects);
+    response.send(projectCollection);
+  } catch (error) {
+    console.error(error);
+    response.status(500).send("An internal server error occured");
+  }
+});
+app.get("/api/projects/:projectId", async (request, response) => {
+  const { projectId } = request.params;
+  try {
+    const project = await getProjectbyId(projectId);
+    response.send(project);
+  } catch (error) {
+    console.error(error);
+    response.status(500).send("An internal server error occured");
+  }
+});
+app.get("/api/category/:category", async (request, response) => {
+  const { category } = request.params;
+  try {
+    const categoryCollection = await getCategory(category);
+    response.send(categoryCollection);
   } catch (error) {
     console.error(error);
     response.status(500).send("An internal server error occured");
