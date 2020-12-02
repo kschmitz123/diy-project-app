@@ -3,10 +3,11 @@ const { cloudinary } = require("./lib/cloudinary");
 const express = require("express");
 const app = express();
 const path = require("path");
-const jsonServer = require("json-server");
-const router = jsonServer.router("db.json");
-const middlewares = jsonServer.defaults();
+// const jsonServer = require("json-server");
+// const router = jsonServer.router("db.json");
+// const middlewares = jsonServer.defaults();
 const { connect } = require("./lib/database");
+const { setProject } = require("./lib/projects");
 
 const port = process.env.PORT || 3001;
 app.use(express.static("public"));
@@ -21,11 +22,21 @@ app.post("/api/upload", async (request, response) => {
       height: 1800,
       crop: "limit",
     });
-    console.log(uploadedResponse.secure_url);
     response.status(200).send(uploadedResponse.secure_url);
   } catch (error) {
     console.error(error);
     response.status(500).send("An error occured");
+  }
+});
+
+app.post("/api/projects/", async (request, response) => {
+  const project = request.body;
+  try {
+    await setProject(project);
+    response.status(200).send("Successfully uploaded");
+  } catch (error) {
+    console.error(error);
+    response.status(500).send("An internal server error occured");
   }
 });
 
@@ -35,8 +46,8 @@ app.use(
   express.static(path.join(__dirname, "client/storybook-static"))
 );
 
-app.use("/api", router);
-app.use(middlewares);
+// app.use("/api", router);
+// app.use(middlewares);
 
 app.get("*", (request, response) => {
   response.sendFile(path.join(__dirname, "client/build", "index.html"));
