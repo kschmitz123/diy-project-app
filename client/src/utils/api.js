@@ -19,6 +19,11 @@ export async function getProjectById(id) {
   const project = await response.json();
   return project;
 }
+export async function getProjectByTag(tag) {
+  const response = await fetch(`/api/browse/${tag}`);
+  const project = await response.json();
+  return project;
+}
 
 export async function getCategory(category) {
   const response = await fetch(`/api/category/${category}`);

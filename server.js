@@ -12,6 +12,7 @@ const {
   getProjects,
   getProjectbyId,
   getCategory,
+  getProjectbyTag,
 } = require("./lib/projects");
 
 const port = process.env.PORT || 3001;
@@ -58,6 +59,16 @@ app.get("/api/projects/:projectId", async (request, response) => {
   const { projectId } = request.params;
   try {
     const project = await getProjectbyId(projectId);
+    response.send(project);
+  } catch (error) {
+    console.error(error);
+    response.status(500).send("An internal server error occured");
+  }
+});
+app.get("/api/browse/:tag", async (request, response) => {
+  const { tag } = request.params;
+  try {
+    const project = await getProjectbyTag(tag);
     response.send(project);
   } catch (error) {
     console.error(error);
