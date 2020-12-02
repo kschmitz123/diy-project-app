@@ -2,7 +2,7 @@
   "projects": [
     {
       "data": {
-        "image": "https://res.cloudinary.com/kschmitz/image/upload/v1606483223/upload/iyvfricfqui4dw2knkcv.jpg",
+        "image": "https://res.cloudinary.com/kschmitz/image/upload/v1606482023/upload/gzlj7sgjxbtb58jhgxax.jpg",
         "projectTitle": "test",
         "description": "beschreibung",
         "tags": "tag, tag, ttag",
@@ -13,9 +13,7 @@
     },
     {
       "data": {
-        "image": {
-          "0": {}
-        },
+        "image": "https://res.cloudinary.com/kschmitz/image/upload/v1606483223/upload/iyvfricfqui4dw2knkcv.jpg",
         "projectTitle": "hallo",
         "description": "gfsdagdagadfgads",
         "tags": "test",
@@ -27,7 +25,6 @@
     {
       "data": {
         "image": "https://res.cloudinary.com/kschmitz/image/upload/v1606483223/upload/iyvfricfqui4dw2knkcv.jpg",
-
         "projectTitle": "test123",
         "description": "2erewretre",
         "tags": "32et, fdsfd",
@@ -38,8 +35,7 @@
     },
     {
       "data": {
-        "image": "https://res.cloudinary.com/kschmitz/image/upload/v1606483223/upload/iyvfricfqui4dw2knkcv.jpg",
-
+        "image": "https://res.cloudinary.com/kschmitz/image/upload/v1606808258/upload/r9655twexekh3qjopaso.jpg",
         "projectTitle": "ghdgfhfgh",
         "description": "fgdhgfh",
         "tags": "dfghg",
@@ -51,7 +47,6 @@
     {
       "data": {
         "image": "https://res.cloudinary.com/kschmitz/image/upload/v1606483223/upload/iyvfricfqui4dw2knkcv.jpg",
-
         "projectTitle": "jrzjrtz",
         "description": "rthjzj",
         "tags": "hjhg",
@@ -59,6 +54,160 @@
       },
       "tags": ["hjhg"],
       "id": 7
+    },
+    {
+      "data": {
+        "image": "https://res.cloudinary.com/kschmitz/image/upload/v1606482023/upload/gzlj7sgjxbtb58jhgxax.jpg",
+        "projectTitle": "neuerTest",
+        "description": "hallo",
+        "tags": "123",
+        "category": "woodwork"
+      },
+      "tags": ["123"],
+      "id": 8
+    },
+    {
+      "data": {
+        "image": "https://res.cloudinary.com/kschmitz/image/upload/v1606814819/upload/adh1akw1vughjhjppmic.png",
+        "projectTitle": "fdgfdgdfg",
+        "description": "fdfgsfdg",
+        "tags": "gsdfg",
+        "category": "sewing"
+      },
+      "tags": ["gsdfg"],
+      "id": 10
+    },
+    {
+      "data": {
+        "image": "https://res.cloudinary.com/kschmitz/image/upload/v1606816136/upload/lrmtgynztplezhs2wo6q.jpg",
+        "projectTitle": "croptest",
+        "description": "dagadad",
+        "tags": "gfdg",
+        "category": "macrame"
+      },
+      "tags": ["gfdg"],
+      "id": 11
+    },
+    {
+      "data": {
+        "image": "https://res.cloudinary.com/kschmitz/image/upload/v1606814819/upload/adh1akw1vughjhjppmic.png",
+        "projectTitle": "fdgfdgdfg",
+        "description": "fdfgsfdg",
+        "tags": "gsdfg",
+        "category": "sewing"
+      },
+      "tags": ["gsdfg"],
+      "id": 12
+    },
+    {
+      "data": {
+        "image": "https://res.cloudinary.com/kschmitz/image/upload/v1606816136/upload/lrmtgynztplezhs2wo6q.jpg",
+        "projectTitle": "croptest",
+        "description": "dagadad",
+        "tags": "gfdg",
+        "category": "macrame"
+      },
+      "tags": ["gfdg"],
+      "id": 13
+    },
+    {
+      "data": {
+        "image": "https://res.cloudinary.com/kschmitz/image/upload/v1606816136/upload/lrmtgynztplezhs2wo6q.jpg",
+        "projectTitle": "croptest",
+        "description": "dagadad",
+        "tags": "gfdg",
+        "category": "macrame"
+      },
+      "tags": ["gfdg"],
+      "id": 14
+    },
+    {
+      "data": {
+        "image": "https://res.cloudinary.com/kschmitz/image/upload/v1606816136/upload/lrmtgynztplezhs2wo6q.jpg",
+        "projectTitle": "croptest",
+        "description": "dagadad",
+        "tags": "gfdg",
+        "category": "macrame"
+      },
+      "tags": ["gfdg"],
+      "id": 15
+    },
+    {
+      "data": {
+        "image": "https://res.cloudinary.com/kschmitz/image/upload/v1606816136/upload/lrmtgynztplezhs2wo6q.jpg",
+        "projectTitle": "croptest",
+        "description": "dagadad",
+        "tags": "gfdg",
+        "category": "macrame"
+      },
+      "tags": ["gfdg"],
+      "id": 16
+    },
+    {
+      "data": {
+        "image": "https://res.cloudinary.com/kschmitz/image/upload/v1606816136/upload/lrmtgynztplezhs2wo6q.jpg",
+        "projectTitle": "croptest",
+        "description": "dagadad",
+        "tags": "gfdg",
+        "category": "macrame"
+      },
+      "tags": ["gfdg"],
+      "id": 17
+    },
+    {
+      "data": {
+        "image": "https://res.cloudinary.com/kschmitz/image/upload/v1606816136/upload/lrmtgynztplezhs2wo6q.jpg",
+        "projectTitle": "croptest",
+        "description": "dagadad",
+        "tags": "gfdg",
+        "category": "macrame"
+      },
+      "tags": ["gfdg"],
+      "id": 18
+    },
+    {
+      "data": {
+        "image": "https://res.cloudinary.com/kschmitz/image/upload/v1606816136/upload/lrmtgynztplezhs2wo6q.jpg",
+        "projectTitle": "croptest",
+        "description": "dagadad",
+        "tags": "gfdg",
+        "category": "macrame"
+      },
+      "tags": ["gfdg"],
+      "id": 19
+    },
+    {
+      "data": {
+        "image": "https://res.cloudinary.com/kschmitz/image/upload/v1606816136/upload/lrmtgynztplezhs2wo6q.jpg",
+        "projectTitle": "croptest",
+        "description": "dagadad",
+        "tags": "gfdg",
+        "category": "macrame"
+      },
+      "tags": ["gfdg"],
+      "id": 20
+    },
+    {
+      "data": {
+        "image": "https://res.cloudinary.com/kschmitz/image/upload/v1606816136/upload/lrmtgynztplezhs2wo6q.jpg",
+        "projectTitle": "croptest",
+        "description": "dagadad",
+        "tags": "gfdg",
+        "category": "macrame"
+      },
+      "tags": ["gfdg"],
+      "id": 21
+    },
+    {
+      "data": {
+        "image": "https://res.cloudinary.com/kschmitz/image/upload/v1606816136/upload/lrmtgynztplezhs2wo6q.jpg",
+        "projectTitle": "croptest",
+        "description": "dagadad",
+        "tags": "gfdg",
+        "category": "macrame"
+      },
+      "tags": ["gfdg"],
+      "id": 22
     }
   ]
 }

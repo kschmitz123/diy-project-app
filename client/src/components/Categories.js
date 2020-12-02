@@ -39,27 +39,39 @@ const Container = styled.div`
   padding-bottom: 60px;
 `;
 
+const categories = [
+  { link: "category/sewing", src: Sewing, alt: "Sewing", title: "Sewing" },
+  {
+    link: "category/macrame",
+    src: Macrame,
+    alt: "Macrame",
+    title: "Macrame",
+  },
+  {
+    link: "category/paint",
+    src: Paint,
+    alt: "Paint",
+    title: "Paint",
+  },
+  {
+    link: "category/woodwork",
+    src: Woodwork,
+    alt: "Woodwor",
+    title: "Woodwork",
+  },
+];
+
 export const Categories = () => {
   return (
     <Container>
       <h3>Categories</h3>
       <CategoryContainer>
-        <NavLink to="/category">
-          <Image src={Sewing} alt="Sewing" />
-          <ImageText>Sewing</ImageText>
-        </NavLink>
-        <NavLink to="/category">
-          <Image src={Macrame} alt="Macrame" />
-          <ImageText>Macrame</ImageText>
-        </NavLink>
-        <NavLink to="/category">
-          <Image src={Paint} alt="Paint" />
-          <ImageText>Paint</ImageText>
-        </NavLink>
-        <NavLink to="/category">
-          <Image src={Woodwork} alt="Woodwork" />
-          <ImageText>Woodwork</ImageText>
-        </NavLink>
+        {categories.map((category) => (
+          <NavLink key={category.title} to={category.link}>
+            <Image src={category.src} alt={category.alt} />
+            <ImageText>{category.title}</ImageText>
+          </NavLink>
+        ))}
       </CategoryContainer>
     </Container>
   );
