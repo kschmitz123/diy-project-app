@@ -23,7 +23,7 @@ function App() {
         <Route exact path="/">
           {loading ? <LoadingScreen /> : <HomePage />}
         </Route>
-        <Route path="/category">
+        <Route path="/category/:category">
           <CategoryPage />
         </Route>
         <Route path="/browse">
