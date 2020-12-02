@@ -7,7 +7,6 @@ import { useEffect } from "react";
 import useAsync from "../utils/useAsync";
 import { ImagePreview } from "../components/ImagePreview";
 import { Link } from "react-router-dom";
-import { all } from "../utils/queries";
 
 const Container = styled.div`
   padding: 100px 0;
@@ -18,7 +17,7 @@ const Container = styled.div`
 `;
 
 export const BrowsePage = () => {
-  const { data, loading, error, doFetch } = useAsync(() => getData(all));
+  const { data, loading, error, doFetch } = useAsync(() => getData());
 
   useEffect(() => {
     doFetch();
@@ -33,7 +32,7 @@ export const BrowsePage = () => {
         {error && <p>{error.message}</p>}
         {data &&
           data.map((project) => (
-            <Link key={project.id} to={`/projects/${project.id}`}>
+            <Link key={project._id} to={`/projects/${project._id}`}>
               <ImagePreview
                 src={project.data.image}
                 alt={project.data.projectTitle}
