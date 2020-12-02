@@ -28,14 +28,12 @@ export const CategoryPage = () => {
         {error && <p>{error.message}</p>}
         {data &&
           data.map((project) => (
-            <>
-              <Link key={project.id} to={`/projects/${project.id}`}>
-                <ImagePreview
-                  src={project.data.image}
-                  alt={project.data.projectTitle}
-                />
-              </Link>
-            </>
+            <Link key={project.id} to={`/projects/${project.id}`}>
+              <ImagePreview
+                src={project.data.image}
+                alt={project.data.projectTitle}
+              />
+            </Link>
           ))}
       </Container>
 
