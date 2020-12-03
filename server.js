@@ -72,7 +72,7 @@ app.get("/api/browse/:tag", async (request, response) => {
     response.status(500).send("An internal server error occured");
   }
 });
-app.get("/api/category/:category", async (request, response) => {
+app.get("/api/categories/:category", async (request, response) => {
   const { category } = request.params;
   try {
     const categoryCollection = await getCategory(category);

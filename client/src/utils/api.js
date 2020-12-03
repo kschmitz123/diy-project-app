@@ -9,7 +9,7 @@ export async function postProject(project) {
 }
 
 export async function getData() {
-  const response = await fetch(`/api/projects/`);
+  const response = await fetch(`/api/projects`);
   const data = await response.json();
   return data;
 }
@@ -26,7 +26,7 @@ export async function getProjectByTag(tag) {
 }
 
 export async function getCategory(category) {
-  const response = await fetch(`/api/category/${category}`);
+  const response = await fetch(`/api/categories/${category}`);
   const projects = await response.json();
   return projects;
 }
