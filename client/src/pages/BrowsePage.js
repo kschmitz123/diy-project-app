@@ -39,7 +39,7 @@ export const BrowsePage = () => {
           data.map((project) => (
             <Link key={project._id} to={`/projects/${project._id}`}>
               <ImagePreview
-                src={project.data.image}
+                src={project.data.imageURL}
                 alt={project.data.projectTitle}
               />
             </Link>

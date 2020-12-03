@@ -43,7 +43,7 @@ export const ScrollMenu = () => {
             <Link key={project._id} to={`/projects/${project._id}`}>
               <ImageContainer>
                 <Image
-                  src={project.data.image}
+                  src={project.data.imageURL}
                   alt={project.data.projectTitle}
                 />
               </ImageContainer>
