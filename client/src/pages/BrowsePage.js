@@ -2,12 +2,11 @@ import styled from "styled-components/macro";
 import { Header } from "../components/Header";
 import { Searchbar } from "../components/Searchbar";
 import { Navbar } from "../components/Navbar";
-import { getData } from "../utils/api";
-import { useEffect } from "react";
+import { getData, getProjectByTag } from "../utils/api";
+import { useEffect, useState } from "react";
 import useAsync from "../utils/useAsync";
 import { ImagePreview } from "../components/ImagePreview";
 import { Link } from "react-router-dom";
-import { all } from "../utils/queries";
 
 const Container = styled.div`
   padding: 100px 0;
@@ -18,26 +17,28 @@ const Container = styled.div`
 `;
 
 export const BrowsePage = () => {
-  const { data, loading, error, doFetch } = useAsync(() => getData(all));
+  const [method, setMethod] = useState(getData);
+  const { data: project, loading, error, doFetch } = useAsync(() => method);
 
   useEffect(() => {
     doFetch();
-  }, []);
+  }, [method]);
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setMethod(getProjectByTag(event.target.tag.value));
+  };
   return (
     <>
       <Header title={"Browse Projects"} />
       <Container>
-        <Searchbar />
+        <Searchbar name="tag" onSubmit={handleSubmit} />
         {loading && <div>Loading...</div>}
         {error && <p>{error.message}</p>}
-        {data &&
-          data.map((project) => (
-            <Link key={project.id} to={`/projects/${project.id}`}>
-              <ImagePreview
-                src={project.data.image}
-                alt={project.data.projectTitle}
-              />
+        {project &&
+          project.map((project) => (
+            <Link key={project._id} to={`/projects/${project._id}`}>
+              <ImagePreview src={project.imageURL} alt={project.projectTitle} />
             </Link>
           ))}
       </Container>

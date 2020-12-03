@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
 import { getData } from "../utils/api";
 import useAsync from "../utils/useAsync";
-import { limited } from "../utils/queries";
 
 const Container = styled.div`
   padding-top: 60px;
@@ -27,7 +26,7 @@ const Image = styled.img`
 `;
 
 export const ScrollMenu = () => {
-  const { data, loading, error, doFetch } = useAsync(() => getData(limited));
+  const { data: project, loading, error, doFetch } = useAsync(getData);
 
   useEffect(() => {
     doFetch();
@@ -39,14 +38,11 @@ export const ScrollMenu = () => {
       {loading && <div>Loading...</div>}
       {error && <p>{error.message}</p>}
       <ScrollContainer>
-        {data &&
-          data.map((project) => (
-            <Link key={project.id} to={`/projects/${project.id}`}>
+        {project &&
+          project.map((project) => (
+            <Link key={project._id} to={`/projects/${project._id}`}>
               <ImageContainer>
-                <Image
-                  src={project.data.image}
-                  alt={project.data.projectTitle}
-                />
+                <Image src={project.imageURL} alt={project.projectTitle} />
               </ImageContainer>
             </Link>
           ))}

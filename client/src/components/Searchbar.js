@@ -1,16 +1,39 @@
 import styled from "styled-components/macro";
+import PropTypes from "prop-types";
 
-const Input = styled.input`
-  height: 2rem;
-  border-radius: 25px;
-  text-align: center;
-  width: 70%;
-  border: solid 1px var(--secondary-font-color);
-  position: fixed;
-  top: 60px;
-  z-index: 1;
+const Form = styled.form`
+  display: flex;
+  justify-content: center;
+
+  input {
+    text-align: center;
+    height: 2rem;
+    border-radius: 25px;
+    width: 70%;
+    border: solid 1px var(--secondary-font-color);
+    position: fixed;
+    top: 60px;
+    z-index: 1;
+  }
 `;
 
-export const Searchbar = () => {
-  return <Input type="text" placeholder="🔍  Search tags" />;
+export const Searchbar = ({ value, onSubmit, onChange, name }) => {
+  return (
+    <Form onSubmit={onSubmit}>
+      <input
+        value={value}
+        onChange={onChange}
+        type="text"
+        placeholder="🔍  Search tags"
+        name={name}
+      />
+    </Form>
+  );
+};
+
+Searchbar.propTypes = {
+  onChange: PropTypes.func,
+  onSubmit: PropTypes.func,
+  value: PropTypes.string,
+  name: PropTypes.string,
 };

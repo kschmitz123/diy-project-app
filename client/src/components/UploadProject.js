@@ -17,7 +17,7 @@ export default function UploadProject() {
   const [previewSource, setPreviewSource] = useState("");
   const { register, handleSubmit } = useForm();
   const history = useHistory();
-  const [errorMessage, setErrorMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const handleImageChange = (event) => {
@@ -36,27 +36,28 @@ export default function UploadProject() {
 
   const onSubmit = async (data) => {
     const tags = data.tags.match(/[^,\s?]+/g);
+    const { projectTitle, description, category } = data;
     try {
       setLoading(true);
-      const project = await postProject({ data, tags });
-      setLoading(false);
-      if (!previewSource) return;
-      uploadImage(previewSource);
-      history.push(`/projects/${project.id}`);
-    } catch (error) {
-      setErrorMessage(error.message);
-    }
-  };
+      const formattedData = {
+        projectTitle: projectTitle,
+        description: description,
+        category: category,
+        tags,
+      };
 
-  const uploadImage = async (base64EncodedImage) => {
-    try {
-      await fetch("/api/upload", {
-        method: "POST",
-        body: JSON.stringify({ data: base64EncodedImage }),
-        headers: { "Content-Type": "application/json" },
+      console.log(formattedData);
+      if (!previewSource) return;
+      const project = await postProject({
+        formattedData: formattedData,
+        image: previewSource,
       });
+      console.log(formattedData);
+      setLoading(false);
+      history.push(`/projects/${project}`);
     } catch (error) {
       setErrorMessage(error.message);
+      setLoading(false);
     }
   };
 
@@ -87,7 +88,7 @@ export default function UploadProject() {
 
         <Button type="submit">Upload Project</Button>
       </Form>
-      {errorMessage && <p>{errorMessage}</p>}
+      {errorMessage && { errorMessage }}
       {loading && <div>Loading...</div>}
     </>
   );
