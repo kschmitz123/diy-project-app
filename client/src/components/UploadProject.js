@@ -36,19 +36,23 @@ export default function UploadProject() {
 
   const onSubmit = async (data) => {
     const tags = data.tags.match(/[^,\s?]+/g);
+    const { projectTitle, description, category } = data;
     try {
       setLoading(true);
       const formattedData = {
-        projectTitle: data.projectTitle,
-        description: data.description,
-        category: data.category,
+        projectTitle: projectTitle,
+        description: description,
+        category: category,
         tags,
       };
+
+      console.log(formattedData);
       if (!previewSource) return;
       const project = await postProject({
-        data: formattedData,
+        formattedData: formattedData,
         image: previewSource,
       });
+      console.log(formattedData);
       setLoading(false);
       history.push(`/projects/${project}`);
     } catch (error) {
