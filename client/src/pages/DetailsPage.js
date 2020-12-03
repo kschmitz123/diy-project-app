@@ -20,7 +20,7 @@ const Title = styled.h3`
 
 export const DetailsPage = () => {
   const { projectId } = useParams();
-  const { data, loading, error, doFetch } = useAsync(() =>
+  const { data: project, loading, error, doFetch } = useAsync(() =>
     getProjectById(projectId)
   );
 
@@ -34,11 +34,14 @@ export const DetailsPage = () => {
       <StyledContainer>
         {loading && <div>Loading...</div>}
         {error && <p>{error.message}</p>}
-        {data && (
+        {project && (
           <>
-            <ImagePreview src={data.data.image} alt={data.projectTitle} />
-            <Title>{data.data.projectTitle}</Title>
-            <div>{data.data.description}</div>
+            <ImagePreview
+              src={project.data.imageURL}
+              alt={project.data.projectTitle}
+            />
+            <Title>{project.data.projectTitle}</Title>
+            <div>{project.data.description}</div>
           </>
         )}
       </StyledContainer>
