@@ -14,7 +14,7 @@ const Container = styled.div`
   }
 `;
 
-export const ImagePreview = ({ src, alt, children }) => {
+const ImagePreview = ({ src, alt, children }) => {
   return (
     <Container>
       <img src={src} alt={alt} />
@@ -22,6 +22,7 @@ export const ImagePreview = ({ src, alt, children }) => {
     </Container>
   );
 };
+export default ImagePreview;
 
 ImagePreview.propTypes = {
   src: PropTypes.string,

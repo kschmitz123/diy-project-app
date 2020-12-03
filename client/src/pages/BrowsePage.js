@@ -1,13 +1,14 @@
 import styled from "styled-components/macro";
-import { Header } from "../components/Header";
-import { Searchbar } from "../components/Searchbar";
-import { Navbar } from "../components/Navbar";
+import Header from "../components/Header";
+import Searchbar from "../components/Searchbar";
+import Navbar from "../components/Navbar";
 import { getData, getProjectByTag } from "../utils/api";
 import { useEffect, useState } from "react";
 import useAsync from "../utils/useAsync";
-import { FaveIcon, ImagePreview } from "../components/ImagePreview";
+import ImagePreview from "../components/ImagePreview";
 import { Link } from "react-router-dom";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import { FaveButton } from "../components/Button";
 
 const Container = styled.div`
   padding: 100px 0;
@@ -40,9 +41,9 @@ export const BrowsePage = () => {
           project.map((project) => (
             <Link key={project._id} to={`/projects/${project._id}`}>
               <ImagePreview src={project.imageURL} alt={project.projectTitle}>
-                <FaveIcon>
+                <FaveButton>
                   <FavoriteIcon fontSize="large" />
-                </FaveIcon>
+                </FaveButton>
               </ImagePreview>
             </Link>
           ))}

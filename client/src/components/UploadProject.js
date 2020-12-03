@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "./Button";
+import { Button } from "./Button";
 import {
   Form,
   LargeInput,
@@ -7,7 +7,7 @@ import {
   Select,
   ImageInput,
 } from "./InputElements";
-import { ImagePreview } from "./ImagePreview";
+import ImagePreview from "./ImagePreview";
 import { useForm } from "react-hook-form";
 import { postProject } from "../utils/api";
 import { useHistory } from "react-router-dom";

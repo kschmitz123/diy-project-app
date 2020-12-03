@@ -35,8 +35,7 @@ const SearchButton = styled.button`
   color: #000`
       : `color: #fff`}
 `;
-
-export const Header = ({ title }) => {
+const Header = ({ title }) => {
   const location = useLocation();
   useEffect(() => {}, [location]);
   return (
@@ -50,6 +49,7 @@ export const Header = ({ title }) => {
     </StyledHeader>
   );
 };
+export default Header;
 
 Header.propTypes = {
   title: PropTypes.string.isRequired,

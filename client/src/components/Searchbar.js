@@ -17,7 +17,7 @@ const Form = styled.form`
   }
 `;
 
-export const Searchbar = ({ value, onSubmit, onChange, name }) => {
+const Searchbar = ({ value, onSubmit, onChange, name }) => {
   return (
     <Form onSubmit={onSubmit}>
       <input
@@ -30,6 +30,7 @@ export const Searchbar = ({ value, onSubmit, onChange, name }) => {
     </Form>
   );
 };
+export default Searchbar;
 
 Searchbar.propTypes = {
   onChange: PropTypes.func,

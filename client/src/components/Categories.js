@@ -61,8 +61,7 @@ const categories = [
     title: "Woodwork",
   },
 ];
-
-export const Categories = () => {
+const Categories = () => {
   return (
     <Container>
       <h3>Categories</h3>
@@ -77,3 +76,4 @@ export const Categories = () => {
     </Container>
   );
 };
+export default Categories;
