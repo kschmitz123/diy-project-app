@@ -19,30 +19,20 @@ const Container = styled.div`
 export const BrowsePage = () => {
   const [method, setMethod] = useState(getData);
   const { data, loading, error, doFetch } = useAsync(() => method);
-  const [tag, setTag] = useState("");
 
   useEffect(() => {
     doFetch();
   }, [method]);
 
-  const handleChange = (event) => {
-    setTag(event.target.value);
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    setMethod(getProjectByTag(tag));
+    setMethod(getProjectByTag(event.target.tag.value));
   };
   return (
     <>
       <Header title={"Browse Projects"} />
       <Container>
-        <Searchbar
-          onSubmit={handleSubmit}
-          name="tag"
-          value={tag}
-          onChange={handleChange}
-        />
+        <Searchbar name="tag" onSubmit={handleSubmit} />
         {loading && <div>Loading...</div>}
         {error && <p>{error.message}</p>}
         {data &&
