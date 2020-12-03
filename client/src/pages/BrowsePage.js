@@ -18,7 +18,7 @@ const Container = styled.div`
 
 export const BrowsePage = () => {
   const [method, setMethod] = useState(getData);
-  const { data, loading, error, doFetch } = useAsync(() => method);
+  const { data: project, loading, error, doFetch } = useAsync(() => method);
 
   useEffect(() => {
     doFetch();
@@ -35,13 +35,10 @@ export const BrowsePage = () => {
         <Searchbar name="tag" onSubmit={handleSubmit} />
         {loading && <div>Loading...</div>}
         {error && <p>{error.message}</p>}
-        {data &&
-          data.map((project) => (
+        {project &&
+          project.map((project) => (
             <Link key={project._id} to={`/projects/${project._id}`}>
-              <ImagePreview
-                src={project.data.imageURL}
-                alt={project.data.projectTitle}
-              />
+              <ImagePreview src={project.imageURL} alt={project.projectTitle} />
             </Link>
           ))}
       </Container>

@@ -36,12 +36,9 @@ export const DetailsPage = () => {
         {error && <p>{error.message}</p>}
         {project && (
           <>
-            <ImagePreview
-              src={project.data.imageURL}
-              alt={project.data.projectTitle}
-            />
-            <Title>{project.data.projectTitle}</Title>
-            <div>{project.data.description}</div>
+            <ImagePreview src={project.imageURL} alt={project.projectTitle} />
+            <Title>{project.projectTitle}</Title>
+            <div>{project.description}</div>
           </>
         )}
       </StyledContainer>

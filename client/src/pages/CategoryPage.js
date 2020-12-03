@@ -11,7 +11,7 @@ import { getCategory } from "../utils/api";
 export const CategoryPage = () => {
   const { category } = useParams();
 
-  const { data, loading, error, doFetch } = useAsync(() =>
+  const { data: project, loading, error, doFetch } = useAsync(() =>
     getCategory(category)
   );
 
@@ -26,13 +26,10 @@ export const CategoryPage = () => {
         <h3>{`Projects related to "${category}"`}</h3>
         {loading && <div>Loading...</div>}
         {error && <p>{error.message}</p>}
-        {data &&
-          data.map((project) => (
+        {project &&
+          project.map((project) => (
             <Link key={project._id} to={`/projects/${project._id}`}>
-              <ImagePreview
-                src={project.data.image}
-                alt={project.data.projectTitle}
-              />
+              <ImagePreview src={project.imageURL} alt={project.projectTitle} />
             </Link>
           ))}
       </Container>

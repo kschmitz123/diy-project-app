@@ -26,7 +26,7 @@ const Image = styled.img`
 `;
 
 export const ScrollMenu = () => {
-  const { data, loading, error, doFetch } = useAsync(getData);
+  const { data: project, loading, error, doFetch } = useAsync(getData);
 
   useEffect(() => {
     doFetch();
@@ -38,14 +38,11 @@ export const ScrollMenu = () => {
       {loading && <div>Loading...</div>}
       {error && <p>{error.message}</p>}
       <ScrollContainer>
-        {data &&
-          data.map((project) => (
+        {project &&
+          project.map((project) => (
             <Link key={project._id} to={`/projects/${project._id}`}>
               <ImageContainer>
-                <Image
-                  src={project.data.imageURL}
-                  alt={project.data.projectTitle}
-                />
+                <Image src={project.imageURL} alt={project.projectTitle} />
               </ImageContainer>
             </Link>
           ))}
