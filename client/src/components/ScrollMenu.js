@@ -26,7 +26,7 @@ const Image = styled.img`
 `;
 
 export const ScrollMenu = () => {
-  const { data, loading, error, doFetch } = useAsync(() => getData());
+  const { data, loading, error, doFetch } = useAsync(getData);
 
   useEffect(() => {
     doFetch();
