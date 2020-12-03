@@ -19,24 +19,25 @@ const NavLink = styled(Link)`
   align-items: center;
   flex-direction: column;
   text-decoration: none;
-`;
 
-const Image = styled.img`
-  width: 60%;
-  height: 60%;
-`;
-const ImageText = styled.p`
-  color: var(--button-color);
-  margin: 5px 0;
-`;
-const CategoryContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  img {
+    width: 60%;
+    height: 60%;
+  }
+  p {
+    color: var(--button-color);
+    margin: 5px 0;
+  }
 `;
 
 const Container = styled.div`
   margin: 0 10px;
   padding-bottom: 60px;
+
+  div {
+    display: flex;
+    flex-wrap: wrap;
+  }
 `;
 
 const categories = [
@@ -65,14 +66,14 @@ export const Categories = () => {
   return (
     <Container>
       <h3>Categories</h3>
-      <CategoryContainer>
+      <div>
         {categories.map((category) => (
           <NavLink key={category.title} to={category.link}>
-            <Image src={category.src} alt={category.alt} />
-            <ImageText>{category.title}</ImageText>
+            <img src={category.src} alt={category.alt} />
+            <p>{category.title}</p>
           </NavLink>
         ))}
-      </CategoryContainer>
+      </div>
     </Container>
   );
 };
