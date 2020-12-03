@@ -9,6 +9,7 @@ import ImagePreview from "../components/ImagePreview";
 import { Link } from "react-router-dom";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import { FaveButton } from "../components/Button";
+import TitlePreview from "../components/TitlePreview";
 
 const Container = styled.div`
   padding: 100px 0;
@@ -44,6 +45,7 @@ export const BrowsePage = () => {
                 <FaveButton>
                   <FavoriteIcon fontSize="large" />
                 </FaveButton>
+                <TitlePreview title={project.projectTitle} />
               </ImagePreview>
             </Link>
           ))}

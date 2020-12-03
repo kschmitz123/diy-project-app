@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import useAsync from "../utils/useAsync";
 import { getCategory } from "../utils/api";
+import TitlePreview from "../components/TitlePreview";
 
 export const CategoryPage = () => {
   const { category } = useParams();
@@ -29,7 +30,9 @@ export const CategoryPage = () => {
         {project &&
           project.map((project) => (
             <Link key={project._id} to={`/projects/${project._id}`}>
-              <ImagePreview src={project.imageURL} alt={project.projectTitle} />
+              <ImagePreview src={project.imageURL} alt={project.projectTitle}>
+                <TitlePreview title={project.projectTitle} />
+              </ImagePreview>
             </Link>
           ))}
       </Container>
