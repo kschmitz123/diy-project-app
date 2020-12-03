@@ -16,27 +16,12 @@ const port = process.env.PORT || 3001;
 app.use(express.static("public"));
 app.use(express.json({ limit: "50mb" }));
 
-app.post("/api/upload", async (request, response) => {
-  try {
-    const fileStr = request.body.data;
-    const uploadedResponse = await cloudinary.uploader.upload(fileStr, {
-      upload_preset: "upload",
-      width: 2000,
-      height: 1800,
-      crop: "limit",
-    });
-    response.status(200).send(uploadedResponse.secure_url);
-  } catch (error) {
-    console.error(error);
-    response.status(500).send("An error occured");
-  }
-});
-
 app.post("/api/projects/", async (request, response) => {
   const project = request.body;
   try {
-    await setProject(project);
-    response.status(200).send("Successfully uploaded");
+    const insertResult = await setProject(project);
+    const newProjectId = insertResult.insertedId;
+    response.status(200).json(newProjectId);
   } catch (error) {
     console.error(error);
     response.status(500).send("An internal server error occured");
