@@ -11,15 +11,16 @@ const Container = styled.div`
   height: 100vh;
   width: 100vw;
   background: var(--main-color);
+
+  h1 {
+    font-size: 3.5rem;
+  }
 `;
 
-const Title = styled.h1`
-  font-size: 3.5rem;
-`;
 export const LoadingScreen = () => {
   return (
     <Container>
-      <Title>Craftified</Title>
+      <h1>Craftified</h1>
       <img src={loadingAnimationSrc} alt="gif" />
     </Container>
   );
