@@ -5,8 +5,9 @@ import { Navbar } from "../components/Navbar";
 import { getData, getProjectByTag } from "../utils/api";
 import { useEffect, useState } from "react";
 import useAsync from "../utils/useAsync";
-import { ImagePreview } from "../components/ImagePreview";
+import { FaveIcon, ImagePreview } from "../components/ImagePreview";
 import { Link } from "react-router-dom";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 
 const Container = styled.div`
   padding: 100px 0;
@@ -38,7 +39,11 @@ export const BrowsePage = () => {
         {project &&
           project.map((project) => (
             <Link key={project._id} to={`/projects/${project._id}`}>
-              <ImagePreview src={project.imageURL} alt={project.projectTitle} />
+              <ImagePreview src={project.imageURL} alt={project.projectTitle}>
+                <FaveIcon>
+                  <FavoriteIcon fontSize="large" />
+                </FaveIcon>
+              </ImagePreview>
             </Link>
           ))}
       </Container>
