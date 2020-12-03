@@ -15,10 +15,10 @@ import { useHistory } from "react-router-dom";
 export default function UploadProject() {
   const [imageInput, setImageInput] = useState("");
   const [previewSource, setPreviewSource] = useState("");
-  const { register, handleSubmit } = useForm();
   const history = useHistory();
   const [errorMessage, setErrorMessage] = useState(null);
   const [loading, setLoading] = useState(false);
+  const { register, handleSubmit } = useForm();
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -36,11 +36,12 @@ export default function UploadProject() {
 
   const onSubmit = async (data) => {
     const tags = data.tags.match(/[^,\s?]+/g);
-    const { projectTitle, description, category } = data;
+    const { projectTitle, description, category, material } = data;
     try {
       setLoading(true);
       const formattedData = {
         projectTitle: projectTitle,
+        material: material,
         description: description,
         category: category,
         tags,
@@ -75,9 +76,21 @@ export default function UploadProject() {
           placeholder="Enter project title"
           name="projectTitle"
           ref={register}
+          required
+        />
+        <SmallInput
+          placeholder="Enter materials separated by comma"
+          name="material"
+          ref={register}
+          required
         />
         <LargeInput ref={register} name="description" />
-        <SmallInput placeholder="Enter tags" ref={register} name="tags" />
+        <SmallInput
+          placeholder="Enter tags separated by comma"
+          ref={register}
+          name="tags"
+          required
+        />
         <Select ref={register} name="category">
           <option value="">--Please choose a category--</option>
           <option value="sewing">Sewing</option>

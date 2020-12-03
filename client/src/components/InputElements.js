@@ -46,7 +46,6 @@ ImageInput.defaultProps = {
 
 SmallInput.defaultProps = {
   type: "text",
-  required: true,
 };
 
 LargeInput.defaultProps = {
