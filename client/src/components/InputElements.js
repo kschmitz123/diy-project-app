@@ -1,6 +1,7 @@
 import styled from "styled-components/macro";
 
 export const Form = styled.form`
+  margin: 60px 0;
   display: flex;
   flex-direction: column;
   align-items: center;

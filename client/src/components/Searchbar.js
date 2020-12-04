@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 const Form = styled.form`
   display: flex;
   justify-content: center;
+  margin-bottom: 40px;
 
   input {
     text-align: center;
