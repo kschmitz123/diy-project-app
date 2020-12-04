@@ -19,10 +19,10 @@ function App() {
   }, []);
 
   return (
-    <div className="box">
-      <Router>
-        <GlobalStyle />
-        {loading ? <></> : <Header title={"Craftified"} />}
+    <Router>
+      <GlobalStyle />
+      {loading ? <></> : <Header title={"Craftified"} />}
+      <div className="box">
         <Switch>
           <Route exact path="/">
             {loading ? <LoadingScreen /> : <HomePage />}
@@ -43,9 +43,9 @@ function App() {
             <AddProjectPage />
           </Route>
         </Switch>
-        {loading ? <></> : <Navbar />}
-      </Router>
-    </div>
+      </div>
+      {loading ? <></> : <Navbar />}
+    </Router>
   );
 }
 
