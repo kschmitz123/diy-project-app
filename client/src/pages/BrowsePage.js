@@ -12,7 +12,7 @@ import { FaveButton } from "../components/Button";
 import TitlePreview from "../components/TitlePreview";
 
 const Container = styled.div`
-  padding: 100px 0;
+  padding: 60px 0;
   margin: 0 10px;
   display: flex;
   flex-direction: column;

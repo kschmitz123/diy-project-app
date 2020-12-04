@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 import UploadProject from "../components/UploadProject";
 
 const Container = styled.div`
-  padding: 60px 0;
+  padding: 10px 0;
   margin: 0 10px;
   display: flex;
   flex-direction: column;

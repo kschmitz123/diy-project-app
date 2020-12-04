@@ -5,7 +5,7 @@ import { getData } from "../utils/api";
 import useAsync from "../utils/useAsync";
 
 const Container = styled.div`
-  padding-top: 60px;
+  padding-top: 10px;
   margin: 0 10px;
 `;
 const ScrollContainer = styled.div`

@@ -23,6 +23,7 @@ export const LargeInput = styled.textarea`
 `;
 
 export const ImageInput = styled.input`
+  margin-bottom: 10px;
   height: 2rem;
   width: 120px;
   border-radius: 25px;
