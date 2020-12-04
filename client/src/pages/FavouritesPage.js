@@ -1,16 +1,22 @@
 import ImagePreview from "../components/ImagePreview";
 import Container from "../components/Container";
 import { Link } from "react-router-dom";
+import Header from "../components/Header";
+import Navbar from "../components/Navbar";
 
 export const FavouritesPage = () => {
   return (
-    <Container>
-      <Link to="/details">
+    <>
+      <Header title={"Favourites"} />
+      <Container>
+        <Link to="/details">
+          <ImagePreview />
+        </Link>
         <ImagePreview />
-      </Link>
-      <ImagePreview />
-      <ImagePreview />
-      <ImagePreview />
-    </Container>
+        <ImagePreview />
+        <ImagePreview />
+      </Container>
+      <Navbar />
+    </>
   );
 };

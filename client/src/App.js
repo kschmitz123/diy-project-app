@@ -21,30 +21,27 @@ function App() {
   return (
     <Router>
       <GlobalStyle />
-      {loading ? <></> : <Header title={"Craftified"} />}
-      <div className="box">
-        <Switch>
-          <Route exact path="/">
-            {loading ? <LoadingScreen /> : <HomePage />}
-          </Route>
-          <Route path="/category/:category">
-            <CategoryPage />
-          </Route>
-          <Route path="/browse">
-            <BrowsePage />
-          </Route>
-          <Route path="/projects/:projectId">
-            <DetailsPage />
-          </Route>
-          <Route path="/favourites">
-            <FavouritesPage />
-          </Route>
-          <Route path="/add">
-            <AddProjectPage />
-          </Route>
-        </Switch>
-      </div>
-      {loading ? <></> : <Navbar />}
+
+      <Switch>
+        <Route exact path="/">
+          {loading ? <LoadingScreen /> : <HomePage />}
+        </Route>
+        <Route path="/category/:category">
+          <CategoryPage />
+        </Route>
+        <Route path="/browse">
+          <BrowsePage />
+        </Route>
+        <Route path="/projects/:projectId">
+          <DetailsPage />
+        </Route>
+        <Route path="/favourites">
+          <FavouritesPage />
+        </Route>
+        <Route path="/add">
+          <AddProjectPage />
+        </Route>
+      </Switch>
     </Router>
   );
 }
