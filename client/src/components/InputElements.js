@@ -49,10 +49,10 @@ SmallInput.defaultProps = {
 };
 
 LargeInput.defaultProps = {
-  maxLength: "500",
+  maxLength: "1000",
   required: true,
   type: "text",
-  placeholder: "Enter project description (max 500 characters)",
+  placeholder: "Enter project description (max 1000 characters)",
 };
 
 Select.defaultProps = { required: true };
