@@ -35,8 +35,8 @@ export default function UploadProject() {
   };
 
   const onSubmit = async (data) => {
-    const tags = data.tags.match(/[^,\s?]+/g);
-    const material = data.material.match(/[^,\s?]+/g);
+    const tags = data.tags.split(",");
+    const material = data.material.split(",");
     const { projectTitle, description, category } = data;
     try {
       setLoading(true);
