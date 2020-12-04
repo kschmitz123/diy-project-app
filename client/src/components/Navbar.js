@@ -13,7 +13,7 @@ const Footer = styled.footer`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  position: fixed;
+  position: sticky;
   bottom: 0;
 `;
 

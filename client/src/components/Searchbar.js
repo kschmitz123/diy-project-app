@@ -9,7 +9,8 @@ const Form = styled.form`
     text-align: center;
     height: 2rem;
     border-radius: 25px;
-    width: 70%;
+    width: 60%;
+    max-width: 680px;
     border: solid 1px var(--secondary-font-color);
     position: fixed;
     top: 60px;

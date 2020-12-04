@@ -12,7 +12,7 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 1;
 
@@ -26,7 +26,7 @@ const SearchButton = styled.button`
   border: none;
   cursor: pointer;
   z-index: 2;
-  position: fixed;
+  position: absolute;
   top: 8px;
   right: 10px;
   ${(props) =>
