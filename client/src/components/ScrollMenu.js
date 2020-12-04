@@ -11,7 +11,7 @@ const Container = styled.div`
 const ScrollContainer = styled.div`
   display: flex;
   overflow-x: auto;
-  max-height: 200px;
+  max-height: 220px;
 `;
 
 const ImageContainer = styled.div`
