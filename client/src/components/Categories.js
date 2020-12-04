@@ -3,6 +3,8 @@ import Sewing from "../assets/sewing-machine.svg";
 import Macrame from "../assets/macrame.svg";
 import Paint from "../assets/color-palette.svg";
 import Woodwork from "../assets/woodworking.svg";
+import Upcycling from "../assets/upcycling.svg";
+import Crafts from "../assets/crafts.svg";
 import { Link } from "react-router-dom";
 
 const NavLink = styled(Link)`
@@ -57,8 +59,20 @@ const categories = [
   {
     link: "category/woodwork",
     src: Woodwork,
-    alt: "Woodwor",
+    alt: "Woodword",
     title: "Woodwork",
+  },
+  {
+    link: "category/upcycling",
+    src: Upcycling,
+    alt: "Upcycling",
+    title: "Upcycling",
+  },
+  {
+    link: "category/crafts",
+    src: Crafts,
+    alt: "Crafts",
+    title: "Crafts",
   },
 ];
 const Categories = () => {
