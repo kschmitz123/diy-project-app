@@ -9,7 +9,7 @@ const Container = styled.div`
   margin: 0;
   padding: 0;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background: var(--main-color);
 
   h1 {
