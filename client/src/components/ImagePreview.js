@@ -5,6 +5,7 @@ const Container = styled.div`
   width: 100%;
   height: auto;
   position: relative;
+  margin-bottom: 10px;
 
   img {
     border-radius: 25px;
