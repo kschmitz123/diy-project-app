@@ -1,8 +1,8 @@
-import { Header } from "../components/Header";
-import { ImagePreview } from "../components/ImagePreview";
-import { Navbar } from "../components/Navbar";
-import { Container } from "../components/Container";
+import ImagePreview from "../components/ImagePreview";
+import Container from "../components/Container";
 import { Link } from "react-router-dom";
+import Header from "../components/Header";
+import Navbar from "../components/Navbar";
 
 export const FavouritesPage = () => {
   return (
@@ -16,7 +16,6 @@ export const FavouritesPage = () => {
         <ImagePreview />
         <ImagePreview />
       </Container>
-
       <Navbar />
     </>
   );

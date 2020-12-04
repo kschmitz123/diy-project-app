@@ -4,12 +4,14 @@ import PropTypes from "prop-types";
 const Form = styled.form`
   display: flex;
   justify-content: center;
+  margin-bottom: 40px;
 
   input {
     text-align: center;
     height: 2rem;
     border-radius: 25px;
-    width: 70%;
+    width: 60%;
+    max-width: 680px;
     border: solid 1px var(--secondary-font-color);
     position: fixed;
     top: 60px;
@@ -17,7 +19,7 @@ const Form = styled.form`
   }
 `;
 
-export const Searchbar = ({ value, onSubmit, onChange, name }) => {
+const Searchbar = ({ value, onSubmit, onChange, name }) => {
   return (
     <Form onSubmit={onSubmit}>
       <input
@@ -30,6 +32,7 @@ export const Searchbar = ({ value, onSubmit, onChange, name }) => {
     </Form>
   );
 };
+export default Searchbar;
 
 Searchbar.propTypes = {
   onChange: PropTypes.func,

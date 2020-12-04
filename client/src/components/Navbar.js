@@ -27,7 +27,7 @@ const NavLink = styled(Link)`
       : `color: #fff`}
 `;
 
-export const Navbar = () => {
+const Navbar = () => {
   const location = useLocation();
   useEffect(() => {}, [location]);
 
@@ -45,3 +45,4 @@ export const Navbar = () => {
     </Footer>
   );
 };
+export default Navbar;

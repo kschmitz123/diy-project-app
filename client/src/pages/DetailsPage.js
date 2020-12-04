@@ -1,16 +1,12 @@
 import { useEffect } from "react";
 import styled from "styled-components/macro";
-import { Header } from "../components/Header";
-import { ImagePreview } from "../components/ImagePreview";
-import { Navbar } from "../components/Navbar";
-import { Container } from "../components/Container";
+import ImagePreview from "../components/ImagePreview";
+import Container from "../components/Container";
 import { getProjectById } from "../utils/api";
 import { useParams } from "react-router-dom";
 import useAsync from "../utils/useAsync";
-
-const StyledContainer = styled(Container)`
-  margin: 0 20px;
-`;
+import Header from "../components/Header";
+import Navbar from "../components/Navbar";
 
 const Title = styled.h3`
   font-size: 1.4rem;
@@ -31,7 +27,7 @@ export const DetailsPage = () => {
   return (
     <>
       <Header title={"Project Details"} />
-      <StyledContainer>
+      <Container>
         {loading && <div>Loading...</div>}
         {error && <p>{error.message}</p>}
         {project && (
@@ -41,7 +37,7 @@ export const DetailsPage = () => {
             <div>{project.description}</div>
           </>
         )}
-      </StyledContainer>
+      </Container>
       <Navbar />
     </>
   );

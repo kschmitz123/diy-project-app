@@ -11,21 +11,21 @@ const Container = styled.div`
 const ScrollContainer = styled.div`
   display: flex;
   overflow-x: auto;
-  max-height: 200px;
+  max-height: 220px;
 `;
 
 const ImageContainer = styled.div`
   height: 190px;
   width: 190px;
   margin: 5px;
-`;
-const Image = styled.img`
-  border-radius: 25px;
-  height: inherit;
-  width: inherit;
-`;
 
-export const ScrollMenu = () => {
+  img {
+    border-radius: 25px;
+    height: inherit;
+    width: inherit;
+  }
+`;
+const ScrollMenu = () => {
   const { data: project, loading, error, doFetch } = useAsync(getData);
 
   useEffect(() => {
@@ -42,7 +42,7 @@ export const ScrollMenu = () => {
           project.map((project) => (
             <Link key={project._id} to={`/projects/${project._id}`}>
               <ImageContainer>
-                <Image src={project.imageURL} alt={project.projectTitle} />
+                <img src={project.imageURL} alt={project.projectTitle} />
               </ImageContainer>
             </Link>
           ))}
@@ -50,3 +50,4 @@ export const ScrollMenu = () => {
     </Container>
   );
 };
+export default ScrollMenu;

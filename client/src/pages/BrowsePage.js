@@ -1,20 +1,15 @@
-import styled from "styled-components/macro";
-import { Header } from "../components/Header";
-import { Searchbar } from "../components/Searchbar";
-import { Navbar } from "../components/Navbar";
+import Searchbar from "../components/Searchbar";
 import { getData, getProjectByTag } from "../utils/api";
 import { useEffect, useState } from "react";
 import useAsync from "../utils/useAsync";
-import { ImagePreview } from "../components/ImagePreview";
+import ImagePreview from "../components/ImagePreview";
 import { Link } from "react-router-dom";
-
-const Container = styled.div`
-  padding: 100px 0;
-  margin: 0 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import { FaveButton } from "../components/Button";
+import TitlePreview from "../components/TitlePreview";
+import Header from "../components/Header";
+import Navbar from "../components/Navbar";
+import Container from "../components/Container";
 
 export const BrowsePage = () => {
   const [method, setMethod] = useState(getData);
@@ -38,11 +33,15 @@ export const BrowsePage = () => {
         {project &&
           project.map((project) => (
             <Link key={project._id} to={`/projects/${project._id}`}>
-              <ImagePreview src={project.imageURL} alt={project.projectTitle} />
+              <ImagePreview src={project.imageURL} alt={project.projectTitle}>
+                <FaveButton>
+                  <FavoriteIcon fontSize="large" />
+                </FaveButton>
+                <TitlePreview title={project.projectTitle} />
+              </ImagePreview>
             </Link>
           ))}
       </Container>
-
       <Navbar />
     </>
   );

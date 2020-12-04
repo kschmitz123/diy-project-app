@@ -1,6 +1,7 @@
 import styled from "styled-components/macro";
 
 export const Form = styled.form`
+  margin: 60px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,6 +24,7 @@ export const LargeInput = styled.textarea`
 `;
 
 export const ImageInput = styled.input`
+  margin-bottom: 10px;
   height: 2rem;
   width: 120px;
   border-radius: 25px;
@@ -46,14 +48,13 @@ ImageInput.defaultProps = {
 
 SmallInput.defaultProps = {
   type: "text",
-  required: true,
 };
 
 LargeInput.defaultProps = {
-  maxLength: "500",
+  maxLength: "1000",
   required: true,
   type: "text",
-  placeholder: "Enter project description (max 500 characters)",
+  placeholder: "Enter project description (max 1000 characters)",
 };
 
 Select.defaultProps = { required: true };
