@@ -47,14 +47,11 @@ export default function UploadProject() {
         tags,
         material,
       };
-
-      console.log(formattedData);
       if (!previewSource) return;
       const project = await postProject({
         formattedData: formattedData,
         image: previewSource,
       });
-      console.log(formattedData);
       setLoading(false);
       history.push(`/projects/${project}`);
     } catch (error) {
