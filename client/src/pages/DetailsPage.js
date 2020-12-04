@@ -1,8 +1,6 @@
 import { useEffect } from "react";
 import styled from "styled-components/macro";
-import Header from "../components/Header";
 import ImagePreview from "../components/ImagePreview";
-import Navbar from "../components/Navbar";
 import Container from "../components/Container";
 import { getProjectById } from "../utils/api";
 import { useParams } from "react-router-dom";
@@ -29,20 +27,16 @@ export const DetailsPage = () => {
   }, []);
 
   return (
-    <>
-      <Header title={"Project Details"} />
-      <StyledContainer>
-        {loading && <div>Loading...</div>}
-        {error && <p>{error.message}</p>}
-        {project && (
-          <>
-            <ImagePreview src={project.imageURL} alt={project.projectTitle} />
-            <Title>{project.projectTitle}</Title>
-            <div>{project.description}</div>
-          </>
-        )}
-      </StyledContainer>
-      <Navbar />
-    </>
+    <StyledContainer>
+      {loading && <div>Loading...</div>}
+      {error && <p>{error.message}</p>}
+      {project && (
+        <>
+          <ImagePreview src={project.imageURL} alt={project.projectTitle} />
+          <Title>{project.projectTitle}</Title>
+          <div>{project.description}</div>
+        </>
+      )}
+    </StyledContainer>
   );
 };

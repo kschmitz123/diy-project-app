@@ -1,7 +1,5 @@
 import styled from "styled-components/macro";
-import Header from "../components/Header";
 import Searchbar from "../components/Searchbar";
-import Navbar from "../components/Navbar";
 import { getData, getProjectByTag } from "../utils/api";
 import { useEffect, useState } from "react";
 import useAsync from "../utils/useAsync";
@@ -32,26 +30,21 @@ export const BrowsePage = () => {
     setMethod(getProjectByTag(event.target.tag.value));
   };
   return (
-    <>
-      <Header title={"Browse Projects"} />
-      <Container>
-        <Searchbar name="tag" onSubmit={handleSubmit} />
-        {loading && <div>Loading...</div>}
-        {error && <p>{error.message}</p>}
-        {project &&
-          project.map((project) => (
-            <Link key={project._id} to={`/projects/${project._id}`}>
-              <ImagePreview src={project.imageURL} alt={project.projectTitle}>
-                <FaveButton>
-                  <FavoriteIcon fontSize="large" />
-                </FaveButton>
-                <TitlePreview title={project.projectTitle} />
-              </ImagePreview>
-            </Link>
-          ))}
-      </Container>
-
-      <Navbar />
-    </>
+    <Container>
+      <Searchbar name="tag" onSubmit={handleSubmit} />
+      {loading && <div>Loading...</div>}
+      {error && <p>{error.message}</p>}
+      {project &&
+        project.map((project) => (
+          <Link key={project._id} to={`/projects/${project._id}`}>
+            <ImagePreview src={project.imageURL} alt={project.projectTitle}>
+              <FaveButton>
+                <FavoriteIcon fontSize="large" />
+              </FaveButton>
+              <TitlePreview title={project.projectTitle} />
+            </ImagePreview>
+          </Link>
+        ))}
+    </Container>
   );
 };

@@ -1,6 +1,4 @@
 import styled from "styled-components/macro";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
 import UploadProject from "../components/UploadProject";
 
 const Container = styled.div`
@@ -13,13 +11,8 @@ const Container = styled.div`
 
 export const AddProjectPage = () => {
   return (
-    <>
-      <Header title={"Add a Project"} />
-
-      <Container>
-        <UploadProject />
-      </Container>
-      <Navbar />
-    </>
+    <Container>
+      <UploadProject />
+    </Container>
   );
 };

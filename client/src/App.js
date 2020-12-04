@@ -8,6 +8,8 @@ import { BrowsePage } from "./pages/BrowsePage";
 import { CategoryPage } from "./pages/CategoryPage";
 import { DetailsPage } from "./pages/DetailsPage";
 import { FavouritesPage } from "./pages/FavouritesPage";
+import Header from "./components/Header";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -20,6 +22,7 @@ function App() {
     <div className="box">
       <Router>
         <GlobalStyle />
+        {loading ? <></> : <Header title={"Craftified"} />}
         <Switch>
           <Route exact path="/">
             {loading ? <LoadingScreen /> : <HomePage />}
@@ -40,6 +43,7 @@ function App() {
             <AddProjectPage />
           </Route>
         </Switch>
+        {loading ? <></> : <Navbar />}
       </Router>
     </div>
   );
