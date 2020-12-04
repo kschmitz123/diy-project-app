@@ -13,6 +13,14 @@ const GlobalStyle = createGlobalStyle`
     --button-color: white;
 }
 
+.box {
+  min-width: 320px;
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+}
+
+
 body
  {
   margin: 0;
