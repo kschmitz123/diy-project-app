@@ -36,15 +36,16 @@ export default function UploadProject() {
 
   const onSubmit = async (data) => {
     const tags = data.tags.match(/[^,\s?]+/g);
-    const { projectTitle, description, category, material } = data;
+    const material = data.material.match(/[^,\s?]+/g);
+    const { projectTitle, description, category } = data;
     try {
       setLoading(true);
       const formattedData = {
         projectTitle: projectTitle,
-        material: material,
         description: description,
         category: category,
         tags,
+        material,
       };
 
       console.log(formattedData);
@@ -97,6 +98,8 @@ export default function UploadProject() {
           <option value="macrame">Macrame</option>
           <option value="woodwork">Woodwork</option>
           <option value="paint">Paint</option>
+          <option value="crafts">Crafts</option>
+          <option value="upcycling">Upcycling</option>
         </Select>
 
         <Button type="submit">Upload Project</Button>
