@@ -1,8 +1,7 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
 import { getData } from "../utils/api";
-import useAsync from "../utils/useAsync";
+import { useQuery } from "react-query";
 
 const Container = styled.div`
   padding-top: 60px;
@@ -26,27 +25,25 @@ const ImageContainer = styled.div`
   }
 `;
 const ScrollMenu = () => {
-  const { data: project, loading, error, doFetch } = useAsync(getData);
-
-  useEffect(() => {
-    doFetch();
-  }, []);
+  const { data: project, status } = useQuery("projects", getData);
 
   return (
     <Container>
       <h3>Latest</h3>
-      {loading && <div>Loading...</div>}
-      {error && <p>{error.message}</p>}
-      <ScrollContainer>
-        {project &&
-          project.map((project) => (
-            <Link key={project._id} to={`/projects/${project._id}`}>
-              <ImageContainer>
-                <img src={project.imageURL} alt={project.projectTitle} />
-              </ImageContainer>
-            </Link>
-          ))}
-      </ScrollContainer>
+      {status === "loading" && <div>Loading...</div>}
+      {status === "error" && <div>404 Error fetching proejcts</div>}
+      {status === "success" && (
+        <ScrollContainer>
+          {project &&
+            project.map((project) => (
+              <Link key={project._id} to={`/projects/${project._id}`}>
+                <ImageContainer>
+                  <img src={project.imageURL} alt={project.projectTitle} />
+                </ImageContainer>
+              </Link>
+            ))}
+        </ScrollContainer>
+      )}
     </Container>
   );
 };

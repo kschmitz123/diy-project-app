@@ -8,25 +8,20 @@ export async function postProject(project) {
   return newProject;
 }
 
-export async function getData() {
-  const response = await fetch(`/api/projects`);
+export async function getData(key) {
+  const response = await fetch(`/api/${key}`);
   const data = await response.json();
   return data;
 }
 
-export async function getProjectById(id) {
-  const response = await fetch(`/api/projects/${id}`);
-  const project = await response.json();
-  return project;
-}
 export async function getProjectByTag(tag) {
   const response = await fetch(`/api/browse/${tag}`);
   const project = await response.json();
   return project;
 }
 
-export async function getCategory(category) {
-  const response = await fetch(`/api/categories/${category}`);
+export async function getDataByParam(key, category) {
+  const response = await fetch(`/api/${key}/${category}`);
   const projects = await response.json();
   return projects;
 }
