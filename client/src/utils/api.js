@@ -14,12 +14,6 @@ export async function getData(key) {
   return data;
 }
 
-export async function getProjectByTag(tag) {
-  const response = await fetch(`/api/browse/${tag}`);
-  const project = await response.json();
-  return project;
-}
-
 export async function getDataByParam(key, category) {
   const response = await fetch(`/api/${key}/${category}`);
   const projects = await response.json();
