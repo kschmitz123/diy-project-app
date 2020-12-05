@@ -9,16 +9,17 @@ import {
 } from "./InputElements";
 import ImagePreview from "./ImagePreview";
 import { useForm } from "react-hook-form";
-import { postProject } from "../utils/api";
 import { useHistory } from "react-router-dom";
+import { useMutation } from "react-query";
+import { createProject } from "../utils/createProject";
 
 export default function UploadProject() {
   const [imageInput, setImageInput] = useState("");
   const [previewSource, setPreviewSource] = useState("");
   const history = useHistory();
-  const [errorMessage, setErrorMessage] = useState(null);
-  const [loading, setLoading] = useState(false);
   const { register, handleSubmit } = useForm();
+
+  const [mutate, { status }] = useMutation(createProject);
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -38,25 +39,18 @@ export default function UploadProject() {
     const tags = data.tags.split(",");
     const material = data.material.split(",");
     const { projectTitle, description, category } = data;
+    const formattedData = {
+      projectTitle: projectTitle,
+      description: description,
+      category: category,
+      tags,
+      material,
+    };
     try {
-      setLoading(true);
-      const formattedData = {
-        projectTitle: projectTitle,
-        description: description,
-        category: category,
-        tags,
-        material,
-      };
-      if (!previewSource) return;
-      const project = await postProject({
-        formattedData: formattedData,
-        image: previewSource,
-      });
-      setLoading(false);
+      const project = await mutate({ formattedData, previewSource });
       history.push(`/projects/${project}`);
     } catch (error) {
-      setErrorMessage(error.message);
-      setLoading(false);
+      console.error(error);
     }
   };
 
@@ -100,9 +94,9 @@ export default function UploadProject() {
         </Select>
 
         <Button type="submit">Upload Project</Button>
+        {status === "loading" && <div>Loading...</div>}
+        {status === "error" && <div>404 Error fetching projects</div>}
       </Form>
-      {errorMessage && { errorMessage }}
-      {loading && <div>Loading...</div>}
     </>
   );
 }
