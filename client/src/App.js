@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import GlobalStyle from "./GlobalStyle";
 import { LoadingScreen } from "./components/LoadingScreen";
-import { HomePage } from "./pages/HomePage";
+// import { HomePage } from "./pages/HomePage";
 import routes from "./utils/routes";
+import { LoginPage } from "./pages/LoginPage";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -17,7 +18,7 @@ function App() {
       <GlobalStyle />
       <Switch>
         <Route exact path="/">
-          {loading ? <LoadingScreen /> : <HomePage />}
+          {loading ? <LoadingScreen /> : <LoginPage />}
         </Route>
         {routes.map((route) => (
           <Route
