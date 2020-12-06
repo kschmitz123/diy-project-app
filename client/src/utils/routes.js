@@ -8,12 +8,8 @@ import { LoginPage } from "../pages/LoginPage";
 
 const routes = [
   {
-    path: "/",
+    path: "/home",
     component: HomePage,
-  },
-  {
-    path: "/login",
-    component: LoginPage,
   },
   {
     path: "/category/:category",
