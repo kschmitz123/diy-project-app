@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import GlobalStyle from "./GlobalStyle";
 import { LoadingScreen } from "./components/LoadingScreen";
-// import { HomePage } from "./pages/HomePage";
 import routes from "./utils/routes";
 import { LoginPage } from "./pages/LoginPage";
 
