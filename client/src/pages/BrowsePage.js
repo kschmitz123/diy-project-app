@@ -1,7 +1,7 @@
 import Searchbar from "../components/Searchbar";
-import { getData, getProjectByTag } from "../utils/api";
-import { useEffect, useState } from "react";
-import useAsync from "../utils/useAsync";
+import { getDataByParam } from "../utils/api";
+import { useState } from "react";
+import { useQuery } from "react-query";
 import ImagePreview from "../components/ImagePreview";
 import { Link } from "react-router-dom";
 import FavoriteIcon from "@material-ui/icons/Favorite";
@@ -12,35 +12,45 @@ import Navbar from "../components/Navbar";
 import Container from "../components/Container";
 
 export const BrowsePage = () => {
-  const [method, setMethod] = useState(getData);
-  const { data: project, loading, error, doFetch } = useAsync(() => method);
+  const [tag, setTag] = useState("");
+  const { data: project, status, refetch } = useQuery(
+    ["browse", tag],
+    getDataByParam,
+    {
+      enabled: false,
+    }
+  );
 
-  useEffect(() => {
-    doFetch();
-  }, [method]);
-
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    setMethod(getProjectByTag(event.target.tag.value));
+    await setTag(event.target.tag.value);
+    refetch();
   };
   return (
     <>
       <Header title={"Browse Projects"} />
       <Container>
         <Searchbar name="tag" onSubmit={handleSubmit} />
-        {loading && <div>Loading...</div>}
-        {error && <p>{error.message}</p>}
-        {project &&
-          project.map((project) => (
-            <Link key={project._id} to={`/projects/${project._id}`}>
-              <ImagePreview src={project.imageURL} alt={project.projectTitle}>
-                <FaveButton>
-                  <FavoriteIcon fontSize="large" />
-                </FaveButton>
-                <TitlePreview title={project.projectTitle} />
-              </ImagePreview>
-            </Link>
-          ))}
+        {status === "loading" && <div>Loading...</div>}
+        {status === "error" && <div>404 Error fetching proejcts</div>}
+        {status === "success" && (
+          <span>
+            {project &&
+              project.map((project) => (
+                <Link key={project._id} to={`/projects/${project._id}`}>
+                  <ImagePreview
+                    src={project.imageURL}
+                    alt={project.projectTitle}
+                  >
+                    <FaveButton>
+                      <FavoriteIcon fontSize="large" />
+                    </FaveButton>
+                    <TitlePreview title={project.projectTitle} />
+                  </ImagePreview>
+                </Link>
+              ))}
+          </span>
+        )}
       </Container>
       <Navbar />
     </>

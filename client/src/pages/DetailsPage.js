@@ -1,12 +1,11 @@
-import { useEffect } from "react";
 import styled from "styled-components/macro";
 import ImagePreview from "../components/ImagePreview";
 import Container from "../components/Container";
-import { getProjectById } from "../utils/api";
+import { getDataByParam } from "../utils/api";
 import { useParams } from "react-router-dom";
-import useAsync from "../utils/useAsync";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
+import { useQuery } from "react-query";
 
 const Title = styled.h3`
   font-size: 1.4rem;
@@ -16,28 +15,27 @@ const Title = styled.h3`
 
 export const DetailsPage = () => {
   const { projectId } = useParams();
-  const { data: project, loading, error, doFetch } = useAsync(() =>
-    getProjectById(projectId)
+  const { data: project, status } = useQuery(
+    ["projects", projectId],
+    getDataByParam
   );
-
-  useEffect(() => {
-    doFetch();
-  }, []);
 
   return (
     <>
       <Header title={"Project Details"} />
-      <Container>
-        {loading && <div>Loading...</div>}
-        {error && <p>{error.message}</p>}
-        {project && (
-          <>
-            <ImagePreview src={project.imageURL} alt={project.projectTitle} />
-            <Title>{project.projectTitle}</Title>
-            <div>{project.description}</div>
-          </>
-        )}
-      </Container>
+      {status === "loading" && <div>Loading...</div>}
+      {status === "error" && <div>404 Error fetching proejcts</div>}
+      {status === "success" && (
+        <Container>
+          {project && (
+            <>
+              <ImagePreview src={project.imageURL} alt={project.projectTitle} />
+              <Title>{project.projectTitle}</Title>
+              <div>{project.description}</div>
+            </>
+          )}
+        </Container>
+      )}
       <Navbar />
     </>
   );
