@@ -3,8 +3,9 @@ import { Container } from "../components/LoadingScreen";
 import { Button } from "../components/Button";
 import styled from "styled-components/macro";
 import { useHistory } from "react-router-dom";
-import { postUser } from "../utils/api/users";
 import { useForm } from "react-hook-form";
+import { loginUser } from "../contexts/loginUser";
+import { useAuthDispatch } from "../contexts/context";
 
 const FormContainer = styled.div`
   display: flex;
@@ -23,10 +24,16 @@ const FormContainer = styled.div`
 export const LoginPage = () => {
   const history = useHistory();
   const { register, handleSubmit } = useForm();
+  const dispatch = useAuthDispatch();
 
-  const onSubmit = async (data) => {
-    await postUser(data);
-    history.push("/home");
+  const onSubmit = async ({ username, password }) => {
+    try {
+      let response = await loginUser(dispatch, { username, password });
+      if (!response.username) return;
+      history.push("/home");
+    } catch (error) {
+      console.error(error);
+    }
   };
   return (
     <Container>
