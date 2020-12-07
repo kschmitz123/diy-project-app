@@ -10,6 +10,7 @@ const {
   getCategory,
   getProjectbyTag,
 } = require("./lib/projects");
+const { setUser } = require("./lib/users");
 
 const port = process.env.PORT || 3001;
 app.use(express.static("public"));
@@ -26,6 +27,18 @@ app.post("/api/projects/", async (request, response) => {
     response.status(500).send("An internal server error occured");
   }
 });
+
+app.post("/api/users/", async (request, response) => {
+  const user = request.body;
+  try {
+    await setUser(user);
+    response.status(200).send(user);
+  } catch (error) {
+    console.error(error);
+    response.status(500).send("An internal server error occured");
+  }
+});
+
 app.get("/api/projects/", async (request, response) => {
   const { projects } = request.params;
   try {
