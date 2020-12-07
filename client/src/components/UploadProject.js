@@ -68,20 +68,17 @@ export default function UploadProject() {
           placeholder="Enter project title"
           name="projectTitle"
           ref={register}
-          required
         />
         <SmallInput
           placeholder="Enter materials separated by comma"
           name="material"
           ref={register}
-          required
         />
         <LargeInput ref={register} name="description" />
         <SmallInput
           placeholder="Enter tags separated by comma"
           ref={register}
           name="tags"
-          required
         />
         <Select ref={register} name="category">
           <option value="">--Please choose a category--</option>

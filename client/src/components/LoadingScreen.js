@@ -1,7 +1,7 @@
 import styled from "styled-components/macro";
 import loadingAnimationSrc from "../assets/loading_animation.gif";
 
-const Container = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
