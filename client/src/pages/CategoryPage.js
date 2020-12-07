@@ -3,7 +3,7 @@ import Container from "../components/Container";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
-import { getDataByParam } from "../utils/api";
+import { getDataByParam } from "../utils/api/projects";
 import TitlePreview from "../components/TitlePreview";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";

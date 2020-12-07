@@ -1,5 +1,5 @@
 import Searchbar from "../components/Searchbar";
-import { getDataByParam } from "../utils/api";
+import { getDataByParam } from "../utils/api/projects";
 import { useState } from "react";
 import { useQuery } from "react-query";
 import ImagePreview from "../components/ImagePreview";
