@@ -14,8 +14,8 @@ export async function getData(key) {
   return data;
 }
 
-export async function getDataByParam(key, category) {
-  const response = await fetch(`/api/${key}/${category}`);
+export async function getDataByParam(key, param) {
+  const response = await fetch(`/api/${key}/${param}`);
   const projects = await response.json();
   return projects;
 }
