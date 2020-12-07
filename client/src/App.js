@@ -4,7 +4,7 @@ import GlobalStyle from "./GlobalStyle";
 import { LoadingScreen } from "./components/LoadingScreen";
 import routes from "./utils/routes";
 import { LoginPage } from "./pages/LoginPage";
-import { AuthProvider } from "./contexts/context";
+import { AuthProvider } from "./utils/contexts/context";
 
 function App() {
   const [loading, setLoading] = useState(true);

@@ -4,8 +4,8 @@ import { Button } from "../components/Button";
 import styled from "styled-components/macro";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { loginUser } from "../contexts/loginUser";
-import { useAuthDispatch } from "../contexts/context";
+import { loginUser } from "../utils/loginUser";
+import { useAuthDispatch } from "../utils/contexts/context";
 
 const FormContainer = styled.div`
   display: flex;
