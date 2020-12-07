@@ -4,6 +4,7 @@ import GlobalStyle from "./GlobalStyle";
 import { LoadingScreen } from "./components/LoadingScreen";
 import routes from "./utils/routes";
 import { LoginPage } from "./pages/LoginPage";
+import { AuthProvider } from "./contexts/context";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -13,21 +14,23 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <GlobalStyle />
-      <Switch>
-        <Route exact path="/">
-          {loading ? <LoadingScreen /> : <LoginPage />}
-        </Route>
-        {routes.map((route) => (
-          <Route
-            key={route.path}
-            path={route.path}
-            component={route.component}
-          />
-        ))}
-      </Switch>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <GlobalStyle />
+        <Switch>
+          <Route exact path="/">
+            {loading ? <LoadingScreen /> : <LoginPage />}
+          </Route>
+          {routes.map((route) => (
+            <Route
+              key={route.path}
+              path={route.path}
+              component={route.component}
+            />
+          ))}
+        </Switch>
+      </Router>
+    </AuthProvider>
   );
 }
 
