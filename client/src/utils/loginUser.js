@@ -6,7 +6,7 @@ export const loginUser = async (dispatch, loginPayload) => {
     const data = await postUser(loginPayload);
     if (data.username) {
       dispatch({ type: "LOGIN_SUCCESS", payload: data });
-      localStorage.setItem("currentUser", JSON.stringify(data.username));
+      localStorage.setItem("currentUser", JSON.stringify(data));
       return data;
     }
     dispatch({ tyle: "LOGIN_ERROR", error: data.errors[0] });
