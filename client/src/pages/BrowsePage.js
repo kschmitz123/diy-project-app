@@ -4,8 +4,6 @@ import { useState } from "react";
 import { useQuery } from "react-query";
 import ImagePreview from "../components/ImagePreview";
 import { Link } from "react-router-dom";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import { FaveButton } from "../components/Buttons";
 import TitlePreview from "../components/TitlePreview";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
@@ -42,9 +40,6 @@ export const BrowsePage = () => {
                     src={project.imageURL}
                     alt={project.projectTitle}
                   >
-                    <FaveButton>
-                      <FavoriteIcon fontSize="large" />
-                    </FaveButton>
                     <TitlePreview title={project.projectTitle} />
                   </ImagePreview>
                 </Link>

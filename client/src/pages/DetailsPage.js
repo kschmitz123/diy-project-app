@@ -7,8 +7,9 @@ import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import { useQuery } from "react-query";
 import { useUserState } from "../utils/contexts/context";
-import { DeleteButton } from "../components/Buttons";
+import { FaveButton, DeleteButton } from "../components/Buttons";
 import DeleteIcon from "@material-ui/icons/Delete";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 
 const StyledContainer = styled(Container)`
   display: flex;
@@ -39,7 +40,11 @@ export const DetailsPage = () => {
         <StyledContainer>
           {project && (
             <>
-              <ImagePreview src={project.imageURL} alt={project.projectTitle} />
+              <ImagePreview src={project.imageURL} alt={project.projectTitle}>
+                <FaveButton>
+                  <FavoriteIcon fontSize="large" />
+                </FaveButton>
+              </ImagePreview>
               <Title>{project.projectTitle}</Title>
               <div>{project.description}</div>
             </>
