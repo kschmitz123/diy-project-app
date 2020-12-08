@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
 const StyledHeader = styled.header`
   height: 50px;
   width: 100%;
   background: var(--main-color);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   position: fixed;
   top: 0;
@@ -35,11 +36,19 @@ const SearchButton = styled.button`
   color: #000`
       : `color: #fff`}
 `;
+
+const ExitButton = styled.button`
+  background: none;
+  border: none;
+`;
 const Header = ({ title }) => {
   const location = useLocation();
   useEffect(() => {}, [location]);
   return (
     <StyledHeader>
+      <ExitButton>
+        <ExitToAppIcon />
+      </ExitButton>
       <h2>{title}</h2>
       <Link to="/browse">
         <SearchButton active={location.pathname === "/browse"}>
