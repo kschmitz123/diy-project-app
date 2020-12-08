@@ -20,3 +20,19 @@ export const FaveButton = styled.button`
   color: var(--button-color);
   cursor: pointer;
 `;
+
+export const DeleteButton = styled.button`
+  align-self: flex-end;
+  margin: 10px 0;
+  padding: 5px 10px;
+  background-color: gray;
+  border: none;
+  border-radius: 25px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  &&:hover,
+  :active {
+    background-color: red;
+  }
+`;
