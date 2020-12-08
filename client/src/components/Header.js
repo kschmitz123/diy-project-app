@@ -1,11 +1,12 @@
 import styled from "styled-components/macro";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { SearchButton, ExitButton } from "./Buttons";
+import { useUserState } from "../utils/contexts/context";
 
 const StyledHeader = styled.header`
   height: 50px;
@@ -25,10 +26,17 @@ const StyledHeader = styled.header`
 
 const Header = ({ title }) => {
   const location = useLocation();
+  const history = useHistory();
+  const { logout } = useUserState();
+
+  const handleClick = () => {
+    logout();
+    history.push("/");
+  };
   useEffect(() => {}, [location]);
   return (
     <StyledHeader>
-      <ExitButton>
+      <ExitButton onClick={handleClick}>
         <ExitToAppIcon />
       </ExitButton>
       <h2>{title}</h2>
