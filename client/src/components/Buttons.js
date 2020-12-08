@@ -36,3 +36,23 @@ export const DeleteButton = styled.button`
     background-color: red;
   }
 `;
+
+export const SearchButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  ${(props) =>
+    props.active
+      ? `
+  color: #000`
+      : `color: #fff`}
+`;
+
+export const ExitButton = styled.button`
+  background: none;
+  border: none;
+`;

@@ -5,6 +5,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import { SearchButton, ExitButton } from "./Buttons";
 
 const StyledHeader = styled.header`
   height: 50px;
@@ -22,25 +23,6 @@ const StyledHeader = styled.header`
   }
 `;
 
-const SearchButton = styled.button`
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 2;
-  position: absolute;
-  top: 8px;
-  right: 10px;
-  ${(props) =>
-    props.active
-      ? `
-  color: #000`
-      : `color: #fff`}
-`;
-
-const ExitButton = styled.button`
-  background: none;
-  border: none;
-`;
 const Header = ({ title }) => {
   const location = useLocation();
   useEffect(() => {}, [location]);

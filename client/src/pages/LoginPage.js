@@ -1,6 +1,6 @@
 import { SmallInput } from "../components/InputElements";
 import { Container } from "../components/LoadingScreen";
-import { Button } from "../components/Button";
+import { Button } from "../components/Buttons";
 import styled from "styled-components/macro";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";

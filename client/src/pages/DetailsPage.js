@@ -7,7 +7,7 @@ import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import { useQuery } from "react-query";
 import { useUserState } from "../utils/contexts/context";
-import { DeleteButton } from "../components/Button";
+import { DeleteButton } from "../components/Buttons";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 const StyledContainer = styled(Container)`

@@ -12,9 +12,6 @@ export const FavouritesPage = () => {
         <Link to="/details">
           <ImagePreview />
         </Link>
-        <ImagePreview />
-        <ImagePreview />
-        <ImagePreview />
       </Container>
       <Navbar />
     </>
