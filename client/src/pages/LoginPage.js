@@ -25,6 +25,7 @@ const FormContainer = styled.div`
 export const LoginPage = () => {
   const { login } = useUserState();
   const [name, setName] = useState();
+  const [error, setError] = useState(null);
   const history = useHistory();
   const { register, handleSubmit } = useForm();
 
@@ -35,11 +36,13 @@ export const LoginPage = () => {
       history.push("/home");
     } catch (error) {
       console.error(error);
+      setError(error);
     }
   };
   return (
     <Container>
       <h1>Craftified</h1>
+      {error && <div>{error.message}</div>}
       <FormContainer>
         <h2>Login</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
