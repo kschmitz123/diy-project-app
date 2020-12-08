@@ -2,7 +2,7 @@ import Categories from "../components/Categories";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import ScrollMenu from "../components/ScrollMenu";
-import { useAuthState } from "../utils/contexts/context";
+import { useUserState } from "../utils/contexts/context";
 import styled from "styled-components/macro";
 
 const Greeting = styled.h2`
@@ -10,12 +10,12 @@ const Greeting = styled.h2`
   padding-top: 40px;
 `;
 export const HomePage = () => {
-  const username = useAuthState();
+  const { user } = useUserState();
   return (
     <>
       <Header title={"Craftified"} />
       <div className="box">
-        <Greeting>Welcome {username.userName}!</Greeting>
+        <Greeting>Welcome {user.name}!</Greeting>
         <ScrollMenu />
         <Categories />
       </div>

@@ -5,6 +5,8 @@ import styled from "styled-components/macro";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { postUser } from "../utils/api/users";
+import { useUserState } from "../utils/contexts/context";
+import { useState } from "react";
 
 const FormContainer = styled.div`
   display: flex;
@@ -21,12 +23,15 @@ const FormContainer = styled.div`
 `;
 
 export const LoginPage = () => {
+  const { login } = useUserState();
+  const [name, setName] = useState();
   const history = useHistory();
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
     try {
       await postUser(data);
+      login(name);
       history.push("/home");
     } catch (error) {
       console.error(error);
@@ -39,6 +44,9 @@ export const LoginPage = () => {
         <h2>Login</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <SmallInput
+            onChange={(event) => {
+              setName(event.target.value);
+            }}
             placeholder="Enter username"
             name="username"
             ref={register}
