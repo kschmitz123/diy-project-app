@@ -6,6 +6,15 @@ import { useParams } from "react-router-dom";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import { useQuery } from "react-query";
+import { useUserState } from "../utils/contexts/context";
+import { DeleteButton } from "../components/Button";
+import DeleteIcon from "@material-ui/icons/Delete";
+
+const StyledContainer = styled(Container)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const Title = styled.h3`
   font-size: 1.4rem;
@@ -15,6 +24,7 @@ const Title = styled.h3`
 
 export const DetailsPage = () => {
   const { projectId } = useParams();
+  const { user } = useUserState();
   const { data: project, status } = useQuery(
     ["projects", projectId],
     getDataByParam
@@ -26,7 +36,7 @@ export const DetailsPage = () => {
       {status === "loading" && <div>Loading...</div>}
       {status === "error" && <div>404 Error fetching proejcts</div>}
       {status === "success" && (
-        <Container>
+        <StyledContainer>
           {project && (
             <>
               <ImagePreview src={project.imageURL} alt={project.projectTitle} />
@@ -34,8 +44,16 @@ export const DetailsPage = () => {
               <div>{project.description}</div>
             </>
           )}
-        </Container>
+          {user.name === project.creator ? (
+            <DeleteButton>
+              <DeleteIcon /> <span>Delete Project</span>
+            </DeleteButton>
+          ) : (
+            <></>
+          )}
+        </StyledContainer>
       )}
+
       <Navbar />
     </>
   );
