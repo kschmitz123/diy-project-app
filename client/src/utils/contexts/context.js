@@ -1,20 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-const AuthStateContext = React.createContext();
+const UserContext = React.createContext();
 
-export const useAuthState = () => {
-  const context = React.useContext(AuthStateContext);
+export const useUserState = () => {
+  const context = React.useContext(UserContext);
   if (context === undefined) {
-    throw new Error("useAuthState must be used within a AuthProvider");
+    throw new Error("useUserState must be used within a UserProvider");
   }
   return context;
 };
 
-export const AuthProvider = ({ children }) => {
-  return <AuthStateContext.Provider>{children}</AuthStateContext.Provider>;
+export const UserProvider = ({ children }) => {
+  const [user, setUser] = useState({ name: "", auth: true });
+
+  const login = (name) => {
+    setUser((user) => ({
+      name: name,
+      auth: true,
+    }));
+  };
+  const logout = () => {
+    setUser((user) => ({
+      name: "",
+      auth: false,
+    }));
+  };
+  return (
+    <UserContext.Provider value={{ user, login, logout }}>
+      {children}
+    </UserContext.Provider>
+  );
 };
 
-AuthProvider.propTypes = {
+UserProvider.propTypes = {
   children: PropTypes.node,
 };
