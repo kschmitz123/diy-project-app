@@ -3,69 +3,19 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const { connect } = require("./lib/database");
-const {
-  setProject,
-  getProjects,
-  getProjectbyId,
-  getCategory,
-  getProjectbyTag,
-} = require("./lib/projects");
+const projects = require("./lib/routes/projects");
+const browse = require("./lib/routes/browse");
+const categories = require("./lib/routes/categories");
+const users = require("./lib/routes/users");
 
 const port = process.env.PORT || 3001;
 app.use(express.static("public"));
 app.use(express.json({ limit: "50mb" }));
 
-app.post("/api/projects/", async (request, response) => {
-  const project = request.body;
-  try {
-    const insertResult = await setProject(project);
-    const newProjectId = insertResult.insertedId;
-    response.status(200).json(newProjectId);
-  } catch (error) {
-    console.error(error);
-    response.status(500).send("An internal server error occured");
-  }
-});
-app.get("/api/projects/", async (request, response) => {
-  const { projects } = request.params;
-  try {
-    const projectCollection = await getProjects(projects);
-    response.send(projectCollection);
-  } catch (error) {
-    console.error(error);
-    response.status(500).send("An internal server error occured");
-  }
-});
-app.get("/api/projects/:projectId", async (request, response) => {
-  const { projectId } = request.params;
-  try {
-    const project = await getProjectbyId(projectId);
-    response.send(project);
-  } catch (error) {
-    console.error(error);
-    response.status(500).send("An internal server error occured");
-  }
-});
-app.get("/api/browse/:tag", async (request, response) => {
-  const { tag } = request.params;
-  try {
-    const project = await getProjectbyTag(tag);
-    response.send(project);
-  } catch (error) {
-    console.error(error);
-    response.status(500).send("An internal server error occured");
-  }
-});
-app.get("/api/categories/:category", async (request, response) => {
-  const { category } = request.params;
-  try {
-    const categoryCollection = await getCategory(category);
-    response.send(categoryCollection);
-  } catch (error) {
-    console.error(error);
-    response.status(500).send("An internal server error occured");
-  }
-});
+app.use("/api/projects", projects);
+app.use("/api/browse", browse);
+app.use("/api/categories", categories);
+app.use("/api/users", users);
 
 app.use(express.static(path.join(__dirname, "client/build")));
 app.use(

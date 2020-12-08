@@ -1,7 +1,7 @@
 import styled from "styled-components/macro";
 import ImagePreview from "../components/ImagePreview";
 import Container from "../components/Container";
-import { getDataByParam } from "../utils/api";
+import { getDataByParam } from "../utils/api/projects";
 import { useParams } from "react-router-dom";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";

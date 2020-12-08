@@ -3,6 +3,10 @@ import { Container } from "../components/LoadingScreen";
 import { Button } from "../components/Button";
 import styled from "styled-components/macro";
 import { useHistory } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { postUser } from "../utils/api/users";
+import { useUserState } from "../utils/contexts/context";
+import { useState } from "react";
 
 const FormContainer = styled.div`
   display: flex;
@@ -19,19 +23,40 @@ const FormContainer = styled.div`
 `;
 
 export const LoginPage = () => {
+  const { login } = useUserState();
+  const [name, setName] = useState();
   const history = useHistory();
+  const { register, handleSubmit } = useForm();
 
-  const handleSubmit = () => {
-    history.push("/home");
+  const onSubmit = async (data) => {
+    try {
+      await postUser(data);
+      login(name);
+      history.push("/home");
+    } catch (error) {
+      console.error(error);
+    }
   };
   return (
     <Container>
       <h1>Craftified</h1>
       <FormContainer>
         <h2>Login</h2>
-        <form onSubmit={handleSubmit}>
-          <SmallInput placeholder="Enter username" />
-          <SmallInput placeholder="Enter password" />
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <SmallInput
+            onChange={(event) => {
+              setName(event.target.value);
+            }}
+            placeholder="Enter username"
+            name="username"
+            ref={register}
+          />
+          <SmallInput
+            placeholder="Enter password"
+            type="password"
+            name="password"
+            ref={register}
+          />
           <Button type="submit">Login</Button>
         </form>
       </FormContainer>

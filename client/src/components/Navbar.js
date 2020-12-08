@@ -33,7 +33,7 @@ const Navbar = () => {
 
   return (
     <Footer>
-      <NavLink to={"/"} active={location.pathname === "/"}>
+      <NavLink to={"/home"} active={location.pathname === "/home"}>
         <HomeIcon fontSize="large" />
       </NavLink>
       <NavLink to={"/favourites"} active={location.pathname === "/favourites"}>

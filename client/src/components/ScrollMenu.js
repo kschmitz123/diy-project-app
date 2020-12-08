@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
-import { getData } from "../utils/api";
+import { getData } from "../utils/api/projects";
 import { useQuery } from "react-query";
 
 const Container = styled.div`
-  padding-top: 60px;
   margin: 0 10px;
 `;
 const ScrollContainer = styled.div`
