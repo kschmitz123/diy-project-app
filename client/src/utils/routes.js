@@ -2,7 +2,7 @@ import { AddProjectPage } from "../pages/AddProjectPage";
 import { BrowsePage } from "../pages/BrowsePage";
 import { CategoryPage } from "../pages/CategoryPage";
 import { DetailsPage } from "../pages/DetailsPage";
-import { FavouritesPage } from "../pages/FavouritesPage";
+import { FavoritesPage } from "../pages/FavoritesPage";
 import { HomePage } from "../pages/HomePage";
 
 const routes = [
@@ -23,8 +23,8 @@ const routes = [
     component: DetailsPage,
   },
   {
-    path: "/favourites",
-    component: FavouritesPage,
+    path: "/favorites",
+    component: FavoritesPage,
   },
   {
     path: "/add",

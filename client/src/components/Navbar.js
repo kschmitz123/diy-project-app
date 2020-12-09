@@ -34,7 +34,7 @@ const Navbar = () => {
       <NavLink to={"/home"} active={location.pathname === "/home"}>
         <HomeIcon fontSize="large" />
       </NavLink>
-      <NavLink to={"/favourites"} active={location.pathname === "/favourites"}>
+      <NavLink to={"/favorites"} active={location.pathname === "/favorites"}>
         <FavoriteIcon fontSize="large" />
       </NavLink>
       <NavLink to={"/add"} active={location.pathname === "/add"}>
