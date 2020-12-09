@@ -15,7 +15,7 @@ export const HomePage = () => {
     <>
       <Header title={"Craftified"} />
       <div className="box">
-        <Greeting>Welcome {user.name}!</Greeting>
+        <Greeting>Welcome {user.username}!</Greeting>
         <ScrollMenu />
         <Categories />
       </div>

@@ -12,17 +12,17 @@ export const useUserState = () => {
 };
 
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState({ name: "", auth: true });
+  const [user, setUser] = useState({ username: "", auth: true });
 
-  const login = (name) => {
+  const login = (username) => {
     setUser(() => ({
-      name: name,
+      username: username,
       auth: true,
     }));
   };
   const logout = () => {
     setUser(() => ({
-      name: "",
+      username: "",
       auth: false,
     }));
   };

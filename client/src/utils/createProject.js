@@ -4,7 +4,7 @@ export const createProject = ({ formattedData, previewSource, user }) => {
   const project = postProject({
     formattedData: formattedData,
     image: previewSource,
-    creator: user.name,
+    creator: user.username,
   });
   return project;
 };

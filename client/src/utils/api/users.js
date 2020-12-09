@@ -10,3 +10,9 @@ export async function postUser(user) {
   const newUser = await response.json();
   return newUser;
 }
+
+export async function getFavoritesByUser(key, param) {
+  const response = await fetch(`/api/${key}/${param}`);
+  const favorites = await response.json();
+  return favorites;
+}
