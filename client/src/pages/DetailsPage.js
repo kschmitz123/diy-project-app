@@ -1,8 +1,8 @@
 import styled from "styled-components/macro";
 import ImagePreview from "../components/ImagePreview";
 import Container from "../components/Container";
-import { getDataByParam } from "../utils/api/projects";
-import { useParams } from "react-router-dom";
+import { deleteProjectById, getDataByParam } from "../utils/api/projects";
+import { useHistory, useParams } from "react-router-dom";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import { useQuery } from "react-query";
@@ -28,6 +28,7 @@ const Title = styled.h3`
 export const DetailsPage = () => {
   const { projectId } = useParams();
   const { user } = useUserState();
+  const history = useHistory();
   const [favoriteURL, setFavoriteURL] = useState("");
   const [favoriteID, setFavoriteID] = useState("");
   const [favoriteTitle, setFavoriteTitle] = useState("");
@@ -53,6 +54,11 @@ export const DetailsPage = () => {
     }
   };
 
+  const handleDelete = async (id) => {
+    await deleteProjectById(id);
+    history.push("/home");
+  };
+
   return (
     <>
       <Header title={"Project Details"} />
@@ -72,7 +78,7 @@ export const DetailsPage = () => {
             </>
           )}
           {user.username === project.creator ? (
-            <DeleteButton>
+            <DeleteButton onClick={() => handleDelete(project._id)}>
               <DeleteIcon /> <span>Delete Project</span>
             </DeleteButton>
           ) : (
