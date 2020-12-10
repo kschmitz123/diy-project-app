@@ -10,6 +10,8 @@ import { useUserState } from "../utils/contexts/context";
 import { FaveButton, DeleteButton } from "../components/Buttons";
 import DeleteIcon from "@material-ui/icons/Delete";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import { useEffect, useState } from "react";
+import { postFavorites } from "../utils/api/users";
 
 const StyledContainer = styled(Container)`
   display: flex;
@@ -26,10 +28,30 @@ const Title = styled.h3`
 export const DetailsPage = () => {
   const { projectId } = useParams();
   const { user } = useUserState();
+  const [favoriteURL, setFavoriteURL] = useState("");
+  const [favoriteID, setFavoriteID] = useState("");
+  const [favoriteTitle, setFavoriteTitle] = useState("");
   const { data: project, status } = useQuery(
     ["projects", projectId],
     getDataByParam
   );
+
+  useEffect(() => {
+    if (project) {
+      setFavoriteID(projectId);
+      setFavoriteURL(project.imageURL);
+      setFavoriteTitle(project.projectTitle);
+    }
+  }, [project, projectId]);
+
+  const handleClick = async () => {
+    const favoriteData = { favoriteURL, favoriteID, favoriteTitle };
+    try {
+      await postFavorites({ favoriteData, user });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <>
@@ -41,7 +63,7 @@ export const DetailsPage = () => {
           {project && (
             <>
               <ImagePreview src={project.imageURL} alt={project.projectTitle}>
-                <FaveButton>
+                <FaveButton onClick={handleClick}>
                   <FavoriteIcon fontSize="large" />
                 </FaveButton>
               </ImagePreview>
@@ -49,7 +71,7 @@ export const DetailsPage = () => {
               <div>{project.description}</div>
             </>
           )}
-          {user.name === project.creator ? (
+          {user.username === project.creator ? (
             <DeleteButton>
               <DeleteIcon /> <span>Delete Project</span>
             </DeleteButton>

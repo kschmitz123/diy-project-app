@@ -25,7 +25,7 @@ export const FavoritesPage = () => {
           <span>
             {data.favorites ? (
               data.favorites.map((favorite) => (
-                <Link key={favorite._id} to={`/projects/${favorite._id}`}>
+                <Link key={favorite.id} to={`/projects/${favorite.id}`}>
                   <ImagePreview
                     src={favorite.imageURL}
                     alt={favorite.projectTitle}

@@ -16,3 +16,11 @@ export async function getFavoritesByUser(key, param) {
   const favorites = await response.json();
   return favorites;
 }
+
+export async function postFavorites(data) {
+  return await fetch(`/api/favorites/`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ data }),
+  });
+}
