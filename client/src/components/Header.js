@@ -1,16 +1,18 @@
 import styled from "styled-components/macro";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
 import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import { SearchButton, ExitButton } from "./Buttons";
+import { useUserState } from "../utils/contexts/context";
 
 const StyledHeader = styled.header`
   height: 50px;
   width: 100%;
   background: var(--main-color);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   position: fixed;
   top: 0;
@@ -21,25 +23,20 @@ const StyledHeader = styled.header`
   }
 `;
 
-const SearchButton = styled.button`
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 2;
-  position: absolute;
-  top: 8px;
-  right: 10px;
-  ${(props) =>
-    props.active
-      ? `
-  color: #000`
-      : `color: #fff`}
-`;
 const Header = ({ title }) => {
   const location = useLocation();
-  useEffect(() => {}, [location]);
+  const history = useHistory();
+  const { logout } = useUserState();
+
+  const handleClick = () => {
+    logout();
+    history.push("/");
+  };
   return (
     <StyledHeader>
+      <ExitButton onClick={handleClick}>
+        <ExitToAppIcon />
+      </ExitButton>
       <h2>{title}</h2>
       <Link to="/browse">
         <SearchButton active={location.pathname === "/browse"}>

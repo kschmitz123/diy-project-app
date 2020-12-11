@@ -4,7 +4,6 @@ import AddIcon from "@material-ui/icons/Add";
 import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
 
 const Footer = styled.footer`
   height: 50px;
@@ -29,14 +28,13 @@ const NavLink = styled(Link)`
 
 const Navbar = () => {
   const location = useLocation();
-  useEffect(() => {}, [location]);
 
   return (
     <Footer>
       <NavLink to={"/home"} active={location.pathname === "/home"}>
         <HomeIcon fontSize="large" />
       </NavLink>
-      <NavLink to={"/favourites"} active={location.pathname === "/favourites"}>
+      <NavLink to={"/favorites"} active={location.pathname === "/favorites"}>
         <FavoriteIcon fontSize="large" />
       </NavLink>
       <NavLink to={"/add"} active={location.pathname === "/add"}>
