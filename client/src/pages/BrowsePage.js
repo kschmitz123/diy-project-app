@@ -1,6 +1,6 @@
 import Searchbar from "../components/Searchbar";
 import { getDataByParam } from "../utils/api/projects";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import ImagePreview from "../components/ImagePreview";
 import { Link } from "react-router-dom";
@@ -19,21 +19,26 @@ export const BrowsePage = () => {
     }
   );
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    await setTag(event.target.tag.value);
-    refetch();
+  useEffect(() => {
+    if (tag) {
+      refetch();
+    }
+  }, [tag, refetch]);
+
+  const handleChange = (event) => {
+    setTag(event.target.value);
   };
+
   return (
     <>
       <Header title={"Browse Projects"} />
       <Container>
-        <Searchbar name="tag" onSubmit={handleSubmit} />
+        <Searchbar value={tag} onChange={handleChange} />
         {status === "loading" && <div>Loading...</div>}
         {status === "error" && <div>404 Error fetching proejcts</div>}
         {status === "success" && (
           <span>
-            {project &&
+            {project && project.length > 0 ? (
               project.map((project) => (
                 <Link key={project._id} to={`/projects/${project._id}`}>
                   <ImagePreview
@@ -43,7 +48,10 @@ export const BrowsePage = () => {
                     <TitlePreview title={project.projectTitle} />
                   </ImagePreview>
                 </Link>
-              ))}
+              ))
+            ) : (
+              <div>No projects for this tag.</div>
+            )}
           </span>
         )}
       </Container>
