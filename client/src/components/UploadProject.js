@@ -60,7 +60,7 @@ export default function UploadProject() {
     <>
       {status === "loading" && (
         <LoadingContainer>
-          <Heart color="#FCA311" size={100} />
+          <Heart color="var(--main-color)" size={100} />
         </LoadingContainer>
       )}
       <Form onSubmit={handleSubmit(onSubmit)}>

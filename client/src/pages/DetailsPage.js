@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import { useQuery } from "react-query";
+import { Ellipsis } from "react-spinners-css";
 
 const Title = styled.h3`
   font-size: 1.4rem;
@@ -23,7 +24,7 @@ export const DetailsPage = () => {
   return (
     <>
       <Header title={"Project Details"} />
-      {status === "loading" && <div>Loading...</div>}
+      {status === "loading" && <Ellipsis color="var(--main-color" />}
       {status === "error" && <div>404 Error fetching proejcts</div>}
       {status === "success" && (
         <Container>
