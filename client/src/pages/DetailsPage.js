@@ -10,8 +10,8 @@ import { useUserState } from "../utils/contexts/context";
 import { FaveButton, DeleteButton } from "../components/Buttons";
 import DeleteIcon from "@material-ui/icons/Delete";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import { useState } from "react";
-import { postFavorites } from "../utils/api/users";
+import { useEffect, useState } from "react";
+import { getFavoritesByUser, postFavorites } from "../utils/api/users";
 
 const StyledContainer = styled(Container)`
   display: flex;
@@ -29,15 +29,28 @@ export const DetailsPage = () => {
   const { projectId } = useParams();
   const { user } = useUserState();
   const history = useHistory();
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [favorite, setFavorite] = useState(false);
   const { data: project, status } = useQuery(
     ["projects", projectId],
     getDataByParam
   );
 
-  const handleClick = async () => {
-    setIsFavorite(!isFavorite);
+  useEffect(() => {
+    const isFavorite = async () => {
+      const result = await getFavoritesByUser("favorites", user.username);
+      const favorites = result.favorites.some(
+        (favorite) => favorite.id === projectId
+      );
+      if (favorites === true) {
+        setFavorite(true);
+      }
+      return favorites;
+    };
+    isFavorite();
+  }, [projectId, user]);
 
+  const handleClick = async () => {
+    setFavorite(!favorite);
     const favoriteData = {
       favoriteURL: project.imageURL,
       favoriteID: projectId,
@@ -65,15 +78,12 @@ export const DetailsPage = () => {
           {project && (
             <>
               <ImagePreview src={project.imageURL} alt={project.projectTitle}>
-                {isFavorite ? (
-                  <FaveButton style={favoriteStyle} onClick={handleClick}>
-                    <FavoriteIcon fontSize="large" />
-                  </FaveButton>
-                ) : (
-                  <FaveButton onClick={handleClick}>
-                    <FavoriteIcon fontSize="large" />
-                  </FaveButton>
-                )}
+                <FaveButton
+                  style={favorite ? favoriteStyle : normalStyle}
+                  onClick={handleClick}
+                >
+                  <FavoriteIcon fontSize="large" />
+                </FaveButton>
               </ImagePreview>
               <Title>{project.projectTitle}</Title>
               <div>{project.description}</div>
@@ -96,4 +106,7 @@ export const DetailsPage = () => {
 
 const favoriteStyle = {
   color: "var(--main-color)",
+};
+const normalStyle = {
+  color: "white",
 };
