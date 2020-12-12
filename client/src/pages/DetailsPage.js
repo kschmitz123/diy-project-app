@@ -6,6 +6,7 @@ import { useHistory, useParams } from "react-router-dom";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import { useQuery } from "react-query";
+import { Ellipsis } from "react-spinners-css";
 import { useUserState } from "../utils/contexts/context";
 import { FaveButton, DeleteButton } from "../components/Buttons";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -71,7 +72,7 @@ export const DetailsPage = () => {
   return (
     <>
       <Header title={"Project Details"} />
-      {status === "loading" && <div>Loading...</div>}
+      {status === "loading" && <Ellipsis color="var(--main-color" />}
       {status === "error" && <div>404 Error fetching proejcts</div>}
       {status === "success" && (
         <StyledContainer>

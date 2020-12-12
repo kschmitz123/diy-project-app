@@ -12,6 +12,8 @@ import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { useMutation } from "react-query";
 import { createProject } from "../utils/createProject";
+import { LoadingContainer } from "./Container";
+import { Heart } from "react-spinners-css";
 import { useUserState } from "../utils/contexts/context";
 
 export default function UploadProject() {
@@ -57,6 +59,11 @@ export default function UploadProject() {
 
   return (
     <>
+      {status === "loading" && (
+        <LoadingContainer>
+          <Heart color="var(--main-color)" size={100} />
+        </LoadingContainer>
+      )}
       <Form onSubmit={handleSubmit(onSubmit)}>
         <ImageInput
           name="image"
@@ -92,7 +99,6 @@ export default function UploadProject() {
         </Select>
 
         <Button type="submit">Upload Project</Button>
-        {status === "loading" && <div>Loading...</div>}
         {status === "error" && <div>404 Error fetching projects</div>}
       </Form>
     </>

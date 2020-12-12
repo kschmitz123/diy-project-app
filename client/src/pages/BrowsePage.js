@@ -8,6 +8,7 @@ import TitlePreview from "../components/TitlePreview";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import Container from "../components/Container";
+import { Ellipsis } from "react-spinners-css";
 
 export const BrowsePage = () => {
   const [tag, setTag] = useState("");
@@ -29,7 +30,7 @@ export const BrowsePage = () => {
       <Header title={"Browse Projects"} />
       <Container>
         <Searchbar name="tag" onSubmit={handleSubmit} />
-        {status === "loading" && <div>Loading...</div>}
+        {status === "loading" && <Ellipsis color="var(--main-color" />}
         {status === "error" && <div>404 Error fetching proejcts</div>}
         {status === "success" && (
           <span>
