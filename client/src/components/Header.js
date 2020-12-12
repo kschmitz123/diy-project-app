@@ -16,7 +16,7 @@ const StyledHeader = styled.header`
   align-items: center;
   position: fixed;
   top: 0;
-  z-index: 1;
+  z-index: 30;
 
   h2 {
     margin: 0;

@@ -7,6 +7,7 @@ import { getDataByParam } from "../utils/api/projects";
 import TitlePreview from "../components/TitlePreview";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
+import { Ellipsis } from "react-spinners-css";
 
 export const CategoryPage = () => {
   const { category } = useParams();
@@ -20,7 +21,7 @@ export const CategoryPage = () => {
       <Header title={"Browse Categories"} />
       <Container>
         <h3>{`Projects related to "${category}"`}</h3>
-        {status === "loading" && <div>Loading...</div>}
+        {status === "loading" && <Ellipsis color="var(--main-color" />}
         {status === "error" && <div>404 Error fetching proejcts</div>}
         {status === "success" && (
           <span>
