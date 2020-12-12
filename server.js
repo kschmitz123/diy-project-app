@@ -7,6 +7,7 @@ const projects = require("./lib/routes/projects");
 const browse = require("./lib/routes/browse");
 const categories = require("./lib/routes/categories");
 const users = require("./lib/routes/users");
+const favorites = require("./lib/routes/favorites");
 
 const port = process.env.PORT || 3001;
 app.use(express.static("public"));
@@ -16,6 +17,7 @@ app.use("/api/projects", projects);
 app.use("/api/browse", browse);
 app.use("/api/categories", categories);
 app.use("/api/users", users);
+app.use("/api/favorites", favorites);
 
 app.use(express.static(path.join(__dirname, "client/build")));
 app.use(

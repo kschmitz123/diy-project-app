@@ -19,3 +19,9 @@ export async function getDataByParam(key, param) {
   const projects = await response.json();
   return projects;
 }
+
+export async function deleteProjectById(id) {
+  await fetch(`/api/projects/${id}`, {
+    method: "DELETE",
+  });
+}

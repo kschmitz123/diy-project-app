@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "./Button";
+import { Button } from "./Buttons";
 import {
   Form,
   LargeInput,
@@ -14,13 +14,14 @@ import { useMutation } from "react-query";
 import { createProject } from "../utils/createProject";
 import { LoadingContainer } from "./Container";
 import { Heart } from "react-spinners-css";
+import { useUserState } from "../utils/contexts/context";
 
 export default function UploadProject() {
   const [imageInput, setImageInput] = useState("");
   const [previewSource, setPreviewSource] = useState("");
   const history = useHistory();
   const { register, handleSubmit } = useForm();
-
+  const { user } = useUserState();
   const [mutate, { status }] = useMutation(createProject);
 
   const handleImageChange = (event) => {
@@ -49,7 +50,7 @@ export default function UploadProject() {
       material,
     };
     try {
-      const project = await mutate({ formattedData, previewSource });
+      const project = await mutate({ formattedData, previewSource, user });
       history.push(`/projects/${project}`);
     } catch (error) {
       console.error(error);

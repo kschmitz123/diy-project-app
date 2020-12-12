@@ -1,8 +1,8 @@
-import { FavouritesPage } from "../pages/FavouritesPage";
+import { FavoritesPage } from "../pages/FavoritesPage";
 
 export default {
-  title: "Pages/FavouritesPage",
-  component: FavouritesPage,
+  title: "Pages/FavoritesPage",
+  component: FavoritesPage,
 };
 
-export const Standard = (args) => <FavouritesPage {...args} />;
+export const Standard = (args) => <FavoritesPage {...args} />;

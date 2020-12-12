@@ -1,6 +1,6 @@
 import { SmallInput } from "../components/InputElements";
 import { Container } from "../components/LoadingScreen";
-import { Button } from "../components/Button";
+import { Button } from "../components/Buttons";
 import styled from "styled-components/macro";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -25,6 +25,7 @@ const FormContainer = styled.div`
 export const LoginPage = () => {
   const { login } = useUserState();
   const [name, setName] = useState();
+  const [error, setError] = useState(null);
   const history = useHistory();
   const { register, handleSubmit } = useForm();
 
@@ -35,11 +36,13 @@ export const LoginPage = () => {
       history.push("/home");
     } catch (error) {
       console.error(error);
+      setError(error);
     }
   };
   return (
     <Container>
       <h1>Craftified</h1>
+      {error && <div>{error.message}</div>}
       <FormContainer>
         <h2>Login</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
