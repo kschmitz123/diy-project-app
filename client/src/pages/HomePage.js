@@ -4,18 +4,19 @@ import Navbar from "../components/Navbar";
 import ScrollMenu from "../components/ScrollMenu";
 import { useUserState } from "../utils/contexts/context";
 import styled from "styled-components/macro";
+import { getSessionCookie } from "../utils/contexts/cookies";
 
 const Greeting = styled.h2`
   text-align: center;
   padding-top: 40px;
 `;
 export const HomePage = () => {
-  const { user } = useUserState();
+  const session = useUserState(getSessionCookie());
   return (
     <>
       <Header title={"Craftified"} />
       <div className="box">
-        <Greeting>Welcome {user.username}!</Greeting>
+        <Greeting>Welcome {session.user.username}!</Greeting>
         <ScrollMenu />
         <Categories />
       </div>
