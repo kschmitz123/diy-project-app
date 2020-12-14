@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { getSessionCookie, setSessionCookie } from "./cookies";
+import { getSessionCookie } from "./cookies";
 import Cookies from "js-cookie";
 
 const UserContext = React.createContext();
