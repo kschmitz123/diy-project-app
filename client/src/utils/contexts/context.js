@@ -24,7 +24,6 @@ export const UserProvider = ({ children }) => {
   setSessionCookie(user);
 
   const logout = () => {
-    setUser(() => ({ username: "" }));
     Cookies.remove("session");
   };
 
