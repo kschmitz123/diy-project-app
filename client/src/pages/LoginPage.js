@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { postUser } from "../utils/api/users";
 import { useUserState } from "../utils/contexts/context";
 import { useState } from "react";
+import { setSessionCookie } from "../utils/contexts/cookies";
 
 const FormContainer = styled.div`
   display: flex;
@@ -33,6 +34,7 @@ export const LoginPage = () => {
     try {
       await postUser(data);
       login(name);
+      setSessionCookie(name);
       history.push("/home");
     } catch (error) {
       console.error(error);
