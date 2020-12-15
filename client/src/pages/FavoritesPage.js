@@ -22,7 +22,7 @@ export const FavoritesPage = () => {
       <Header title={"Favorites"} />
       <Container>
         {status === "loading" && <div>Loading...</div>}
-        {status === "error" && <div>404 Error fetching proejcts</div>}
+        {status === "error" && <div>404 Error fetching projects</div>}
         {status === "success" && (
           <span>
             {data.favorites ? (

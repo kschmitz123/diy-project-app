@@ -23,7 +23,7 @@ export const CategoryPage = () => {
       <Container>
         <h3>{`Projects related to "${category}"`}</h3>
         {status === "loading" && <Ellipsis color="var(--main-color" />}
-        {status === "error" && <div>404 Error fetching proejcts</div>}
+        {status === "error" && <div>404 Error fetching projects</div>}
         {status === "success" && (
           <span>
             {project &&
