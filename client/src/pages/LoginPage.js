@@ -1,12 +1,12 @@
 import { SmallInput, Button } from "../utils/helpers/imports";
 import { Container } from "../components/LoadingScreen";
+import { setSessionCookie } from "../utils/contexts/cookies";
+import { useUserState } from "../utils/contexts/context";
+import { postUser } from "../utils/api/users";
+import { useState } from "react";
 import styled from "styled-components/macro";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { postUser } from "../utils/api/users";
-import { useUserState } from "../utils/contexts/context";
-import { useState } from "react";
-import { setSessionCookie } from "../utils/contexts/cookies";
 
 const FormContainer = styled.div`
   display: flex;

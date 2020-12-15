@@ -5,10 +5,10 @@ import {
   Navbar,
   TitlePreview,
 } from "../utils/helpers/imports";
-import { Link } from "react-router-dom";
-import { useQuery } from "react-query";
 import { getFavoritesByUser } from "../utils/api/users";
 import { useUserState } from "../utils/contexts/context";
+import { useQuery } from "react-query";
+import { Link } from "react-router-dom";
 
 export const FavoritesPage = () => {
   const { user } = useUserState();

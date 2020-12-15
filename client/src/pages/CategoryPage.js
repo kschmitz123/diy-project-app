@@ -5,10 +5,9 @@ import {
   Header,
   Navbar,
 } from "../utils/helpers/imports";
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import { useQuery } from "react-query";
 import { getDataByParam } from "../utils/api/projects";
+import { useQuery } from "react-query";
+import { Link, useParams } from "react-router-dom";
 import { Ellipsis } from "react-spinners-css";
 
 export const CategoryPage = () => {

@@ -1,4 +1,3 @@
-import styled from "styled-components/macro";
 import {
   ImagePreview,
   Container,
@@ -10,14 +9,15 @@ import {
   Button,
 } from "../utils/helpers/imports";
 import { deleteProjectById, getDataByParam } from "../utils/api/projects";
-import { useHistory, useParams } from "react-router-dom";
-import { useQuery } from "react-query";
-import { Ellipsis } from "react-spinners-css";
+import { getFavoritesByUser, postFavorites } from "../utils/api/users";
 import { useUserState } from "../utils/contexts/context";
+import styled from "styled-components/macro";
+import { useEffect, useState } from "react";
+import { useQuery } from "react-query";
+import { useHistory, useParams } from "react-router-dom";
+import { Ellipsis } from "react-spinners-css";
 import DeleteIcon from "@material-ui/icons/Delete";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import { useEffect, useState } from "react";
-import { getFavoritesByUser, postFavorites } from "../utils/api/users";
 
 const StyledContainer = styled(Container)`
   display: flex;
