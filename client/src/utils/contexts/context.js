@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { getSessionCookie } from "./cookies";
+import Cookies from "js-cookie";
 
 const UserContext = React.createContext();
 
@@ -12,20 +14,18 @@ export const useUserState = () => {
 };
 
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState({ username: "", auth: true });
+  const [user, setUser] = useState(getSessionCookie());
 
   const login = (username) => {
     setUser(() => ({
       username: username,
-      auth: true,
     }));
   };
+
   const logout = () => {
-    setUser(() => ({
-      username: "",
-      auth: false,
-    }));
+    Cookies.remove("session");
   };
+
   return (
     <UserContext.Provider value={{ user, login, logout }}>
       {children}

@@ -1,9 +1,9 @@
-import { AddProjectPage } from "../pages/AddProjectPage";
-import { BrowsePage } from "../pages/BrowsePage";
-import { CategoryPage } from "../pages/CategoryPage";
-import { DetailsPage } from "../pages/DetailsPage";
-import { FavoritesPage } from "../pages/FavoritesPage";
-import { HomePage } from "../pages/HomePage";
+import { AddProjectPage } from "../../pages/AddProjectPage";
+import { BrowsePage } from "../../pages/BrowsePage";
+import { CategoryPage } from "../../pages/CategoryPage";
+import { DetailsPage } from "../../pages/DetailsPage";
+import { FavoritesPage } from "../../pages/FavoritesPage";
+import { HomePage } from "../../pages/HomePage";
 
 const routes = [
   {
