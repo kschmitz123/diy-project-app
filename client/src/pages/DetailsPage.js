@@ -78,39 +78,41 @@ export const DetailsPage = () => {
   return (
     <>
       <Header title={"Project Details"} />
-      {status === "loading" && <Ellipsis color="var(--main-color" />}
-      {status === "error" && <div>404 Error fetching proejcts</div>}
-      {status === "success" && (
-        <StyledContainer>
-          {project && (
-            <>
-              <ImagePreview src={project.imageURL} alt={project.projectTitle}>
-                <FaveButton
-                  style={favorite ? favoriteStyle : normalStyle}
-                  onClick={handleClick}
-                >
-                  <FavoriteIcon fontSize="large" />
-                </FaveButton>
-              </ImagePreview>
-              <Title>{project.projectTitle}</Title>
-              <div>{project.description}</div>
-            </>
-          )}
-          {user.username === project.creator ? (
-            <DeleteButton onClick={() => handleDeleteClick()}>
-              <DeleteIcon /> <span>Delete Project</span>
-            </DeleteButton>
-          ) : (
-            <></>
-          )}
-          {popup && (
-            <Popup>
-              <Button onClick={() => handleDelete(project._id)}>Yes</Button>
-              <Button onClick={() => setPopup(false)}>No</Button>
-            </Popup>
-          )}
-        </StyledContainer>
-      )}
+      <StyledContainer>
+        {status === "loading" && <Ellipsis color="var(--main-color" />}
+        {status === "error" && <div>404 Error fetching proejcts</div>}
+        {status === "success" && (
+          <>
+            {project && (
+              <>
+                <ImagePreview src={project.imageURL} alt={project.projectTitle}>
+                  <FaveButton
+                    style={favorite ? favoriteStyle : normalStyle}
+                    onClick={handleClick}
+                  >
+                    <FavoriteIcon fontSize="large" />
+                  </FaveButton>
+                </ImagePreview>
+                <Title>{project.projectTitle}</Title>
+                <div>{project.description}</div>
+              </>
+            )}
+            {user.username === project.creator ? (
+              <DeleteButton onClick={() => handleDeleteClick()}>
+                <DeleteIcon /> <span>Delete Project</span>
+              </DeleteButton>
+            ) : (
+              <></>
+            )}
+            {popup && (
+              <Popup>
+                <Button onClick={() => handleDelete(project._id)}>Yes</Button>
+                <Button onClick={() => setPopup(false)}>No</Button>
+              </Popup>
+            )}
+          </>
+        )}
+      </StyledContainer>
 
       <Navbar />
     </>
