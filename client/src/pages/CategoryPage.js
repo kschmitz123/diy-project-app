@@ -16,7 +16,7 @@ export const CategoryPage = () => {
     ["categories", category],
     getDataByParam
   );
-  console.log(project);
+
   return (
     <>
       <Header title={"Browse Categories"} />

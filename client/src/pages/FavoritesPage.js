@@ -24,7 +24,7 @@ export const FavoritesPage = () => {
         {status === "error" && <div>404 Error fetching proejcts</div>}
         {status === "success" && (
           <span>
-            {data.favorites && data.favorites.length < 0 ? (
+            {data.favorites && data.favorites.length > 0 ? (
               data.favorites.map((favorite) => (
                 <Link key={favorite.id} to={`/projects/${favorite.id}`}>
                   <ImagePreview
