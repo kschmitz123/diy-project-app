@@ -35,6 +35,7 @@ export const DetailsPage = () => {
   const { projectId } = useParams();
   const { user } = useUserState();
   const history = useHistory();
+  const [popup, setPopup] = useState(false);
   const [favorite, setFavorite] = useState(false);
   const { data: project, status } = useQuery(
     ["projects", projectId],
@@ -68,7 +69,6 @@ export const DetailsPage = () => {
       console.error(error);
     }
   };
-  const [popup, setPopup] = useState(false);
 
   const handleDeleteClick = () => {
     setPopup(true);
