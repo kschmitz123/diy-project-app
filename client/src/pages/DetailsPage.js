@@ -8,11 +8,12 @@ import Navbar from "../components/Navbar";
 import { useQuery } from "react-query";
 import { Ellipsis } from "react-spinners-css";
 import { useUserState } from "../utils/contexts/context";
-import { FaveButton, DeleteButton } from "../components/Buttons";
+import { FaveButton, DeleteButton, Button } from "../components/Buttons";
 import DeleteIcon from "@material-ui/icons/Delete";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import { useEffect, useState } from "react";
 import { getFavoritesByUser, postFavorites } from "../utils/api/users";
+import Popup from "../components/Popup";
 
 const StyledContainer = styled(Container)`
   display: flex;
@@ -63,6 +64,11 @@ export const DetailsPage = () => {
       console.error(error);
     }
   };
+  const [popup, setPopup] = useState(false);
+
+  const handleDeleteClick = () => {
+    setPopup(true);
+  };
 
   const handleDelete = async (id) => {
     await deleteProjectById(id);
@@ -91,11 +97,17 @@ export const DetailsPage = () => {
             </>
           )}
           {user.username === project.creator ? (
-            <DeleteButton onClick={() => handleDelete(project._id)}>
+            <DeleteButton onClick={() => handleDeleteClick()}>
               <DeleteIcon /> <span>Delete Project</span>
             </DeleteButton>
           ) : (
             <></>
+          )}
+          {popup && (
+            <Popup>
+              <Button onClick={() => handleDelete(project._id)}>Yes</Button>
+              <Button onClick={() => setPopup(false)}>No</Button>
+            </Popup>
           )}
         </StyledContainer>
       )}
