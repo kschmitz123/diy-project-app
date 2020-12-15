@@ -1,12 +1,14 @@
-import ImagePreview from "../components/ImagePreview";
-import Container from "../components/Container";
-import { Link } from "react-router-dom";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
-import { useQuery } from "react-query";
+import {
+  ImagePreview,
+  Container,
+  Header,
+  Navbar,
+  TitlePreview,
+} from "../utils/helpers/imports";
 import { getFavoritesByUser } from "../utils/api/users";
 import { useUserState } from "../utils/contexts/context";
-import TitlePreview from "../components/TitlePreview";
+import { useQuery } from "react-query";
+import { Link } from "react-router-dom";
 
 export const FavoritesPage = () => {
   const { user } = useUserState();
@@ -20,7 +22,7 @@ export const FavoritesPage = () => {
       <Header title={"Favorites"} />
       <Container>
         {status === "loading" && <div>Loading...</div>}
-        {status === "error" && <div>404 Error fetching proejcts</div>}
+        {status === "error" && <div>404 Error fetching projects</div>}
         {status === "success" && (
           <span>
             {data.favorites ? (

@@ -1,20 +1,20 @@
-import { useState } from "react";
-import { Button } from "./Buttons";
 import {
+  Button,
+  ImagePreview,
+  LoadingContainer,
   Form,
   LargeInput,
   SmallInput,
   Select,
   ImageInput,
-} from "./InputElements";
-import ImagePreview from "./ImagePreview";
+} from "../utils/helpers/imports";
+import { useState } from "react";
+import { useUserState } from "../utils/contexts/context";
+import { createProject } from "../utils/helpers/createProject";
+import { useMutation } from "react-query";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
-import { useMutation } from "react-query";
-import { createProject } from "../utils/createProject";
-import { LoadingContainer } from "./Container";
 import { Heart } from "react-spinners-css";
-import { useUserState } from "../utils/contexts/context";
 
 export default function UploadProject() {
   const [imageInput, setImageInput] = useState("");

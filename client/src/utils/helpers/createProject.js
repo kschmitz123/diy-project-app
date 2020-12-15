@@ -1,4 +1,4 @@
-import { postProject } from "../utils/api/projects";
+import { postProject } from "../api/projects";
 
 export const createProject = ({ formattedData, previewSource, user }) => {
   const project = postProject({

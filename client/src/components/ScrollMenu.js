@@ -30,7 +30,7 @@ const ScrollMenu = () => {
     <Container>
       <h3>Latest</h3>
       {status === "loading" && <div>Loading...</div>}
-      {status === "error" && <div>404 Error fetching proejcts</div>}
+      {status === "error" && <div>404 Error fetching projects</div>}
       {status === "success" && (
         <ScrollContainer>
           {project &&
