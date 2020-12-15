@@ -8,6 +8,7 @@ import TitlePreview from "../components/TitlePreview";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import { Ellipsis } from "react-spinners-css";
+import { ErrorMessage } from "../components/ErrorMessage";
 
 export const CategoryPage = () => {
   const { category } = useParams();
@@ -15,7 +16,7 @@ export const CategoryPage = () => {
     ["categories", category],
     getDataByParam
   );
-
+  console.log(project);
   return (
     <>
       <Header title={"Browse Categories"} />
@@ -25,7 +26,7 @@ export const CategoryPage = () => {
         {status === "error" && <div>404 Error fetching proejcts</div>}
         {status === "success" && (
           <span>
-            {project &&
+            {project && project.length > 0 ? (
               project.map((project) => (
                 <Link key={project._id} to={`/projects/${project._id}`}>
                   <ImagePreview
@@ -35,7 +36,14 @@ export const CategoryPage = () => {
                     <TitlePreview title={project.projectTitle} />
                   </ImagePreview>
                 </Link>
-              ))}
+              ))
+            ) : (
+              <ErrorMessage
+                title={
+                  "Seems like there are no projects for this category yet."
+                }
+              />
+            )}
           </span>
         )}
       </Container>

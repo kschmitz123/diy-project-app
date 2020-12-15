@@ -9,6 +9,7 @@ import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import Container from "../components/Container";
 import { Ellipsis } from "react-spinners-css";
+import { ErrorMessage } from "../components/ErrorMessage";
 
 export const BrowsePage = () => {
   const [tag, setTag] = useState("");
@@ -51,7 +52,7 @@ export const BrowsePage = () => {
                 </Link>
               ))
             ) : (
-              <div>No projects for this tag.</div>
+              <ErrorMessage title={"There are no projects for this tag."} />
             )}
           </span>
         )}

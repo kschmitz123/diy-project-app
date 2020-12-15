@@ -81,7 +81,11 @@ export const DetailsPage = () => {
       <Header title={"Project Details"} />
       <StyledContainer>
         {status === "loading" && <Ellipsis color="var(--main-color" />}
-        {status === "error" && <ErrorMessage />}
+        {status === "error" && (
+          <ErrorMessage
+            title={"Seems like this project doesn't exist anymore."}
+          />
+        )}
         {status === "success" && (
           <>
             {project && (
