@@ -6,9 +6,6 @@ export const setSessionCookie = (username) => {
 
 export const getSessionCookie = () => {
   const sessionCookie = Cookies.get("session");
-  if (sessionCookie === undefined) {
-    return {};
-  } else {
-    return sessionCookie;
-  }
+
+  return sessionCookie;
 };
