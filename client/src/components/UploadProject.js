@@ -11,7 +11,7 @@ import ImagePreview from "./ImagePreview";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 import { useMutation } from "react-query";
-import { createProject } from "../utils/createProject";
+import { createProject } from "../utils/helpers/createProject";
 import { LoadingContainer } from "./Container";
 import { Heart } from "react-spinners-css";
 import { useUserState } from "../utils/contexts/context";

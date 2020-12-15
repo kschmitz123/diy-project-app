@@ -1,12 +1,14 @@
-import ImagePreview from "../components/ImagePreview";
-import Container from "../components/Container";
+import {
+  ImagePreview,
+  Container,
+  TitlePreview,
+  Header,
+  Navbar,
+} from "../utils/helpers/imports";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { getDataByParam } from "../utils/api/projects";
-import TitlePreview from "../components/TitlePreview";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
 import { Ellipsis } from "react-spinners-css";
 
 export const CategoryPage = () => {

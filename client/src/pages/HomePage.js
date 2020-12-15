@@ -1,7 +1,9 @@
-import Categories from "../components/Categories";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
-import ScrollMenu from "../components/ScrollMenu";
+import {
+  Categories,
+  Header,
+  Navbar,
+  ScrollMenu,
+} from "../utils/helpers/imports";
 import { useUserState } from "../utils/contexts/context";
 import styled from "styled-components/macro";
 import { getSessionCookie } from "../utils/contexts/cookies";

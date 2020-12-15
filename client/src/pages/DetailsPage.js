@@ -1,19 +1,23 @@
 import styled from "styled-components/macro";
-import ImagePreview from "../components/ImagePreview";
-import Container from "../components/Container";
+import {
+  ImagePreview,
+  Container,
+  Header,
+  Navbar,
+  Popup,
+  FaveButton,
+  DeleteButton,
+  Button,
+} from "../utils/helpers/imports";
 import { deleteProjectById, getDataByParam } from "../utils/api/projects";
 import { useHistory, useParams } from "react-router-dom";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
 import { useQuery } from "react-query";
 import { Ellipsis } from "react-spinners-css";
 import { useUserState } from "../utils/contexts/context";
-import { FaveButton, DeleteButton, Button } from "../components/Buttons";
 import DeleteIcon from "@material-ui/icons/Delete";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import { useEffect, useState } from "react";
 import { getFavoritesByUser, postFavorites } from "../utils/api/users";
-import Popup from "../components/Popup";
 
 const StyledContainer = styled(Container)`
   display: flex;

@@ -1,12 +1,14 @@
-import ImagePreview from "../components/ImagePreview";
-import Container from "../components/Container";
+import {
+  ImagePreview,
+  Container,
+  Header,
+  Navbar,
+  TitlePreview,
+} from "../utils/helpers/imports";
 import { Link } from "react-router-dom";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
 import { useQuery } from "react-query";
 import { getFavoritesByUser } from "../utils/api/users";
 import { useUserState } from "../utils/contexts/context";
-import TitlePreview from "../components/TitlePreview";
 
 export const FavoritesPage = () => {
   const { user } = useUserState();
