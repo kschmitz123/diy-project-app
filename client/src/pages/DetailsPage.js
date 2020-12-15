@@ -14,6 +14,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import { useEffect, useState } from "react";
 import { getFavoritesByUser, postFavorites } from "../utils/api/users";
 import Popup from "../components/Popup";
+import { ErrorMessage } from "../components/ErrorMessage";
 
 const StyledContainer = styled(Container)`
   display: flex;
@@ -80,7 +81,7 @@ export const DetailsPage = () => {
       <Header title={"Project Details"} />
       <StyledContainer>
         {status === "loading" && <Ellipsis color="var(--main-color" />}
-        {status === "error" && <div>404 Error fetching proejcts</div>}
+        {status === "error" && <ErrorMessage />}
         {status === "success" && (
           <>
             {project && (
