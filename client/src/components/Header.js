@@ -7,7 +7,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
 const StyledHeader = styled.header`
-  height: 50px;
+  height: 55px;
   width: 100%;
   background: var(--main-color);
   display: flex;
@@ -16,7 +16,6 @@ const StyledHeader = styled.header`
   position: fixed;
   top: 0;
   z-index: 30;
-
   h2 {
     margin: 0;
   }
