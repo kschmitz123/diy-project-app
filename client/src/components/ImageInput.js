@@ -4,7 +4,7 @@ export const ImageInput = styled.div`
   margin-bottom: 10px;
   height: 2rem;
   width: 120px;
-  border-radius: 25px;
+  border-radius: 12px;
   background: var(--main-color);
   border: none;
   color: var(--button-color);
@@ -13,7 +13,7 @@ export const ImageInput = styled.div`
   display: grid;
   place-items: center;
   font-size: 0.9rem;
-
+  box-shadow: 3px 3px 5px hsla(300, 15%, 25%, 0.3);
   input {
     opacity: 0;
     height: 2rem;

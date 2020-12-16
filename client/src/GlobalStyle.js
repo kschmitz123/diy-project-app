@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
     --main-font-color: #222020;
     --secondary-font-color: #8E8E8E;
     --button-color: white;
+    --main-box-shadow: 3px 3px 5px hsla(300, 15%, 25%, 0.3) inset;
 }
 
 .box {
@@ -29,7 +30,7 @@ body
   -moz-osx-font-smoothing: grayscale;
   color: var(--main-font-color)
 }
-button, textarea{
+button, textarea {
   font-family: 'Montserrat', sans-serif;
 }
 
