@@ -10,24 +10,30 @@ export const Form = styled.form`
 export const SmallInput = styled.input`
   margin: 10px 0 0;
   height: 2rem;
-  border-radius: 25px;
-  width: 80%;
-  border: solid 1px var(--secondary-font-color);
+  border-radius: 12px;
+  width: 90%;
+  border: solid 1px white;
   text-align: center;
+  box-shadow: var(--main-box-shadow);
 `;
 
 export const LargeInput = styled.textarea`
   margin-top: 10px;
   height: 20rem;
-  border-radius: 15px;
-  width: 80%;
-  border: solid 1px var(--secondary-font-color);
+  border-radius: 12px;
+  width: 90%;
+  border: solid 1px white;
+  box-shadow: var(--main-box-shadow);
+  text-align: center;
 `;
 
 export const Select = styled.select`
   height: 2rem;
-  border-radius: 25px;
+  border-radius: 12px;
   margin: 10px 0;
+  border: 2px solid orange;
+  background: transparent;
+  box-shadow: var(--main-box-shadow);
 `;
 
 SmallInput.defaultProps = {
