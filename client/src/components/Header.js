@@ -18,6 +18,7 @@ const StyledHeader = styled.header`
   z-index: 30;
   h2 {
     margin: 0;
+    margin-right: 40px;
   }
 `;
 
