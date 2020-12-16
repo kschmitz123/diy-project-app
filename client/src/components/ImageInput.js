@@ -13,7 +13,6 @@ export const ImageInput = styled.div`
   display: grid;
   place-items: center;
   font-size: 0.9rem;
-  box-shadow: 3px 3px 5px hsla(300, 15%, 25%, 0.3);
   input {
     opacity: 0;
     height: 2rem;
