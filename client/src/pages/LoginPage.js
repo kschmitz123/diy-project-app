@@ -12,9 +12,10 @@ const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #ffdbac;
+  background-color: #dac7c39c;
   border-radius: 25px;
-  width: 60%;
+  box-shadow: var(--main-box-shadow);
+  width: 70%;
   text-align: center;
 
   form {

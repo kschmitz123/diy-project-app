@@ -15,19 +15,20 @@ const NavLink = styled(Link)`
   border-radius: 25px;
   border: none;
   cursor: pointer;
-  background: linear-gradient(to bottom right, #778195, #2c457e);
+
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   text-decoration: none;
+  border: 2px solid var(--main-color);
 
   img {
     width: 60%;
     height: 60%;
   }
   p {
-    color: var(--button-color);
+    color: var(--main-color);
     margin: 5px 0;
   }
 `;

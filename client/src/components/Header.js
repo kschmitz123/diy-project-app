@@ -9,7 +9,7 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 const StyledHeader = styled.header`
   height: 55px;
   width: 100%;
-  background: var(--main-color);
+  background: var(--secondary-color);
   display: flex;
   justify-content: space-between;
   align-items: center;

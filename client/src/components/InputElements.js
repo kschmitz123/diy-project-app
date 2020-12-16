@@ -31,7 +31,7 @@ export const Select = styled.select`
   height: 2rem;
   border-radius: 12px;
   margin: 10px 0;
-  border: 2px solid orange;
+  border: 2px solid var(--main-color);
   background: transparent;
   box-shadow: var(--main-box-shadow);
 `;

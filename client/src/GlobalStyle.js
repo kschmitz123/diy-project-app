@@ -7,9 +7,9 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 :root {
-    --main-color: #FCA311;
+    --main-color: #b3857c;
+    --secondary-color: #d0a79f;
     --main-font-color: #222020;
-    --secondary-font-color: #8E8E8E;
     --button-color: white;
     --main-box-shadow: 3px 3px 5px hsla(300, 15%, 25%, 0.3) inset;
 }
