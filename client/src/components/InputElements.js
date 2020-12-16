@@ -1,14 +1,14 @@
 import styled from "styled-components/macro";
 
 export const Form = styled.form`
-  margin: 60px 0;
+  margin: 20px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
 export const SmallInput = styled.input`
-  margin: 10px 0;
+  margin: 10px 0 0;
   height: 2rem;
   border-radius: 25px;
   width: 80%;
@@ -17,6 +17,7 @@ export const SmallInput = styled.input`
 `;
 
 export const LargeInput = styled.textarea`
+  margin-top: 10px;
   height: 20rem;
   border-radius: 15px;
   width: 80%;
@@ -26,7 +27,7 @@ export const LargeInput = styled.textarea`
 export const Select = styled.select`
   height: 2rem;
   border-radius: 25px;
-  margin-bottom: 10px;
+  margin: 10px 0;
 `;
 
 SmallInput.defaultProps = {
