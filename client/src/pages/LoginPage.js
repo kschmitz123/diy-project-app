@@ -27,7 +27,7 @@ export const LoginPage = () => {
   const [name, setName] = useState();
   const [error, setError] = useState(null);
   const history = useHistory();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = async (data) => {
     try {
@@ -43,7 +43,6 @@ export const LoginPage = () => {
   return (
     <Container>
       <h1>Craftified</h1>
-      {error && <div>{error.message}</div>}
       <FormContainer>
         <h2>Login</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -59,8 +58,15 @@ export const LoginPage = () => {
             placeholder="Enter password"
             type="password"
             name="password"
-            ref={register}
+            ref={register({ pattern: /(?=.*\d)(?=.*[A-Z]).{6,20}/ })}
           />
+          {error && <p>{error.message}</p>}
+          {errors.password && (
+            <p>
+              Password must contain at least 6 characters, an upper case letter
+              and a number.
+            </p>
+          )}
           <Button type="submit">Login</Button>
         </form>
       </FormContainer>
