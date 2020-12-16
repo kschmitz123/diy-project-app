@@ -16,6 +16,7 @@ const FormContainer = styled.div`
   border-radius: 25px;
   box-shadow: var(--main-box-shadow);
   width: 70%;
+  max-width: 720px;
   text-align: center;
 
   form {
