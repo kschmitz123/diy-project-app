@@ -65,12 +65,18 @@ export default function UploadProject() {
         </LoadingContainer>
       )}
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <ImageInput
-          name="image"
-          value={imageInput}
-          onChange={handleImageChange}
-          ref={register}
-        />
+        <ImageInput>
+          <input
+            name="image"
+            value={imageInput}
+            onChange={handleImageChange}
+            ref={register}
+            type="file"
+            required
+          />
+          Select image
+        </ImageInput>
+
         {previewSource && <ImagePreview src={previewSource} alt="" />}
         <SmallInput
           placeholder="Enter project title"

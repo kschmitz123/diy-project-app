@@ -23,28 +23,11 @@ export const LargeInput = styled.textarea`
   border: solid 1px var(--secondary-font-color);
 `;
 
-export const ImageInput = styled.input`
-  margin-bottom: 10px;
-  height: 2rem;
-  width: 120px;
-  border-radius: 25px;
-  background: var(--main-color);
-  border: none;
-  cursor: pointer;
-  color: var(--button-color);
-  font-weight: bold;
-`;
-
 export const Select = styled.select`
   height: 2rem;
   border-radius: 25px;
   margin-bottom: 10px;
 `;
-
-ImageInput.defaultProps = {
-  type: "file",
-  required: true,
-};
 
 SmallInput.defaultProps = {
   type: "text",
