@@ -16,6 +16,7 @@ import {
 } from "../../components/InputElements";
 import { Button, FaveButton, DeleteButton } from "../../components/Buttons";
 import Categories from "../../components/Categories";
+import { ErrorMessage } from "../../components/ErrorMessage";
 
 export {
   Header,
@@ -37,4 +38,5 @@ export {
   Form,
   Select,
   ImageInput,
+  ErrorMessage,
 };

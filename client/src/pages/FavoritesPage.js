@@ -4,6 +4,7 @@ import {
   Header,
   Navbar,
   TitlePreview,
+  ErrorMessage,
 } from "../utils/helpers/imports";
 import { getFavoritesByUser } from "../utils/api/users";
 import { useUserState } from "../utils/contexts/context";
@@ -25,7 +26,7 @@ export const FavoritesPage = () => {
         {status === "error" && <div>404 Error fetching projects</div>}
         {status === "success" && (
           <span>
-            {data.favorites ? (
+            {data.favorites && data.favorites.length > 0 ? (
               data.favorites.map((favorite) => (
                 <Link key={favorite.id} to={`/projects/${favorite.id}`}>
                   <ImagePreview
@@ -37,7 +38,9 @@ export const FavoritesPage = () => {
                 </Link>
               ))
             ) : (
-              <div>Looks like you don&apos;t have any favorites yet.</div>
+              <ErrorMessage
+                title={"Looks like you don't have any favorites yet."}
+              />
             )}
           </span>
         )}

@@ -14,7 +14,9 @@ export const useUserState = () => {
 };
 
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState(getSessionCookie());
+  const [user, setUser] = useState(() => ({
+    username: getSessionCookie() || "",
+  }));
 
   const login = (username) => {
     setUser(() => ({

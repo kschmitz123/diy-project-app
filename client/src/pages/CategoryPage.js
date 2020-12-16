@@ -9,6 +9,7 @@ import { getDataByParam } from "../utils/api/projects";
 import { useQuery } from "react-query";
 import { Link, useParams } from "react-router-dom";
 import { Ellipsis } from "react-spinners-css";
+import { ErrorMessage } from "../components/ErrorMessage";
 
 export const CategoryPage = () => {
   const { category } = useParams();
@@ -26,7 +27,7 @@ export const CategoryPage = () => {
         {status === "error" && <div>404 Error fetching projects</div>}
         {status === "success" && (
           <span>
-            {project &&
+            {project && project.length > 0 ? (
               project.map((project) => (
                 <Link key={project._id} to={`/projects/${project._id}`}>
                   <ImagePreview
@@ -36,7 +37,14 @@ export const CategoryPage = () => {
                     <TitlePreview title={project.projectTitle} />
                   </ImagePreview>
                 </Link>
-              ))}
+              ))
+            ) : (
+              <ErrorMessage
+                title={
+                  "Seems like there are no projects for this category yet."
+                }
+              />
+            )}
           </span>
         )}
       </Container>

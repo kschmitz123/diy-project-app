@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import { Ellipsis } from "react-spinners-css";
+import { ErrorMessage } from "../components/ErrorMessage";
 
 export const BrowsePage = () => {
   const [tag, setTag] = useState("");
@@ -53,7 +54,7 @@ export const BrowsePage = () => {
                 </Link>
               ))
             ) : (
-              <div>No projects for this tag.</div>
+              <ErrorMessage title={"There are no projects for this tag."} />
             )}
           </span>
         )}
