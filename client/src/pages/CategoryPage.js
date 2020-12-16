@@ -1,12 +1,13 @@
-import ImagePreview from "../components/ImagePreview";
-import Container from "../components/Container";
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import { useQuery } from "react-query";
+import {
+  ImagePreview,
+  Container,
+  TitlePreview,
+  Header,
+  Navbar,
+} from "../utils/helpers/imports";
 import { getDataByParam } from "../utils/api/projects";
-import TitlePreview from "../components/TitlePreview";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
+import { useQuery } from "react-query";
+import { Link, useParams } from "react-router-dom";
 import { Ellipsis } from "react-spinners-css";
 import { ErrorMessage } from "../components/ErrorMessage";
 
@@ -23,7 +24,7 @@ export const CategoryPage = () => {
       <Container>
         <h3>{`Projects related to "${category}"`}</h3>
         {status === "loading" && <Ellipsis color="var(--main-color" />}
-        {status === "error" && <div>404 Error fetching proejcts</div>}
+        {status === "error" && <div>404 Error fetching projects</div>}
         {status === "success" && (
           <span>
             {project && project.length > 0 ? (

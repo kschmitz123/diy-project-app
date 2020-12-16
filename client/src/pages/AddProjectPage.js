@@ -1,7 +1,9 @@
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
-import UploadProject from "../components/UploadProject";
-import Container from "../components/Container";
+import {
+  Header,
+  Navbar,
+  UploadProject,
+  Container,
+} from "../utils/helpers/imports";
 
 export const AddProjectPage = () => {
   return (

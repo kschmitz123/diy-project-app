@@ -1,13 +1,15 @@
-import Searchbar from "../components/Searchbar";
+import {
+  Searchbar,
+  ImagePreview,
+  TitlePreview,
+  Header,
+  Navbar,
+  Container,
+} from "../utils/helpers/imports";
 import { getDataByParam } from "../utils/api/projects";
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
-import ImagePreview from "../components/ImagePreview";
 import { Link } from "react-router-dom";
-import TitlePreview from "../components/TitlePreview";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
-import Container from "../components/Container";
 import { Ellipsis } from "react-spinners-css";
 import { ErrorMessage } from "../components/ErrorMessage";
 
@@ -37,7 +39,7 @@ export const BrowsePage = () => {
       <Container>
         <Searchbar value={tag} onChange={handleChange} />
         {status === "loading" && <Ellipsis color="var(--main-color" />}
-        {status === "error" && <div>404 Error fetching proejcts</div>}
+        {status === "error" && <div>404 Error fetching projects</div>}
         {status === "success" && (
           <span>
             {project && project.length > 0 ? (
