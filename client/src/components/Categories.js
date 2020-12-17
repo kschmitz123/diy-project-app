@@ -30,6 +30,7 @@ const NavLink = styled(Link)`
   p {
     color: var(--main-color);
     margin: 5px 0;
+    font-weight: 700;
   }
 `;
 

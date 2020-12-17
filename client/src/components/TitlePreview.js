@@ -11,6 +11,10 @@ const Container = styled.div`
   width: inherit;
   border-radius: 0 0 25px 25px;
   margin: 0;
+
+  p {
+    font-weight: 700;
+  }
 `;
 
 const TitlePreview = ({ title }) => {
