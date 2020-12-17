@@ -104,6 +104,7 @@ export const DetailsPage = () => {
                   <FaveButton
                     style={favorite ? favoriteStyle : normalStyle}
                     onClick={handleClick}
+                    aria-label={"Favorite"}
                   >
                     <FavoriteIcon fontSize="large" />
                   </FaveButton>

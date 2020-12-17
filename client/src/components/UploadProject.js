@@ -73,6 +73,7 @@ export default function UploadProject() {
             ref={register}
             type="file"
             required
+            aria-label={"Select Image"}
           />
           Select image
         </ImageInput>
@@ -82,19 +83,22 @@ export default function UploadProject() {
           placeholder="Enter project title"
           name="projectTitle"
           ref={register}
+          aria-label={"Enter title"}
         />
         <SmallInput
           placeholder="Enter materials separated by comma"
           name="material"
           ref={register}
+          aria-label={"Enter materials"}
         />
         <LargeInput ref={register} name="description" />
         <SmallInput
           placeholder="Enter tags separated by comma"
           ref={register}
           name="tags"
+          aria-label={"Enter tags"}
         />
-        <Select ref={register} name="category">
+        <Select ref={register} name="category" aria-label={"Select category"}>
           <option value="">--Please choose a category--</option>
           <option value="sewing">Sewing</option>
           <option value="macrame">Macrame</option>
@@ -104,7 +108,9 @@ export default function UploadProject() {
           <option value="upcycling">Upcycling</option>
         </Select>
 
-        <Button type="submit">Upload Project</Button>
+        <Button aria-label={"Submit"} type="submit">
+          Upload Project
+        </Button>
         {status === "error" && <div>404 Error fetching projects</div>}
       </Form>
     </>

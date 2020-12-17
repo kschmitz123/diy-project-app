@@ -31,13 +31,25 @@ const Navbar = () => {
 
   return (
     <Footer>
-      <NavLink to={"/home"} active={location.pathname === "/home"}>
+      <NavLink
+        aria-label={"Home"}
+        to={"/home"}
+        active={location.pathname === "/home"}
+      >
         <HomeIcon fontSize="large" />
       </NavLink>
-      <NavLink to={"/favorites"} active={location.pathname === "/favorites"}>
+      <NavLink
+        aria-label={"Favorites"}
+        to={"/favorites"}
+        active={location.pathname === "/favorites"}
+      >
         <FavoriteIcon fontSize="large" />
       </NavLink>
-      <NavLink to={"/add"} active={location.pathname === "/add"}>
+      <NavLink
+        aria-label={"Add project"}
+        to={"/add"}
+        active={location.pathname === "/add"}
+      >
         <AddIcon fontSize="large" />
       </NavLink>
     </Footer>
