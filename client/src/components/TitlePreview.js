@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 const Container = styled.div`
   background-color: var(--main-color);
+  color: var(--main-font-color);
   text-align: center;
   position: absolute;
   bottom: 0;
