@@ -5,13 +5,13 @@ import {
   Header,
   Navbar,
   Container,
+  ErrorMessage,
 } from "../utils/helpers/imports";
 import { getDataByParam } from "../utils/api/projects";
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import { Ellipsis } from "react-spinners-css";
-import { ErrorMessage } from "../components/ErrorMessage";
 
 export const BrowsePage = () => {
   const [tag, setTag] = useState("");
