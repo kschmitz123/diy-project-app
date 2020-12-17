@@ -12,9 +12,11 @@ import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import { Ellipsis } from "react-spinners-css";
+import useDebounce from "../utils/helpers/useDebounce";
 
 export const BrowsePage = () => {
   const [tag, setTag] = useState("");
+  const debouncedTag = useDebounce(tag, 500);
   const { data: project, status, refetch } = useQuery(
     ["browse", tag],
     getDataByParam,
@@ -24,10 +26,10 @@ export const BrowsePage = () => {
   );
 
   useEffect(() => {
-    if (tag) {
+    if (debouncedTag) {
       refetch();
     }
-  }, [tag, refetch]);
+  }, [debouncedTag, refetch]);
 
   const handleChange = (event) => {
     setTag(event.target.value);
