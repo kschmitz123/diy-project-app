@@ -17,6 +17,7 @@ import { Button, FaveButton, DeleteButton } from "../../components/Buttons";
 import Categories from "../../components/Categories";
 import { ErrorMessage } from "../../components/ErrorMessage";
 import { ImageInput } from "../../components/ImageInput";
+import { Speechbubble } from "../../components/Speechbubble";
 export {
   Header,
   Navbar,
@@ -38,4 +39,5 @@ export {
   Select,
   ImageInput,
   ErrorMessage,
+  Speechbubble,
 };
