@@ -1,50 +1,40 @@
 import styled from "styled-components/macro";
 
 export const Form = styled.form`
-  margin: 60px 0;
+  margin: 20px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
 export const SmallInput = styled.input`
-  margin: 10px 0;
+  margin: 10px 0 0;
   height: 2rem;
-  border-radius: 25px;
-  width: 80%;
-  border: solid 1px var(--secondary-font-color);
+  border-radius: 12px;
+  width: 90%;
+  border: solid 1px white;
   text-align: center;
+  box-shadow: var(--main-box-shadow);
 `;
 
 export const LargeInput = styled.textarea`
+  margin-top: 10px;
   height: 20rem;
-  border-radius: 15px;
-  width: 80%;
-  border: solid 1px var(--secondary-font-color);
-`;
-
-export const ImageInput = styled.input`
-  margin-bottom: 10px;
-  height: 2rem;
-  width: 120px;
-  border-radius: 25px;
-  background: var(--main-color);
-  border: none;
-  cursor: pointer;
-  color: var(--button-color);
-  font-weight: bold;
+  border-radius: 12px;
+  width: 90%;
+  border: solid 1px white;
+  box-shadow: var(--main-box-shadow);
+  text-align: center;
 `;
 
 export const Select = styled.select`
   height: 2rem;
-  border-radius: 25px;
-  margin-bottom: 10px;
+  border-radius: 12px;
+  margin: 10px 0;
+  border: 2px solid var(--main-color);
+  background: transparent;
+  box-shadow: var(--main-box-shadow);
 `;
-
-ImageInput.defaultProps = {
-  type: "file",
-  required: true,
-};
 
 SmallInput.defaultProps = {
   type: "text",

@@ -12,7 +12,7 @@ const Form = styled.form`
     border-radius: 25px;
     width: 60%;
     max-width: 680px;
-    border: solid 1px var(--secondary-font-color);
+    border: solid 1px var(--main-color);
     position: fixed;
     top: 60px;
     z-index: 1;

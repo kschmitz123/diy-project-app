@@ -5,9 +5,9 @@ import styled from "styled-components/macro";
 import { Link, useLocation } from "react-router-dom";
 
 const Footer = styled.footer`
-  height: 50px;
+  height: 55px;
   width: 100%;
-  background: var(--main-color);
+  background: var(--secondary-color);
   display: flex;
   justify-content: space-evenly;
   align-items: center;

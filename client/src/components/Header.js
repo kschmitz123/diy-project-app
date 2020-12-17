@@ -7,18 +7,18 @@ import SearchIcon from "@material-ui/icons/Search";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
 const StyledHeader = styled.header`
-  height: 50px;
+  height: 55px;
   width: 100%;
-  background: var(--main-color);
+  background: var(--secondary-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
   top: 0;
   z-index: 30;
-
   h2 {
     margin: 0;
+    margin-right: 40px;
   }
 `;
 

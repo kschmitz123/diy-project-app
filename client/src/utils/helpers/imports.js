@@ -12,12 +12,11 @@ import {
   LargeInput,
   Form,
   Select,
-  ImageInput,
 } from "../../components/InputElements";
 import { Button, FaveButton, DeleteButton } from "../../components/Buttons";
 import Categories from "../../components/Categories";
 import { ErrorMessage } from "../../components/ErrorMessage";
-
+import { ImageInput } from "../../components/ImageInput";
 export {
   Header,
   Navbar,

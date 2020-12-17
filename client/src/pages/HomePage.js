@@ -10,7 +10,12 @@ import styled from "styled-components/macro";
 
 const Greeting = styled.h2`
   text-align: center;
-  padding-top: 40px;
+  padding-top: 70px;
+  margin: 0;
+  span {
+    color: var(--main-color);
+    margin: 0;
+  }
 `;
 export const HomePage = () => {
   const session = useUserState(getSessionCookie());
@@ -18,7 +23,9 @@ export const HomePage = () => {
     <>
       <Header title={"Craftified"} />
       <div className="box">
-        <Greeting>Welcome {session.user.username}!</Greeting>
+        <Greeting>
+          Welcome <span>{session.user.username} </span>!
+        </Greeting>
         <ScrollMenu />
         <Categories />
       </div>

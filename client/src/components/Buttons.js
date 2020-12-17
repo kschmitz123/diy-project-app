@@ -3,12 +3,13 @@ import styled from "styled-components/macro";
 export const Button = styled.button`
   height: 2rem;
   width: 120px;
-  border-radius: 25px;
+  border-radius: 12px;
   background: var(--main-color);
   border: none;
   cursor: pointer;
   color: var(--button-color);
   font-weight: bold;
+  margin-top: 10px;
 `;
 
 export const FaveButton = styled.button`
@@ -27,10 +28,11 @@ export const DeleteButton = styled.button`
   padding: 5px 10px;
   background-color: gray;
   border: none;
-  border-radius: 25px;
+  border-radius: 12px;
   width: 150px;
   display: flex;
   align-items: center;
+
   &&:hover,
   :active {
     background-color: red;
