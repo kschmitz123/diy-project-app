@@ -28,7 +28,7 @@ const NavLink = styled(Link)`
     height: 60%;
   }
   p {
-    color: var(--main-color);
+    color: #906d66;
     margin: 5px 0;
     font-weight: 700;
   }
