@@ -9,7 +9,7 @@ export const Button = styled.button`
   cursor: pointer;
   color: var(--button-color);
   font-weight: bold;
-  margin-top: 10px;
+  margin: 10px 5px 0;
 `;
 
 export const FaveButton = styled.button`

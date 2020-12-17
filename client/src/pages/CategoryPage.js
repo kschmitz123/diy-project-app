@@ -4,12 +4,12 @@ import {
   TitlePreview,
   Header,
   Navbar,
+  ErrorMessage,
 } from "../utils/helpers/imports";
 import { getDataByParam } from "../utils/api/projects";
 import { useQuery } from "react-query";
 import { Link, useParams } from "react-router-dom";
 import { Ellipsis } from "react-spinners-css";
-import { ErrorMessage } from "../components/ErrorMessage";
 
 export const CategoryPage = () => {
   const { category } = useParams();

@@ -33,12 +33,15 @@ const Header = ({ title }) => {
   };
   return (
     <StyledHeader>
-      <ExitButton onClick={handleClick}>
+      <ExitButton aria-label={"Exit"} onClick={handleClick}>
         <ExitToAppIcon />
       </ExitButton>
       <h2>{title}</h2>
       <Link to="/browse">
-        <SearchButton active={location.pathname === "/browse"}>
+        <SearchButton
+          aria-label={"Search"}
+          active={location.pathname === "/browse"}
+        >
           <SearchIcon fontSize="large" />
         </SearchButton>
       </Link>

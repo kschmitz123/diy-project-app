@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 const Container = styled.div`
   background-color: var(--main-color);
+  color: var(--main-font-color);
   text-align: center;
   position: absolute;
   bottom: 0;
@@ -10,6 +11,10 @@ const Container = styled.div`
   width: inherit;
   border-radius: 0 0 25px 25px;
   margin: 0;
+
+  p {
+    font-weight: 700;
+  }
 `;
 
 const TitlePreview = ({ title }) => {

@@ -1,4 +1,4 @@
-import { SmallInput, Button } from "../utils/helpers/imports";
+import { SmallInput, Button, Speechbubble } from "../utils/helpers/imports";
 import { Container } from "../components/LoadingScreen";
 import { setSessionCookie } from "../utils/contexts/cookies";
 import { useUserState } from "../utils/contexts/context";
@@ -62,12 +62,12 @@ export const LoginPage = () => {
             name="password"
             ref={register({ pattern: /(?=.*\d)(?=.*[A-Z]).{6,20}/ })}
           />
-          {error && <p>{error.message}</p>}
+          {error && <Speechbubble>{error.message}</Speechbubble>}
           {errors.password && (
-            <p>
+            <Speechbubble>
               Password must contain at least 6 characters, an upper case letter
               and a number.
-            </p>
+            </Speechbubble>
           )}
           <Button type="submit">Login</Button>
         </form>
