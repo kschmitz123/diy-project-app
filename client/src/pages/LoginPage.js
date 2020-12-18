@@ -26,16 +26,16 @@ const FormContainer = styled.div`
 
 export const LoginPage = () => {
   const { login } = useUserState();
-  const [name, setName] = useState();
   const [error, setError] = useState(null);
   const history = useHistory();
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = async (data) => {
+    const trimmedUsername = data.username.trim();
     try {
-      await postUser(data);
-      login(name);
-      setSessionCookie(name);
+      await postUser({ username: trimmedUsername, password: data.password });
+      login(trimmedUsername);
+      setSessionCookie(trimmedUsername);
       history.push("/home");
     } catch (error) {
       console.error(error);
@@ -49,13 +49,16 @@ export const LoginPage = () => {
         <h2>Login</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <SmallInput
-            onChange={(event) => {
-              setName(event.target.value);
-            }}
             placeholder="Enter username"
             name="username"
-            ref={register}
+            ref={register({ minLength: 5 })}
           />
+          {errors.username && (
+            <Speechbubble>
+              Username must be at least 5 characters long.
+            </Speechbubble>
+          )}
+
           <SmallInput
             placeholder="Enter password"
             type="password"
