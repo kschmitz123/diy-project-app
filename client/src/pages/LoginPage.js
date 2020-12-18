@@ -51,8 +51,14 @@ export const LoginPage = () => {
           <SmallInput
             placeholder="Enter username"
             name="username"
-            ref={register}
+            ref={register({ minLength: 5 })}
           />
+          {errors.username && (
+            <Speechbubble>
+              Username must be at least 5 characters long.
+            </Speechbubble>
+          )}
+
           <SmallInput
             placeholder="Enter password"
             type="password"
