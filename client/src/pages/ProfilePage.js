@@ -5,12 +5,26 @@ import {
   Header,
   Navbar,
   ErrorMessage,
-  ImagePreview,
-  TitlePreview,
 } from "../utils/helpers/imports";
 import { getDataByParam } from "../utils/api/projects";
 import { useUserState } from "../utils/contexts/context";
 import { getSessionCookie } from "../utils/contexts/cookies";
+import styled from "styled-components/macro";
+
+const ImageContainer = styled.div`
+  max-width: 720px;
+  margin: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  img {
+    border-radius: 25px;
+    margin: 5px;
+    height: 150px;
+    width: 150px;
+  }
+`;
 
 export const ProfilePage = () => {
   const session = useUserState(getSessionCookie());
@@ -25,16 +39,11 @@ export const ProfilePage = () => {
         {status === "loading" && <div>Loading...</div>}
         {status === "error" && <div>404 Error fetching projects</div>}
         {status === "success" && (
-          <span>
+          <ImageContainer>
             {data && data.length > 0 ? (
               data.map((project) => (
-                <Link key={project.id} to={`/projects/${project.d}`}>
-                  <ImagePreview
-                    src={project.imageURL}
-                    alt={project.projectTitle}
-                  >
-                    <TitlePreview title={project.projectTitle} />
-                  </ImagePreview>
+                <Link key={project.id} to={`/projects/${project._id}`}>
+                  <img src={project.imageURL} alt={project.projectTitle}></img>
                 </Link>
               ))
             ) : (
@@ -42,7 +51,7 @@ export const ProfilePage = () => {
                 title={"Looks like you haven't uploaded any projects yet."}
               />
             )}
-          </span>
+          </ImageContainer>
         )}
       </Container>
 
