@@ -8,8 +8,8 @@ import {
 } from "../utils/helpers/imports";
 import { getDataByParam } from "../utils/api/projects";
 import { useUserState } from "../utils/contexts/context";
-import { getSessionCookie } from "../utils/contexts/cookies";
 import styled from "styled-components/macro";
+import { Profile } from "../components/Profile";
 
 const ImageContainer = styled.div`
   max-width: 720px;
@@ -27,14 +27,13 @@ const ImageContainer = styled.div`
 `;
 
 export const ProfilePage = () => {
-  const session = useUserState(getSessionCookie());
   const { user } = useUserState();
   const { data, status } = useQuery(["users", user.username], getDataByParam);
   return (
     <>
       <Header title={"Profile"} />
       <Container>
-        Welcome <span>{session.user.username}</span>
+        <Profile />
         <h3>My uploads</h3>
         {status === "loading" && <div>Loading...</div>}
         {status === "error" && <div>404 Error fetching projects</div>}
@@ -42,7 +41,7 @@ export const ProfilePage = () => {
           <ImageContainer>
             {data && data.length > 0 ? (
               data.map((project) => (
-                <Link key={project.id} to={`/projects/${project._id}`}>
+                <Link key={project._id} to={`/projects/${project._id}`}>
                   <img src={project.imageURL} alt={project.projectTitle}></img>
                 </Link>
               ))
@@ -54,7 +53,6 @@ export const ProfilePage = () => {
           </ImageContainer>
         )}
       </Container>
-
       <Navbar />
     </>
   );
