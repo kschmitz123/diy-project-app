@@ -31,7 +31,7 @@ body
   -moz-osx-font-smoothing: grayscale;
   color: var(--main-font-color)
 }
-button, textarea, select {
+button, textarea, select, input {
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
 }
