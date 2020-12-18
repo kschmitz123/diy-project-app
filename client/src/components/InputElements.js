@@ -9,12 +9,15 @@ export const Form = styled.form`
 
 export const SmallInput = styled.input`
   margin: 10px 0 0;
-  height: 2rem;
+  height: 2.5rem;
   border-radius: 12px;
   width: 90%;
   border: solid 1px white;
   text-align: center;
   box-shadow: var(--main-box-shadow);
+  &&::placeholder {
+    font-size: 1rem;
+  }
 `;
 
 export const LargeInput = styled.textarea`
@@ -25,6 +28,9 @@ export const LargeInput = styled.textarea`
   border: solid 1px white;
   box-shadow: var(--main-box-shadow);
   text-align: center;
+  &&::placeholder {
+    font-size: 1rem;
+  }
 `;
 
 export const Select = styled.select`

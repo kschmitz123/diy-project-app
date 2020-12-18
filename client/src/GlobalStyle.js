@@ -25,13 +25,15 @@ const GlobalStyle = createGlobalStyle`
 body
  {
   margin: 0;
+  font-size: 16px;
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--main-font-color)
 }
-button, textarea {
+button, textarea, select, input {
   font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
 }
 
 code {
