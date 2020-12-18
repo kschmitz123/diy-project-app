@@ -8,7 +8,7 @@ const Form = styled.form`
 
   input {
     text-align: center;
-    height: 2rem;
+    height: 2.5rem;
     border-radius: 25px;
     width: 60%;
     max-width: 680px;
@@ -16,6 +16,7 @@ const Form = styled.form`
     position: fixed;
     top: 60px;
     z-index: 1;
+    font-size: 1rem;
   }
 `;
 
