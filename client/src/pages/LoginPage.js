@@ -26,16 +26,16 @@ const FormContainer = styled.div`
 
 export const LoginPage = () => {
   const { login } = useUserState();
-  const [name, setName] = useState();
   const [error, setError] = useState(null);
   const history = useHistory();
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = async (data) => {
+    const trimmedUsername = data.username.trim();
     try {
-      await postUser(data);
-      login(name);
-      setSessionCookie(name);
+      await postUser({ username: trimmedUsername, password: data.password });
+      login(trimmedUsername);
+      setSessionCookie(trimmedUsername);
       history.push("/home");
     } catch (error) {
       console.error(error);
@@ -49,9 +49,6 @@ export const LoginPage = () => {
         <h2>Login</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <SmallInput
-            onChange={(event) => {
-              setName(event.target.value);
-            }}
             placeholder="Enter username"
             name="username"
             ref={register}
