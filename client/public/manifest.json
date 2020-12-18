@@ -1,6 +1,5 @@
 {
   "short_name": "Craftified",
-  "name": "Craftified",
   "icons": [
     {
       "src": "favicon.ico",
@@ -22,5 +21,5 @@
   "start_url": "/",
   "display": "fullscreen",
   "theme_color": "#b3857c",
-  "background_color": "#b3857c"
+  "background_color": "#fff"
 }
