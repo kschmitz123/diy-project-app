@@ -3,6 +3,7 @@ import { BrowsePage } from "../../pages/BrowsePage";
 import { CategoryPage } from "../../pages/CategoryPage";
 import { DetailsPage } from "../../pages/DetailsPage";
 import { FavoritesPage } from "../../pages/FavoritesPage";
+import { ProfilePage } from "../../pages/ProfilePage";
 import { HomePage } from "../../pages/HomePage";
 
 const routes = [
@@ -29,6 +30,10 @@ const routes = [
   {
     path: "/add",
     component: AddProjectPage,
+  },
+  {
+    path: "/profile",
+    component: ProfilePage,
   },
 ];
 export default routes;
