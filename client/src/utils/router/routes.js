@@ -5,6 +5,7 @@ import { DetailsPage } from "../../pages/DetailsPage";
 import { FavoritesPage } from "../../pages/FavoritesPage";
 import { ProfilePage } from "../../pages/ProfilePage";
 import { HomePage } from "../../pages/HomePage";
+import { UserPage } from "../../pages/UserPage";
 
 const routes = [
   {
@@ -34,6 +35,10 @@ const routes = [
   {
     path: "/profile",
     component: ProfilePage,
+  },
+  {
+    path: "/users/:user",
+    component: UserPage,
   },
 ];
 export default routes;
