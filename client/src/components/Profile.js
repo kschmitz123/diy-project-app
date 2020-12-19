@@ -1,8 +1,6 @@
 import styled from "styled-components/macro";
 import Avatar from "../assets/avatar-placeholder.jpeg";
-import { useUserState } from "../utils/contexts/context";
-import { getSessionCookie } from "../utils/contexts/cookies";
-
+import PropTypes from "prop-types";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -21,12 +19,15 @@ const Container = styled.div`
   }
 `;
 
-export const Profile = () => {
-  const session = useUserState(getSessionCookie());
+export const Profile = ({ user }) => {
   return (
     <Container>
-      <h2>{session.user.username}</h2>
+      <h2>{user}</h2>
       <img src={Avatar} alt="avatar" />
     </Container>
   );
+};
+
+Profile.propTypes = {
+  user: PropTypes.string,
 };

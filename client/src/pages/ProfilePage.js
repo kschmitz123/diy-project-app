@@ -5,11 +5,12 @@ import {
   Header,
   Navbar,
   ErrorMessage,
+  Profile,
 } from "../utils/helpers/imports";
 import { getDataByParam } from "../utils/api/projects";
 import { useUserState } from "../utils/contexts/context";
 import styled from "styled-components/macro";
-import { Profile } from "../components/Profile";
+import { getSessionCookie } from "../utils/contexts/cookies";
 
 const ImageContainer = styled.div`
   max-width: 720px;
@@ -29,11 +30,13 @@ const ImageContainer = styled.div`
 export const ProfilePage = () => {
   const { user } = useUserState();
   const { data, status } = useQuery(["users", user.username], getDataByParam);
+  const session = useUserState(getSessionCookie());
+
   return (
     <>
       <Header title={"Profile"} />
       <Container>
-        <Profile />
+        <Profile user={session.user.username} />
         <h3>My uploads</h3>
         {status === "loading" && <div>Loading...</div>}
         {status === "error" && <div>404 Error fetching projects</div>}
