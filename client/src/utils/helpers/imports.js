@@ -18,6 +18,8 @@ import Categories from "../../components/Categories";
 import { ErrorMessage } from "../../components/ErrorMessage";
 import { ImageInput } from "../../components/ImageInput";
 import { Speechbubble } from "../../components/Speechbubble";
+import { Profile } from "../../components/Profile";
+
 export {
   Header,
   Navbar,
@@ -40,4 +42,5 @@ export {
   ImageInput,
   ErrorMessage,
   Speechbubble,
+  Profile,
 };
