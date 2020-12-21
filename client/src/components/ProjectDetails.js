@@ -13,7 +13,7 @@ const Title = styled.h3`
   margin: 5px;
 `;
 
-const NavLink = styled(Link)`
+const StyledLink = styled(Link)`
   color: var(--button-color);
   text-decoration: none;
   border-radius: 15px;
@@ -47,7 +47,7 @@ const ProjectDetails = ({ title, description, user, children }) => {
       <Container>
         <p>
           Check out more projects by
-          <NavLink to={`/users/${user}`}>{user}</NavLink>
+          <StyledLink to={`/users/${user}`}>{user}</StyledLink>
         </p>
       </Container>
     </>

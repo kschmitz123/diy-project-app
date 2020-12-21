@@ -7,7 +7,7 @@ import Upcycling from "../assets/upcycling.svg";
 import Crafts from "../assets/crafts.svg";
 import { Link } from "react-router-dom";
 
-const NavLink = styled(Link)`
+const StyledLink = styled(Link)`
   height: 130px;
   width: 130px;
   margin: 5px;
@@ -77,10 +77,10 @@ const Categories = () => {
       <h3>Categories</h3>
       <div>
         {categories.map((category) => (
-          <NavLink key={category.title} to={`category/${category.title}`}>
+          <StyledLink key={category.title} to={`category/${category.title}`}>
             <img src={category.src} alt={category.title} />
             <p>{category.title}</p>
-          </NavLink>
+          </StyledLink>
         ))}
       </div>
     </Container>
