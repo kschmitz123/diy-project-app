@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const Description = styled.div`
-  min-height: 200px;
   margin: 5px 15px;
   text-align: justify;
 `;
@@ -19,18 +18,38 @@ const NavLink = styled(Link)`
   text-decoration: none;
   border-radius: 15px;
   padding: 5px;
+  margin-left: 2px;
   background-color: var(--main-color);
 `;
+const Container = styled.div`
+  box-shadow: -2px 0px 4px hsla(300, 15%, 25%, 0.3);
+  border-radius: 15px;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  margin: 10px 0;
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+`;
 
-const ProjectDetails = ({ title, description, user }) => {
+const ProjectDetails = ({ title, description, user, materials }) => {
   return (
     <>
       <Title>{title}</Title>
       <Description>{description}</Description>
-      <p>
-        Check out more projects by{" "}
-        <NavLink to={`/users/${user}`}>{user}</NavLink>
-      </p>
+      <Container>
+        <p>To recreate this project, you&apos;ll need:</p>
+        <div>{materials}</div>
+      </Container>
+      <Container>
+        <p>
+          Check out more projects by
+          <NavLink to={`/users/${user}`}>{user}</NavLink>
+        </p>
+      </Container>
     </>
   );
 };
@@ -41,4 +60,5 @@ ProjectDetails.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   user: PropTypes.string,
+  materials: PropTypes.string,
 };
