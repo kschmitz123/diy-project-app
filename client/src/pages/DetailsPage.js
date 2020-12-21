@@ -19,23 +19,12 @@ import { useHistory, useParams } from "react-router-dom";
 import { Ellipsis } from "react-spinners-css";
 import DeleteIcon from "@material-ui/icons/Delete";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import ProjectDetails from "../components/ProjectDetails";
 
 const StyledContainer = styled(Container)`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-const Description = styled.div`
-  min-height: 200px;
-  margin: 5px 15px;
-  text-align: justify;
-`;
-
-const Title = styled.h3`
-  font-size: 1.4rem;
-  text-align: center;
-  margin: 5px;
 `;
 
 export const DetailsPage = () => {
@@ -109,8 +98,12 @@ export const DetailsPage = () => {
                     <FavoriteIcon fontSize="large" />
                   </FaveButton>
                 </ImagePreview>
-                <Title>{project.projectTitle}</Title>
-                <Description>{project.description}</Description>
+                <ProjectDetails
+                  title={project.projectTitle}
+                  description={project.description}
+                  user={project.creator}
+                  to={`/users/${project.creator}`}
+                />
               </>
             )}
             {user.username === project.creator ? (
