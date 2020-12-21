@@ -14,13 +14,22 @@ const Title = styled.h3`
   margin: 5px;
 `;
 
+const NavLink = styled(Link)`
+  color: var(--button-color);
+  text-decoration: none;
+  border-radius: 15px;
+  padding: 5px;
+  background-color: var(--main-color);
+`;
+
 const ProjectDetails = ({ title, description, user }) => {
   return (
     <>
       <Title>{title}</Title>
       <Description>{description}</Description>
       <p>
-        Check out more projects by <Link to={`/users/${user}`}>{user}</Link>
+        Check out more projects by{" "}
+        <NavLink to={`/users/${user}`}>{user}</NavLink>
       </p>
     </>
   );
