@@ -19,6 +19,7 @@ import { ErrorMessage } from "../../components/ErrorMessage";
 import { ImageInput } from "../../components/ImageInput";
 import { Speechbubble } from "../../components/Speechbubble";
 import { Profile } from "../../components/Profile";
+import ProjectDetails from "../../components/ProjectDetails";
 
 export {
   Header,
@@ -43,4 +44,5 @@ export {
   ErrorMessage,
   Speechbubble,
   Profile,
+  ProjectDetails,
 };
