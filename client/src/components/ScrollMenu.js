@@ -5,11 +5,12 @@ import { useQuery } from "react-query";
 
 const Container = styled.div`
   margin: 0 10px;
-`;
-const ScrollContainer = styled.div`
-  display: flex;
-  overflow-x: auto;
-  max-height: 220px;
+
+  div {
+    display: flex;
+    overflow-x: auto;
+    max-height: 220px;
+  }
 `;
 
 const ImageContainer = styled.div`
@@ -32,7 +33,7 @@ const ScrollMenu = () => {
       {status === "loading" && <div>Loading...</div>}
       {status === "error" && <div>404 Error fetching projects</div>}
       {status === "success" && (
-        <ScrollContainer>
+        <div>
           {project &&
             project.map((project) => (
               <Link key={project._id} to={`/projects/${project._id}`}>
@@ -41,7 +42,7 @@ const ScrollMenu = () => {
                 </ImageContainer>
               </Link>
             ))}
-        </ScrollContainer>
+        </div>
       )}
     </Container>
   );

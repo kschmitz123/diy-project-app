@@ -13,14 +13,6 @@ const Title = styled.h3`
   margin: 5px;
 `;
 
-const StyledLink = styled(Link)`
-  color: var(--button-color);
-  text-decoration: none;
-  border-radius: 15px;
-  padding: 5px;
-  margin-left: 2px;
-  background-color: var(--main-color);
-`;
 const Container = styled.div`
   box-shadow: -2px 0px 4px hsla(300, 15%, 25%, 0.3);
   border-radius: 15px;
@@ -32,6 +24,14 @@ const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+  }
+  a {
+    color: var(--button-color);
+    text-decoration: none;
+    border-radius: 15px;
+    padding: 5px;
+    margin-left: 2px;
+    background-color: var(--main-color);
   }
 `;
 
@@ -47,7 +47,7 @@ const ProjectDetails = ({ title, description, user, children }) => {
       <Container>
         <p>
           Check out more projects by
-          <StyledLink to={`/users/${user}`}>{user}</StyledLink>
+          <Link to={`/users/${user}`}>{user}</Link>
         </p>
       </Container>
     </>
