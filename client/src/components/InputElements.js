@@ -28,6 +28,7 @@ export const LargeInput = styled.textarea`
   border: solid 1px white;
   box-shadow: var(--main-box-shadow);
   text-align: center;
+  resize: none;
   &&::placeholder {
     font-size: 1rem;
   }
