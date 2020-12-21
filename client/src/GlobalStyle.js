@@ -11,7 +11,6 @@ const GlobalStyle = createGlobalStyle`
     --secondary-color: #d0a79f;
     --main-font-color: #222020;
     --button-color: white;
-    --main-box-shadow: 3px 3px 5px hsla(300, 15%, 25%, 0.3) inset;
 }
 
 .box {

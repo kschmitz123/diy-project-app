@@ -12,9 +12,8 @@ export const SmallInput = styled.input`
   height: 2.5rem;
   border-radius: 12px;
   width: 90%;
-  border: solid 1px white;
+  border: solid 1px var(--secondary-color);
   text-align: center;
-  box-shadow: var(--main-box-shadow);
   &&::placeholder {
     font-size: 1rem;
   }
@@ -25,8 +24,7 @@ export const LargeInput = styled.textarea`
   height: 20rem;
   border-radius: 12px;
   width: 90%;
-  border: solid 1px white;
-  box-shadow: var(--main-box-shadow);
+  border: solid 1px var(--secondary-color);
   text-align: center;
   resize: none;
   &&::placeholder {
@@ -40,7 +38,6 @@ export const Select = styled.select`
   margin: 10px 0;
   border: 2px solid var(--main-color);
   background: transparent;
-  box-shadow: var(--main-box-shadow);
 `;
 
 SmallInput.defaultProps = {

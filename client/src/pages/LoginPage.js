@@ -14,7 +14,6 @@ const FormContainer = styled.div`
   justify-content: space-between;
   background-color: #dac7c39c;
   border-radius: 25px;
-  box-shadow: var(--main-box-shadow);
   width: 70%;
   max-width: 720px;
   text-align: center;
