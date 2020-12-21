@@ -9,3 +9,8 @@ For all DIY Geeks who seek inspiration for the next project or want to upload th
 Mein digitales Gesellenstück zum Abschluss des dreimonatigen Neue Fische-Bootcamps.
 
 Eine App für alle DIY Geeks und die, die es noch werden wollen. Durchstöbere Projekte oder lade deine eigenen hoch und teile sie mit der Community.
+
+
+## Deployment
+
+Try out my app on heroku: [Craftified](https://craftified.herokuapp.com/)
