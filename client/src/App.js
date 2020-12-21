@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import GlobalStyle from "./GlobalStyle";
-import { LoadingScreen } from "./components/LoadingScreen";
+import LoadingScreen from "./components/LoadingScreen";
 import routes from "./utils/router/routes";
 import { LoginPage } from "./pages/LoginPage";
 import { UserProvider } from "./utils/contexts/context";

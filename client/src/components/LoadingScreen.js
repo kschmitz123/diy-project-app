@@ -17,7 +17,7 @@ export const Container = styled.div`
   }
 `;
 
-export const LoadingScreen = () => {
+const LoadingScreen = () => {
   return (
     <Container>
       <h1>Craftified</h1>
@@ -25,3 +25,4 @@ export const LoadingScreen = () => {
     </Container>
   );
 };
+export default LoadingScreen;
