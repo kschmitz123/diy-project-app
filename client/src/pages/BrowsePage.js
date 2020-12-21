@@ -35,11 +35,18 @@ export const BrowsePage = () => {
     setTag(event.target.value);
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
   return (
     <>
       <Header title={"Browse Projects"} />
       <Container>
-        <Searchbar value={tag} onChange={handleChange} />
+        <Searchbar
+          onSubmit={handleSubmit}
+          value={tag}
+          onChange={handleChange}
+        />
         {status === "loading" && <Ellipsis color="var(--main-color" />}
         {status === "error" && <div>404 Error fetching projects</div>}
         {status === "success" && (
