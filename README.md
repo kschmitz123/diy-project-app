@@ -14,3 +14,11 @@ Eine App für alle DIY Geeks und die, die es noch werden wollen. Durchstöbere P
 ## Deployment
 
 Try out my app on heroku: [Craftified](https://craftified.herokuapp.com/)
+
+
+## Getting Started
+
+1. Clone or fork the project.
+2. Run ```npm i```
+3. You'll need a MongoDB database and a Cloudinary account. Example .env is included
+4. Run ```npm run dev``` to start the server.
