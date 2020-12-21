@@ -20,6 +20,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { Ellipsis } from "react-spinners-css";
 import DeleteIcon from "@material-ui/icons/Delete";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 
 const StyledContainer = styled(Container)`
   display: flex;
@@ -96,12 +97,15 @@ export const DetailsPage = () => {
             {project && (
               <>
                 <ImagePreview src={project.imageURL} alt={project.projectTitle}>
-                  <FaveButton
-                    style={favorite ? favoriteStyle : normalStyle}
-                    onClick={handleClick}
-                    aria-label={"Favorite"}
-                  >
-                    <FavoriteIcon fontSize="large" />
+                  <FaveButton onClick={handleClick} aria-label={"Favorite"}>
+                    {favorite ? (
+                      <FavoriteIcon
+                        fontSize="large"
+                        style={{ color: "var(--main-color)" }}
+                      />
+                    ) : (
+                      <FavoriteBorderIcon fontSize="large" />
+                    )}
                   </FaveButton>
                 </ImagePreview>
 
@@ -139,11 +143,4 @@ export const DetailsPage = () => {
       <Navbar />
     </>
   );
-};
-
-const favoriteStyle = {
-  color: "var(--main-color)",
-};
-const normalStyle = {
-  color: "white",
 };
