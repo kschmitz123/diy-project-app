@@ -1,5 +1,6 @@
 import styled from "styled-components/macro";
 import loadingAnimationSrc from "../assets/loading_animation.gif";
+import ProgressBar from "../assets/progress_bar.gif";
 
 export const Container = styled.div`
   display: flex;
@@ -22,6 +23,7 @@ const LoadingScreen = () => {
     <Container>
       <h1>Craftified</h1>
       <img src={loadingAnimationSrc} alt="gif" />
+      <img src={ProgressBar} alt="" />
     </Container>
   );
 };
