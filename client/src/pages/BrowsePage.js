@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import { Ellipsis } from "react-spinners-css";
-import useDebounce from "../utils/helpers/useDebounce";
+import useDebounce from "../utils/hooks/useDebounce";
 
 export const BrowsePage = () => {
   const [tag, setTag] = useState("");
