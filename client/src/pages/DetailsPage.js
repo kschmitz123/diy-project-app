@@ -8,6 +8,7 @@ import {
   DeleteButton,
   Button,
   ErrorMessage,
+  ProjectDetails,
 } from "../utils/helpers/imports";
 import { deleteProjectById, getDataByParam } from "../utils/api/projects";
 import { getFavoritesByUser, postFavorites } from "../utils/api/users";
@@ -19,12 +20,18 @@ import { useHistory, useParams } from "react-router-dom";
 import { Ellipsis } from "react-spinners-css";
 import DeleteIcon from "@material-ui/icons/Delete";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import ProjectDetails from "../components/ProjectDetails";
 
 const StyledContainer = styled(Container)`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+const MaterialContainer = styled.span`
+  color: var(--button-color);
+  border-radius: 15px;
+  padding: 5px;
+  margin-left: 2px;
+  background-color: var(--main-color);
 `;
 
 export const DetailsPage = () => {
@@ -74,7 +81,6 @@ export const DetailsPage = () => {
     await deleteProjectById(id);
     history.push("/home");
   };
-
   return (
     <>
       <Header title={"Project Details"} />
@@ -103,6 +109,11 @@ export const DetailsPage = () => {
                   description={project.description}
                   user={project.creator}
                   to={`/users/${project.creator}`}
+                  materials={project.material.map((materials) => (
+                    <MaterialContainer key={materials.index}>
+                      {materials}
+                    </MaterialContainer>
+                  ))}
                 />
               </>
             )}
