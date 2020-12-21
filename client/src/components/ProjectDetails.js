@@ -28,6 +28,11 @@ const Container = styled.div`
   padding: 10px;
   text-align: center;
   margin: 10px 0;
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 `;
 
 const ProjectDetails = ({ title, description, user, materials }) => {

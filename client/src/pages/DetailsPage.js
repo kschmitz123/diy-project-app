@@ -30,7 +30,7 @@ const MaterialContainer = styled.span`
   color: var(--button-color);
   border-radius: 15px;
   padding: 5px;
-  margin-left: 2px;
+  margin: 2px;
   background-color: var(--main-color);
 `;
 
