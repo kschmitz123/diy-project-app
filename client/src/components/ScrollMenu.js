@@ -20,8 +20,9 @@ const ImageContainer = styled.div`
 
   img {
     border-radius: 25px;
-    height: inherit;
-    width: inherit;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 `;
 const ScrollMenu = () => {
