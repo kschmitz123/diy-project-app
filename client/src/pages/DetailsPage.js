@@ -104,17 +104,19 @@ export const DetailsPage = () => {
                     <FavoriteIcon fontSize="large" />
                   </FaveButton>
                 </ImagePreview>
+
                 <ProjectDetails
                   title={project.projectTitle}
                   description={project.description}
                   user={project.creator}
                   to={`/users/${project.creator}`}
-                  materials={project.material.map((materials) => (
-                    <MaterialContainer key={materials.index}>
+                >
+                  {project.material.map((materials, index) => (
+                    <MaterialContainer key={index}>
                       {materials}
                     </MaterialContainer>
                   ))}
-                />
+                </ProjectDetails>
               </>
             )}
             {user.username === project.creator ? (

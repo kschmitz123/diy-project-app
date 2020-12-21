@@ -35,14 +35,14 @@ const Container = styled.div`
   }
 `;
 
-const ProjectDetails = ({ title, description, user, materials }) => {
+const ProjectDetails = ({ title, description, user, children }) => {
   return (
     <>
       <Title>{title}</Title>
       <Description>{description}</Description>
       <Container>
         <p>To recreate this project, you&apos;ll need:</p>
-        <div>{materials}</div>
+        <div>{children}</div>
       </Container>
       <Container>
         <p>
@@ -60,5 +60,5 @@ ProjectDetails.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   user: PropTypes.string,
-  materials: PropTypes.string,
+  children: PropTypes.array,
 };
