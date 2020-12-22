@@ -29,7 +29,6 @@ export const DeleteButton = styled.button`
   background-color: gray;
   border: none;
   border-radius: 12px;
-  width: 150px;
   display: flex;
   align-items: center;
 
