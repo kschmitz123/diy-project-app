@@ -68,7 +68,7 @@ const categories = [
   },
   {
     src: Crafts,
-    title: "Crafts",
+    title: "crafts",
   },
 ];
 const Categories = () => {
