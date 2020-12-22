@@ -26,12 +26,10 @@ const Container = styled.div`
     justify-content: center;
   }
   a {
-    color: var(--button-color);
-    text-decoration: none;
+    color: #906d66;
     border-radius: 15px;
     padding: 5px;
     margin-left: 2px;
-    background-color: var(--main-color);
   }
 `;
 
