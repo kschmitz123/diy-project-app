@@ -22,8 +22,8 @@ const NavLink = styled(Link)`
   background-color: var(--main-color);
 `;
 const Container = styled.div`
-  box-shadow: -2px 0px 4px hsla(300, 15%, 25%, 0.3);
   border-radius: 15px;
+  border: 1px solid var(--main-color);
   width: 100%;
   padding: 10px;
   text-align: center;
