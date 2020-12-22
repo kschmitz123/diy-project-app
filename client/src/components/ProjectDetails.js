@@ -14,12 +14,10 @@ const Title = styled.h3`
 `;
 
 const NavLink = styled(Link)`
-  color: var(--button-color);
-  text-decoration: none;
+  color: #906d66;
   border-radius: 15px;
   padding: 5px;
   margin-left: 2px;
-  background-color: var(--main-color);
 `;
 const Container = styled.div`
   border-radius: 15px;
