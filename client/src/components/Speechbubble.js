@@ -1,6 +1,6 @@
 import styled from "styled-components/macro";
 
-export const Speechbubble = styled.div`
+const Speechbubble = styled.div`
   width: 80%;
   margin: 10px auto;
   border: 3px solid var(--main-color);
@@ -20,3 +20,4 @@ export const Speechbubble = styled.div`
     top: -10px;
   }
 `;
+export default Speechbubble;

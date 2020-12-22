@@ -35,7 +35,7 @@ export const UserPage = () => {
         <Profile user={user} />
         <h3>Uploads by this user:</h3>
         {status === "loading" && <div>Loading...</div>}
-        {status === "error" && <div>404 Error fetching projects</div>}
+        {status === "error" && <div>404 Error fetching user</div>}
         {status === "success" && (
           <ImageContainer>
             {data && data.length > 0 ? (
