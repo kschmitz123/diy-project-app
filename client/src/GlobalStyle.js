@@ -33,6 +33,7 @@ body
 button, textarea, select, input {
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
+  outline: none;
 }
 
 code {
