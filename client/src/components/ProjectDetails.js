@@ -13,14 +13,6 @@ const Title = styled.h3`
   margin: 5px;
 `;
 
-const NavLink = styled(Link)`
-  color: var(--button-color);
-  text-decoration: none;
-  border-radius: 15px;
-  padding: 5px;
-  margin-left: 2px;
-  background-color: var(--main-color);
-`;
 const Container = styled.div`
   box-shadow: -2px 0px 4px hsla(300, 15%, 25%, 0.3);
   border-radius: 15px;
@@ -33,21 +25,29 @@ const Container = styled.div`
     flex-wrap: wrap;
     justify-content: center;
   }
+  a {
+    color: var(--button-color);
+    text-decoration: none;
+    border-radius: 15px;
+    padding: 5px;
+    margin-left: 2px;
+    background-color: var(--main-color);
+  }
 `;
 
-const ProjectDetails = ({ title, description, user, materials }) => {
+const ProjectDetails = ({ title, description, user, children }) => {
   return (
     <>
       <Title>{title}</Title>
       <Description>{description}</Description>
       <Container>
         <p>To recreate this project, you&apos;ll need:</p>
-        <div>{materials}</div>
+        <div>{children}</div>
       </Container>
       <Container>
         <p>
           Check out more projects by
-          <NavLink to={`/users/${user}`}>{user}</NavLink>
+          <Link to={`/users/${user}`}>{user}</Link>
         </p>
       </Container>
     </>
@@ -60,5 +60,5 @@ ProjectDetails.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   user: PropTypes.string,
-  materials: PropTypes.string,
+  children: PropTypes.array,
 };

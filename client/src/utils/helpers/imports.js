@@ -15,10 +15,10 @@ import {
 } from "../../components/InputElements";
 import { Button, FaveButton, DeleteButton } from "../../components/Buttons";
 import Categories from "../../components/Categories";
-import { ErrorMessage } from "../../components/ErrorMessage";
-import { ImageInput } from "../../components/ImageInput";
-import { Speechbubble } from "../../components/Speechbubble";
-import { Profile } from "../../components/Profile";
+import ErrorMessage from "../../components/ErrorMessage";
+import ImageInput from "../../components/ImageInput";
+import Speechbubble from "../../components/Speechbubble";
+import Profile from "../../components/Profile";
 import ProjectDetails from "../../components/ProjectDetails";
 
 export {

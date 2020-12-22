@@ -7,7 +7,7 @@ import Upcycling from "../assets/upcycling.svg";
 import Crafts from "../assets/crafts.svg";
 import { Link } from "react-router-dom";
 
-const NavLink = styled(Link)`
+const StyledLink = styled(Link)`
   height: 130px;
   width: 130px;
   margin: 5px;
@@ -31,6 +31,10 @@ const NavLink = styled(Link)`
     color: #906d66;
     margin: 5px 0;
     font-weight: 700;
+
+    ::first-letter {
+      text-transform: uppercase;
+    }
   }
 `;
 
@@ -45,36 +49,26 @@ const Container = styled.div`
 `;
 
 const categories = [
-  { link: "category/sewing", src: Sewing, alt: "Sewing", title: "Sewing" },
+  { src: Sewing, title: "sewing" },
   {
-    link: "category/macrame",
     src: Macrame,
-    alt: "Macrame",
-    title: "Macrame",
+    title: "macrame",
   },
   {
-    link: "category/paint",
     src: Paint,
-    alt: "Paint",
-    title: "Paint",
+    title: "paint",
   },
   {
-    link: "category/woodwork",
     src: Woodwork,
-    alt: "Woodword",
-    title: "Woodwork",
+    title: "woodwork",
   },
   {
-    link: "category/upcycling",
     src: Upcycling,
-    alt: "Upcycling",
-    title: "Upcycling",
+    title: "upcycling",
   },
   {
-    link: "category/crafts",
     src: Crafts,
-    alt: "Crafts",
-    title: "Crafts",
+    title: "crafts",
   },
 ];
 const Categories = () => {
@@ -83,10 +77,10 @@ const Categories = () => {
       <h3>Categories</h3>
       <div>
         {categories.map((category) => (
-          <NavLink key={category.title} to={category.link}>
-            <img src={category.src} alt={category.alt} />
+          <StyledLink key={category.title} to={`category/${category.title}`}>
+            <img src={category.src} alt={category.title} />
             <p>{category.title}</p>
-          </NavLink>
+          </StyledLink>
         ))}
       </div>
     </Container>

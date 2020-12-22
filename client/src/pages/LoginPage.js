@@ -7,6 +7,8 @@ import { useState } from "react";
 import styled from "styled-components/macro";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import PasswordStrengthMeter from "../components/PasswordStrengthMeter";
+import zxcvbn from "zxcvbn";
 
 const FormContainer = styled.div`
   display: flex;
@@ -14,7 +16,6 @@ const FormContainer = styled.div`
   justify-content: space-between;
   background-color: #dac7c39c;
   border-radius: 25px;
-  box-shadow: var(--main-box-shadow);
   width: 70%;
   max-width: 720px;
   text-align: center;
@@ -29,6 +30,12 @@ export const LoginPage = () => {
   const [error, setError] = useState(null);
   const history = useHistory();
   const { register, handleSubmit, errors } = useForm();
+  const [password, setPassword] = useState("");
+  const result = zxcvbn(password);
+
+  const handleChange = (event) => {
+    setPassword(event.target.value);
+  };
 
   const onSubmit = async (data) => {
     const trimmedUsername = data.username.trim();
@@ -60,18 +67,18 @@ export const LoginPage = () => {
           )}
 
           <SmallInput
+            onChange={handleChange}
             placeholder="Enter password"
             type="password"
             name="password"
-            ref={register({ pattern: /(?=.*\d)(?=.*[A-Z]).{6,20}/ })}
+            ref={register}
           />
-          {error && <Speechbubble>{error.message}</Speechbubble>}
-          {errors.password && (
-            <Speechbubble>
-              Password must contain at least 6 characters, an upper case letter
-              and a number.
-            </Speechbubble>
+          {password && (
+            <>
+              <PasswordStrengthMeter value={result.score} />
+            </>
           )}
+          {error && <Speechbubble>{error.message}</Speechbubble>}
           <Button type="submit">Login</Button>
         </form>
       </FormContainer>

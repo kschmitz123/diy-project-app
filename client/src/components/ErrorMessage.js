@@ -7,7 +7,7 @@ const Container = styled.div`
   margin-top: 30px;
 `;
 
-export const ErrorMessage = ({ title }) => {
+const ErrorMessage = ({ title }) => {
   return (
     <Container>
       <h3>{title}</h3>
@@ -15,6 +15,8 @@ export const ErrorMessage = ({ title }) => {
     </Container>
   );
 };
+
+export default ErrorMessage;
 
 ErrorMessage.propTypes = {
   title: PropTypes.string,

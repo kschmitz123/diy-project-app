@@ -39,7 +39,7 @@ export const ProfilePage = () => {
         <Profile user={session.user.username} />
         <h3>My uploads</h3>
         {status === "loading" && <div>Loading...</div>}
-        {status === "error" && <div>404 Error fetching projects</div>}
+        {status === "error" && <div>404 Error fetching user</div>}
         {status === "success" && (
           <ImageContainer>
             {data && data.length > 0 ? (

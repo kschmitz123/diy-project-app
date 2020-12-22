@@ -19,7 +19,7 @@ const Container = styled.div`
   }
 `;
 
-export const Profile = ({ user }) => {
+const Profile = ({ user }) => {
   return (
     <Container>
       <h2>{user}</h2>
@@ -27,6 +27,7 @@ export const Profile = ({ user }) => {
     </Container>
   );
 };
+export default Profile;
 
 Profile.propTypes = {
   user: PropTypes.string,

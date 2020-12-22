@@ -1,6 +1,6 @@
 import styled from "styled-components/macro";
 
-export const ImageInput = styled.div`
+const ImageInput = styled.div`
   margin-bottom: 10px;
   height: 2.5rem;
   width: 130px;
@@ -19,3 +19,4 @@ export const ImageInput = styled.div`
     position: absolute;
   }
 `;
+export default ImageInput;
