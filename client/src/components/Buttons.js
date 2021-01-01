@@ -54,3 +54,9 @@ export const SearchButton = styled(ExitButton)`
   color: #000`
       : `color: #fff`}
 `;
+
+export const BackButton = styled(ExitButton)`
+  position: absolute;
+  left: 10px;
+  align-self: center;
+`;
