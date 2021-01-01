@@ -10,6 +10,8 @@ import { getFavoritesByUser } from "../utils/api/users";
 import { useUserState } from "../utils/contexts/context";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
+import SearchIcon from "@material-ui/icons/Search";
+import { SearchButton } from "../components/Buttons";
 
 export const FavoritesPage = () => {
   const { user } = useUserState();
@@ -20,7 +22,13 @@ export const FavoritesPage = () => {
 
   return (
     <>
-      <Header title={"Favorites"} />
+      <Header title={"Favorites"}>
+        <Link to="/browse">
+          <SearchButton aria-label={"Search"}>
+            <SearchIcon fontSize="large" />
+          </SearchButton>
+        </Link>
+      </Header>
       <Container>
         {status === "loading" && <div>Loading...</div>}
         {status === "error" && <div>404 Error fetching projects</div>}
