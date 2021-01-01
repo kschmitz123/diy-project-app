@@ -10,13 +10,16 @@ import {
 import { getDataByParam } from "../utils/api/projects";
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Ellipsis } from "react-spinners-css";
 import useDebounce from "../utils/hooks/useDebounce";
+import { BackButton } from "../components/Buttons";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 export const BrowsePage = () => {
   const [tag, setTag] = useState("");
   const debouncedTag = useDebounce(tag, 500);
+  const history = useHistory();
   const { data: project, status, refetch } = useQuery(
     ["browse", tag],
     getDataByParam,
@@ -40,7 +43,11 @@ export const BrowsePage = () => {
   };
   return (
     <>
-      <Header title={"Browse Projects"} />
+      <Header title={"Browse Projects"}>
+        <BackButton onClick={() => history.goBack()}>
+          <ArrowBackIcon fontSize="large" />
+        </BackButton>
+      </Header>
       <Container>
         <Searchbar
           onSubmit={handleSubmit}
