@@ -21,6 +21,8 @@ import { Ellipsis } from "react-spinners-css";
 import DeleteIcon from "@material-ui/icons/Delete";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import { BackButton } from "../components/Buttons";
 
 const StyledContainer = styled(Container)`
   display: flex;
@@ -84,7 +86,11 @@ export const DetailsPage = () => {
   };
   return (
     <>
-      <Header title={"Project Details"} />
+      <Header title={"Project Details"}>
+        <BackButton onClick={() => history.goBack()}>
+          <ArrowBackIcon fontSize="large" />
+        </BackButton>
+      </Header>
       <StyledContainer>
         {status === "loading" && <Ellipsis color="var(--main-color" />}
         {status === "error" && (
