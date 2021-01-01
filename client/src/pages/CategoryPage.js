@@ -8,11 +8,14 @@ import {
 } from "../utils/helpers/imports";
 import { getDataByParam } from "../utils/api/projects";
 import { useQuery } from "react-query";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useHistory } from "react-router-dom";
 import { Ellipsis } from "react-spinners-css";
+import { BackButton } from "../components/Buttons";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 export const CategoryPage = () => {
   const { category } = useParams();
+  const history = useHistory();
   const { data: project, status } = useQuery(
     ["categories", category],
     getDataByParam
@@ -20,7 +23,11 @@ export const CategoryPage = () => {
 
   return (
     <>
-      <Header title={"Browse Categories"} />
+      <Header title={"Browse Categories"}>
+        <BackButton onClick={() => history.goBack()}>
+          <ArrowBackIcon fontSize="large" />
+        </BackButton>
+      </Header>
       <Container>
         <h3>{`Projects related to "${category}"`}</h3>
         {status === "loading" && <Ellipsis color="var(--main-color" />}
