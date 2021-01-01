@@ -41,6 +41,9 @@ export const ExitButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 8px;
 `;
 
 export const SearchButton = styled(ExitButton)`
@@ -58,5 +61,5 @@ export const SearchButton = styled(ExitButton)`
 export const BackButton = styled(ExitButton)`
   position: absolute;
   left: 10px;
-  align-self: center;
+  top: 8px;
 `;
