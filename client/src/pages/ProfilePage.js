@@ -11,6 +11,9 @@ import { getDataByParam } from "../utils/api/projects";
 import { useUserState } from "../utils/contexts/context";
 import styled from "styled-components/macro";
 import { getSessionCookie } from "../utils/contexts/cookies";
+import { ExitButton } from "../components/Buttons";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import { useHistory } from "react-router-dom";
 
 const ImageContainer = styled.div`
   max-width: 720px;
@@ -31,10 +34,21 @@ export const ProfilePage = () => {
   const { user } = useUserState();
   const { data, status } = useQuery(["users", user.username], getDataByParam);
   const session = useUserState(getSessionCookie());
+  const history = useHistory();
+  const { logout } = useUserState();
+
+  const handleClick = () => {
+    logout();
+    history.push("/");
+  };
 
   return (
     <>
-      <Header title={"Profile"} />
+      <Header title={"Profile"}>
+        <ExitButton onClick={handleClick}>
+          <ExitToAppIcon fontSize="large" />
+        </ExitButton>
+      </Header>
       <Container>
         <Profile user={session.user.username} />
         <h3>My uploads</h3>
