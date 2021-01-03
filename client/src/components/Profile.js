@@ -65,6 +65,11 @@ const Profile = ({ user }) => {
     };
   };
 
+  const handleDismiss = () => {
+    setImageInput("");
+    setPreviewSource("");
+  };
+
   return (
     <Container>
       <h2>{user}</h2>
@@ -75,7 +80,7 @@ const Profile = ({ user }) => {
             <ConfirmButton>
               <CheckIcon />
             </ConfirmButton>
-            <DismissButton>
+            <DismissButton onClick={handleDismiss}>
               <ClearIcon />
             </DismissButton>
           </>
