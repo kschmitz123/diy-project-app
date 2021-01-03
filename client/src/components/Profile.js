@@ -24,6 +24,7 @@ const Container = styled.div`
     height: 150px;
     width: 150px;
     border-radius: 50%;
+    object-fit: cover;
   }
 
   button {
