@@ -2,7 +2,9 @@ import styled from "styled-components/macro";
 import Avatar from "../assets/avatar-placeholder.jpeg";
 import PropTypes from "prop-types";
 import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
-import { Button } from "./Buttons";
+import CheckIcon from "@material-ui/icons/Check";
+import ClearIcon from "@material-ui/icons/Clear";
+import { Button, ConfirmButton, DismissButton } from "./Buttons";
 import { useState } from "react";
 
 const Container = styled.div`
@@ -27,14 +29,6 @@ const Container = styled.div`
     object-fit: cover;
   }
 
-  button {
-    position: absolute;
-    top: 120px;
-    right: 0;
-    margin: 0;
-    padding: 5px 10px;
-    border-radius: 25px;
-  }
   input {
     opacity: 0;
     position: absolute;
@@ -43,6 +37,15 @@ const Container = styled.div`
     left: 0;
     width: 44px;
   }
+`;
+
+const UploadButton = styled(Button)`
+  position: absolute;
+  top: 120px;
+  right: 0;
+  margin: 0;
+  padding: 5px 10px;
+  border-radius: 25px;
 `;
 
 const Profile = ({ user }) => {
@@ -67,15 +70,29 @@ const Profile = ({ user }) => {
       <h2>{user}</h2>
       <div>
         {previewSource ? (
-          <img src={previewSource} alt="avatar" />
+          <>
+            <img src={previewSource} alt="avatar" />
+            <ConfirmButton>
+              <CheckIcon />
+            </ConfirmButton>
+            <DismissButton>
+              <ClearIcon />
+            </DismissButton>
+          </>
         ) : (
-          <img src={Avatar} alt="avatar" />
-        )}
-        <Button>
-          <input type="file" value={imageInput} onChange={handleImageChange} />
+          <>
+            <img src={Avatar} alt="avatar" />
+            <UploadButton>
+              <input
+                type="file"
+                value={imageInput}
+                onChange={handleImageChange}
+              />
 
-          <AddAPhotoIcon />
-        </Button>
+              <AddAPhotoIcon />
+            </UploadButton>
+          </>
+        )}
       </div>
     </Container>
   );
