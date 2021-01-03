@@ -63,3 +63,18 @@ export const BackButton = styled(ExitButton)`
   left: 10px;
   top: 8px;
 `;
+
+export const ConfirmButton = styled.button`
+  background-color: #6ab36a;
+  border-radius: 50%;
+  border: none;
+  padding: 5px 10px;
+  position: absolute;
+  top: 55px;
+  right: -45px;
+  height: 2.5rem;
+`;
+export const DismissButton = styled(ConfirmButton)`
+  background-color: #e65d5d;
+  right: 152px;
+`;
