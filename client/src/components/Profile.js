@@ -6,6 +6,7 @@ import CheckIcon from "@material-ui/icons/Check";
 import ClearIcon from "@material-ui/icons/Clear";
 import { Button, ConfirmButton, DismissButton } from "./Buttons";
 import { useState } from "react";
+import { postProfileImage } from "../utils/api/users";
 
 const Container = styled.div`
   display: flex;
@@ -51,6 +52,7 @@ const UploadButton = styled(Button)`
 const Profile = ({ user }) => {
   const [imageInput, setImageInput] = useState("");
   const [previewSource, setPreviewSource] = useState("");
+
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     previewFile(file);
@@ -63,6 +65,10 @@ const Profile = ({ user }) => {
     reader.onloadend = () => {
       setPreviewSource(reader.result);
     };
+  };
+  const handleSubmit = async () => {
+    await postProfileImage({ image: previewSource, user: user });
+    window.location.reload();
   };
 
   const handleDismiss = () => {
@@ -77,7 +83,7 @@ const Profile = ({ user }) => {
         {previewSource ? (
           <>
             <img src={previewSource} alt="avatar" />
-            <ConfirmButton>
+            <ConfirmButton onClick={handleSubmit}>
               <CheckIcon />
             </ConfirmButton>
             <DismissButton onClick={handleDismiss}>
