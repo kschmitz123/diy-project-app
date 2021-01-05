@@ -7,6 +7,8 @@ import { Button } from "./Buttons";
 import { useState } from "react";
 import { postProfileImage, getProfileImage } from "../utils/api/users";
 import { Popup } from "../utils/helpers/imports";
+import { useUserState } from "../utils/contexts/context";
+import { getSessionCookie } from "../utils/contexts/cookies";
 
 const Container = styled.div`
   display: flex;
@@ -50,6 +52,7 @@ const UploadButton = styled(Button)`
 `;
 
 const Profile = ({ user }) => {
+  const session = useUserState(getSessionCookie());
   const [imageInput, setImageInput] = useState("");
   const [previewSource, setPreviewSource] = useState("");
   const [popup, setPopup] = useState(false);
@@ -100,31 +103,22 @@ const Profile = ({ user }) => {
         {status === "success" && (
           <>
             {data.imageURL ? (
-              <>
-                <img src={data.imageURL} alt="avatar" />
-                <UploadButton>
-                  <input
-                    type="file"
-                    value={imageInput}
-                    onChange={handleImageChange}
-                    onClick={handleClick}
-                  />
-                  <AddAPhotoIcon />
-                </UploadButton>
-              </>
+              <img src={data.imageURL} alt="avatar" />
             ) : (
-              <>
-                <img src={Avatar} alt="avatar" />
-                <UploadButton>
-                  <input
-                    type="file"
-                    value={imageInput}
-                    onChange={handleImageChange}
-                    onClick={handleClick}
-                  />
-                  <AddAPhotoIcon />
-                </UploadButton>
-              </>
+              <img src={Avatar} alt="avatar" />
+            )}
+            {session.user.username === user ? (
+              <UploadButton>
+                <input
+                  type="file"
+                  value={imageInput}
+                  onChange={handleImageChange}
+                  onClick={handleClick}
+                />
+                <AddAPhotoIcon />
+              </UploadButton>
+            ) : (
+              <></>
             )}
           </>
         )}
