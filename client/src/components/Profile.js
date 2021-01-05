@@ -2,11 +2,10 @@ import styled from "styled-components/macro";
 import Avatar from "../assets/avatar-placeholder.jpeg";
 import PropTypes from "prop-types";
 import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
-import CheckIcon from "@material-ui/icons/Check";
-import ClearIcon from "@material-ui/icons/Clear";
-import { Button, ConfirmButton, DismissButton } from "./Buttons";
+import { Button } from "./Buttons";
 import { useState } from "react";
 import { postProfileImage } from "../utils/api/users";
+import { Popup } from "../utils/helpers/imports";
 
 const Container = styled.div`
   display: flex;
@@ -19,7 +18,7 @@ const Container = styled.div`
     margin: 0;
   }
 
-  div {
+  div:first-of-type {
     position: relative;
   }
 
@@ -52,6 +51,7 @@ const UploadButton = styled(Button)`
 const Profile = ({ user }) => {
   const [imageInput, setImageInput] = useState("");
   const [previewSource, setPreviewSource] = useState("");
+  const [popup, setPopup] = useState(false);
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -72,10 +72,14 @@ const Profile = ({ user }) => {
   };
 
   const handleDismiss = () => {
+    setPopup(false);
     setImageInput("");
     setPreviewSource("");
   };
 
+  const handleClick = () => {
+    setPopup(true);
+  };
   return (
     <Container>
       <h2>{user}</h2>
@@ -83,12 +87,12 @@ const Profile = ({ user }) => {
         {previewSource ? (
           <>
             <img src={previewSource} alt="avatar" />
-            <ConfirmButton onClick={handleSubmit}>
+            {/* <ConfirmButton onClick={handleSubmit}>
               <CheckIcon />
             </ConfirmButton>
             <DismissButton onClick={handleDismiss}>
               <ClearIcon />
-            </DismissButton>
+            </DismissButton> */}
           </>
         ) : (
           <>
@@ -98,13 +102,25 @@ const Profile = ({ user }) => {
                 type="file"
                 value={imageInput}
                 onChange={handleImageChange}
+                onClick={handleClick}
               />
-
               <AddAPhotoIcon />
             </UploadButton>
           </>
         )}
       </div>
+      {popup && (
+        <>
+          {previewSource && (
+            <Popup>
+              <h3>Do you want to use this image as your profile picture?</h3>
+              <img src={previewSource} alt="avatar" />
+              <Button onClick={handleSubmit}>Yes</Button>
+              <Button onClick={handleDismiss}>No</Button>
+            </Popup>
+          )}
+        </>
+      )}
     </Container>
   );
 };
