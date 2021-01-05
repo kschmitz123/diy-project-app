@@ -1,10 +1,11 @@
 import styled from "styled-components/macro";
 import Avatar from "../assets/avatar-placeholder.jpeg";
 import PropTypes from "prop-types";
+import { useQuery } from "react-query";
 import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
 import { Button } from "./Buttons";
 import { useState } from "react";
-import { postProfileImage } from "../utils/api/users";
+import { postProfileImage, getProfileImage } from "../utils/api/users";
 import { Popup } from "../utils/helpers/imports";
 
 const Container = styled.div`
@@ -53,6 +54,7 @@ const Profile = ({ user }) => {
   const [previewSource, setPreviewSource] = useState("");
   const [popup, setPopup] = useState(false);
   const [loading, setLoading] = useState(false);
+  const { data, status } = useQuery(["profile", user], getProfileImage);
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -72,6 +74,7 @@ const Profile = ({ user }) => {
       setLoading(true);
       await postProfileImage({ image: previewSource, user: user });
       setPopup(false);
+      window.location.reload();
     } catch (error) {
       console.error(error);
     }
@@ -87,35 +90,42 @@ const Profile = ({ user }) => {
   const handleClick = () => {
     setPopup(true);
   };
+
   return (
     <Container>
       <h2>{user}</h2>
       <div>
-        {previewSource ? (
+        {status === "loading" && <div>Loading...</div>}
+        {status === "error" && <div>404 Error fetching user</div>}
+        {status === "success" && (
           <>
-            <img src={previewSource} alt="avatar" />
-            <UploadButton>
-              <input
-                type="file"
-                value={imageInput}
-                onChange={handleImageChange}
-                onClick={handleClick}
-              />
-              <AddAPhotoIcon />
-            </UploadButton>
-          </>
-        ) : (
-          <>
-            <img src={Avatar} alt="avatar" />
-            <UploadButton>
-              <input
-                type="file"
-                value={imageInput}
-                onChange={handleImageChange}
-                onClick={handleClick}
-              />
-              <AddAPhotoIcon />
-            </UploadButton>
+            {data.imageURL ? (
+              <>
+                <img src={data.imageURL} alt="avatar" />
+                <UploadButton>
+                  <input
+                    type="file"
+                    value={imageInput}
+                    onChange={handleImageChange}
+                    onClick={handleClick}
+                  />
+                  <AddAPhotoIcon />
+                </UploadButton>
+              </>
+            ) : (
+              <>
+                <img src={Avatar} alt="avatar" />
+                <UploadButton>
+                  <input
+                    type="file"
+                    value={imageInput}
+                    onChange={handleImageChange}
+                    onClick={handleClick}
+                  />
+                  <AddAPhotoIcon />
+                </UploadButton>
+              </>
+            )}
           </>
         )}
       </div>
