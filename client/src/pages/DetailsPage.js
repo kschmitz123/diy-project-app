@@ -138,6 +138,7 @@ export const DetailsPage = () => {
             )}
             {popup && (
               <Popup>
+                <h3>Do you really want to delete this project?</h3>
                 <Button onClick={() => handleDelete(project._id)}>Yes</Button>
                 <Button onClick={() => setPopup(false)}>No</Button>
               </Popup>
