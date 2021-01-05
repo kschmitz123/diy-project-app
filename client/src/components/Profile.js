@@ -52,6 +52,7 @@ const Profile = ({ user }) => {
   const [imageInput, setImageInput] = useState("");
   const [previewSource, setPreviewSource] = useState("");
   const [popup, setPopup] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -67,8 +68,14 @@ const Profile = ({ user }) => {
     };
   };
   const handleSubmit = async () => {
-    await postProfileImage({ image: previewSource, user: user });
-    window.location.reload();
+    try {
+      setLoading(true);
+      await postProfileImage({ image: previewSource, user: user });
+      setPopup(false);
+    } catch (error) {
+      console.error(error);
+    }
+    setLoading(false);
   };
 
   const handleDismiss = () => {
@@ -87,12 +94,15 @@ const Profile = ({ user }) => {
         {previewSource ? (
           <>
             <img src={previewSource} alt="avatar" />
-            {/* <ConfirmButton onClick={handleSubmit}>
-              <CheckIcon />
-            </ConfirmButton>
-            <DismissButton onClick={handleDismiss}>
-              <ClearIcon />
-            </DismissButton> */}
+            <UploadButton>
+              <input
+                type="file"
+                value={imageInput}
+                onChange={handleImageChange}
+                onClick={handleClick}
+              />
+              <AddAPhotoIcon />
+            </UploadButton>
           </>
         ) : (
           <>
@@ -116,6 +126,7 @@ const Profile = ({ user }) => {
               <h3>Do you want to use this image as your profile picture?</h3>
               <img src={previewSource} alt="avatar" />
               <Button onClick={handleSubmit}>Yes</Button>
+              {loading && <p>Loading...</p>}
               <Button onClick={handleDismiss}>No</Button>
             </Popup>
           )}
