@@ -32,3 +32,9 @@ export async function postProfileImage(data) {
     body: JSON.stringify(data),
   });
 }
+
+export async function getProfileImage(key, param) {
+  const response = await fetch(`/api/${key}/${param}`);
+  const user = await response.json();
+  return user;
+}
