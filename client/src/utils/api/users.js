@@ -24,3 +24,17 @@ export async function postFavorites(data) {
     body: JSON.stringify({ data }),
   });
 }
+
+export async function postProfileImage(data) {
+  return await fetch(`/api/profile/`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+}
+
+export async function getProfileImage(key, param) {
+  const response = await fetch(`/api/${key}/${param}`);
+  const user = await response.json();
+  return user;
+}

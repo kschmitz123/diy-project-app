@@ -26,10 +26,7 @@ const DialogContainer = styled.div`
 const Popup = ({ children }) => {
   return (
     <PopupContainer>
-      <DialogContainer>
-        <h3>Do you really want to delete this project?</h3>
-        {children}
-      </DialogContainer>
+      <DialogContainer>{children}</DialogContainer>
     </PopupContainer>
   );
 };
