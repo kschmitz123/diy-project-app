@@ -12,6 +12,7 @@ import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
 import { SearchButton } from "../components/Buttons";
+import { Ellipsis } from "react-spinners-css";
 
 export const FavoritesPage = () => {
   const { user } = useUserState();
@@ -30,7 +31,7 @@ export const FavoritesPage = () => {
         </Link>
       </Header>
       <Container>
-        {status === "loading" && <div>Loading...</div>}
+        {status === "loading" && <Ellipsis color="var(--main-color" />}
         {status === "error" && <div>404 Error fetching projects</div>}
         {status === "success" && (
           <span>
