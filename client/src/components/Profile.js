@@ -59,10 +59,10 @@ const Profile = ({ user }) => {
   const [loading, setLoading] = useState(false);
   const { data, status } = useQuery(["profile", user], getProfileImage);
 
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
     previewFile(file);
-    setImageInput(event.target.value);
+    setImageInput(e.target.value);
   };
 
   const previewFile = (file) => {
