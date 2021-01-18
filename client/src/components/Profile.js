@@ -9,6 +9,7 @@ import { postProfileImage, getProfileImage } from "../utils/api/users";
 import { Popup } from "../utils/helpers/imports";
 import { useUserState } from "../utils/contexts/context";
 import { getSessionCookie } from "../utils/contexts/cookies";
+import { Ellipsis } from "react-spinners-css";
 
 const Container = styled.div`
   display: flex;
@@ -59,10 +60,10 @@ const Profile = ({ user }) => {
   const [loading, setLoading] = useState(false);
   const { data, status } = useQuery(["profile", user], getProfileImage);
 
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
     previewFile(file);
-    setImageInput(event.target.value);
+    setImageInput(e.target.value);
   };
 
   const previewFile = (file) => {
@@ -98,7 +99,7 @@ const Profile = ({ user }) => {
     <Container>
       <h2>{user}</h2>
       <div>
-        {status === "loading" && <div>Loading...</div>}
+        {status === "loading" && <Ellipsis color="var(--main-color" />}
         {status === "error" && <div>404 Error fetching user</div>}
         {status === "success" && (
           <>
@@ -130,7 +131,7 @@ const Profile = ({ user }) => {
               <h3>Do you want to use this image as your profile picture?</h3>
               <img src={previewSource} alt="avatar" />
               <Button onClick={handleSubmit}>Yes</Button>
-              {loading && <p>Loading...</p>}
+              {loading && <Ellipsis color="var(--main-color" />}
               <Button onClick={handleDismiss}>No</Button>
             </Popup>
           )}

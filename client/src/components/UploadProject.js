@@ -24,10 +24,10 @@ export default function UploadProject() {
   const { user } = useUserState();
   const [mutate, { status }] = useMutation(createProject);
 
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
     previewFile(file);
-    setImageInput(event.target.value);
+    setImageInput(e.target.value);
   };
 
   const previewFile = (file) => {

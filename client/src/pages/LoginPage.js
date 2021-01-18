@@ -33,8 +33,8 @@ export const LoginPage = () => {
   const [password, setPassword] = useState("");
   const result = zxcvbn(password);
 
-  const handleChange = (event) => {
-    setPassword(event.target.value);
+  const handleChange = (e) => {
+    setPassword(e.target.value);
   };
 
   const onSubmit = async (data) => {

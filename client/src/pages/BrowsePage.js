@@ -34,12 +34,12 @@ export const BrowsePage = () => {
     }
   }, [debouncedTag, refetch]);
 
-  const handleChange = (event) => {
-    setTag(event.target.value);
+  const handleChange = (e) => {
+    setTag(e.target.value);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preDefault();
   };
   return (
     <>

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
 import { getData } from "../utils/api/projects";
 import { useQuery } from "react-query";
+import { Ellipsis } from "react-spinners-css";
 
 const Container = styled.div`
   margin: 0 10px;
@@ -31,7 +32,7 @@ const ScrollMenu = () => {
   return (
     <Container>
       <h3>Latest</h3>
-      {status === "loading" && <div>Loading...</div>}
+      {status === "loading" && <Ellipsis color="var(--main-color" />}
       {status === "error" && <div>404 Error fetching projects</div>}
       {status === "success" && (
         <div>

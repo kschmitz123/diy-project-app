@@ -14,6 +14,7 @@ import { getSessionCookie } from "../utils/contexts/cookies";
 import { ExitButton } from "../components/Buttons";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { useHistory } from "react-router-dom";
+import { Ellipsis } from "react-spinners-css";
 
 const ImageContainer = styled.div`
   max-width: 720px;
@@ -27,6 +28,7 @@ const ImageContainer = styled.div`
     margin: 5px;
     height: 150px;
     width: 150px;
+    object-fit: cover;
   }
 `;
 
@@ -52,7 +54,7 @@ export const ProfilePage = () => {
       <Container>
         <Profile user={session.user.username} />
         <h3>My uploads</h3>
-        {status === "loading" && <div>Loading...</div>}
+        {status === "loading" && <Ellipsis color="var(--main-color" />}
         {status === "error" && <div>404 Error fetching user</div>}
         {status === "success" && (
           <ImageContainer>

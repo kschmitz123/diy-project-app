@@ -9,6 +9,7 @@ import {
   Profile,
 } from "../utils/helpers/imports";
 import { getDataByParam } from "../utils/api/projects";
+import { Ellipsis } from "react-spinners-css";
 
 const ImageContainer = styled.div`
   max-width: 720px;
@@ -34,7 +35,7 @@ export const UserPage = () => {
       <Container>
         <Profile user={user} />
         <h3>Uploads by this user:</h3>
-        {status === "loading" && <div>Loading...</div>}
+        {status === "loading" && <Ellipsis color="var(--main-color" />}
         {status === "error" && <div>404 Error fetching user</div>}
         {status === "success" && (
           <ImageContainer>
