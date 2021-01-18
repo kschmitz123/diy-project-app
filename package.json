@@ -1,8 +1,8 @@
 {
-  "name": "boilerplate",
+  "name": "craftified",
   "private": "true",
   "version": "1.0.0",
-  "description": "Boilerplate for Create-React-App with an Express.js API",
+  "description": "Inspiration for your next DIY project",
   "main": "server.js",
   "scripts": {
     "postinstall": "cd client && npm install",
@@ -17,14 +17,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kschmitz123/boilerplate.git"
+    "url": "git+https://github.com/kschmitz123/diy-project-app.git"
   },
   "author": "Kathrin Schmitz",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kschmitz123/boilerplate/issues"
+    "url": "https://github.com/kschmitz123/diy-project-app/issues"
   },
-  "homepage": "https://github.com/kschmitz123/boilerplate#readme",
+  "homepage": "https://github.com/kschmitz123/diy-project-app#readme",
   "devDependencies": {
     "concurrently": "^5.3.0",
     "eslint": "^7.13.0",
